@@ -31,10 +31,13 @@
  * @license GPLv2+
  */
 
+/** The module's constants. */
+include_once( dirname( __FILE__ ) . '/includes/constants.php' );
+
 if ( wordpoints_component_is_active( 'points' ) ) {
 
-	/** Include the points-related code. */
-	include dirname( __FILE__ ) . '/components/points/points.php';
+	/** Points-related code. */
+	include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/points.php' );
 }
 
 // EOF
