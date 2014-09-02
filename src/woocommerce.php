@@ -21,6 +21,9 @@
 /** The module's constants. */
 include_once( dirname( __FILE__ ) . '/includes/constants.php' );
 
+/** The module's general utility functions. */
+include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/includes/functions.php' );
+
 if ( wordpoints_component_is_active( 'points' ) ) {
 
 	/** Points-related code. */
