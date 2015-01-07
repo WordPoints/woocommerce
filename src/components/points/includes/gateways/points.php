@@ -77,8 +77,8 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 			?>
 			<div class="inline error">
 				<p>
-					<strong><?php esc_html_e( 'Gateway Disabled', 'woocommerce' ); ?></strong>:
-					<?php esc_html_e( 'You need to create one or more types of points.', 'woocommerce' ); ?>
+					<strong><?php esc_html_e( 'Gateway Disabled:', 'wordpoints-woocommerce' ); ?></strong>
+					<?php esc_html_e( 'You need to create one or more types of points.', 'wordpoints-woocommerce' ); ?>
 				</p>
 			</div>
 			<?php
@@ -94,42 +94,42 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 		$this->form_fields = array(
 			'enabled' => array(
-				'title'   => __( 'Enable/Disable', 'woocommerce' ),
+				'title'   => __( 'Enable/Disable', 'wordpoints-woocommerce' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable WordPoints points', 'woocommerce' ),
+				'label'   => __( 'Enable WordPoints points', 'wordpoints-woocommerce' ),
 				'default' => 'yes'
 			),
 			'title' => array(
-				'title'       => __( 'Title', 'woocommerce' ),
+				'title'       => __( 'Title', 'wordpoints-woocommerce' ),
 				'type'        => 'text',
 				'desc_tip'    => true,
-				'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-				'default'     => __( 'Points', 'woocommerce' ),
+				'description' => __( 'This controls the title which the user sees during checkout.', 'wordpoints-woocommerce' ),
+				'default'     => __( 'Points', 'wordpoints-woocommerce' ),
 			),
 			'description' => array(
-				'title'       => __( 'Description', 'woocommerce' ),
+				'title'       => __( 'Description', 'wordpoints-woocommerce' ),
 				'type'        => 'text',
 				'desc_tip'    => true,
-				'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce' ),
-				'default'     => __( 'Pay with points.', 'woocommerce' ),
+				'description' => __( 'This controls the description which the user sees during checkout.', 'wordpoints-woocommerce' ),
+				'default'     => __( 'Pay with points.', 'wordpoints-woocommerce' ),
 			),
 			'points_type' => array(
-				'title'       => __( 'Points Type', 'woocommerce' ),
+				'title'       => __( 'Points Type', 'wordpoints-woocommerce' ),
 				'type'        => 'select',
 				'desc_tip'    => true,
-				'description' => __( 'Select which points type is used to pay.', 'woocommerce' ),
+				'description' => __( 'Select which points type is used to pay.', 'wordpoints-woocommerce' ),
 				'default'     => wordpoints_get_default_points_type(),
 				'options'     => wp_list_pluck( wordpoints_get_points_types(), 'name' ),
 			),
 			'conversion_rate' => array(
-				'title'       => __( 'Conversion Rate', 'woocommerce' ),
+				'title'       => __( 'Conversion Rate', 'wordpoints-woocommerce' ),
 				'type'        => 'select',
 				'desc_tip'    => true,
-				'description' => __( 'How should points be converted to currency?', 'woocommerce' ),
+				'description' => __( 'How should points be converted to currency?', 'wordpoints-woocommerce' ),
 				'default'     => '1',
 				'options'     => array(
-					'1' => '1 to 1',
-					'100' => '1 to 0.01',
+					'1'   => __( '1 to 1', 'wordpoints-woocommerce' ),
+					'100' => __( '1 to 0.01', 'wordpoints-woocommerce' ),
 				),
 			),
 		);
@@ -155,7 +155,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		if ( $user_points < $total ) {
 
 			wc_add_notice(
-				__( 'Payment error:', 'woocommerce' ) . ' '
+				__( 'Payment error:', 'wordpoints-woocommerce' ) . ' '
 					. __(
 						'You have insufficient points to make this purchase.'
 						, 'wordpoints-woocommerce'
@@ -177,7 +177,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		if ( ! $result ) {
 
 			wc_add_notice(
-				__( 'Payment error:', 'woocommerce' ) . ' '
+				__( 'Payment error:', 'wordpoints-woocommerce' ) . ' '
 					. __(
 						'Unable to subtract the points from your account.'
 						, 'wordpoints-woocommerce'

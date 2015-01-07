@@ -17,7 +17,7 @@ function wordpoints_points_logs_woocommerce_points_gateway(
 	) {
 
 	return sprintf(
-		_x( 'Order #%s', 'points log description', 'wordpoints' )
+		_x( 'Payment for order #%s', 'points log description', 'wordpoints-woocommerce' )
 		, $meta['order_id']
 	);
 }
@@ -38,7 +38,7 @@ function wordpoints_points_logs_woocommerce_points_gateway_refund(
 	) {
 
 	return sprintf(
-		_x( 'Refund on order #%s', 'points log description', 'wordpoints' )
+		_x( 'Refunded payment for order #%s', 'points log description', 'wordpoints-woocommerce' )
 		, $meta['order_id']
 	);
 }

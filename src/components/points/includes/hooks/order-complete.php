@@ -93,14 +93,14 @@ class WordPoints_WC_Order_Complete_Points_Hook extends WordPoints_Points_Hook {
 
 			if ( $order->id ) {
 				return sprintf(
-					_x( 'Order <a href="%s">%s</a>.', 'points log description', 'wordpoints' )
+					_x( 'Order <a href="%s">%s</a>.', 'points log description', 'wordpoints-woocommerce' )
 					, $order->get_view_order_url()
 					, $order->get_order_number()
 				);
 			}
 		}
 
-		return _x( 'Completed order.', 'points log description', 'wordpoints' );
+		return _x( 'Completed order.', 'points log description', 'wordpoints-woocommerce' );
 	}
 
 	/**
