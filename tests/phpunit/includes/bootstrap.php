@@ -77,6 +77,9 @@ require_once WORDPOINTS_WC_TESTS_DIR . '/../../vendor/jdgrimes/wp-plugin-uninsta
 /** The module uninstall tester functions. */
 require_once WORDPOINTS_WC_TESTS_DIR . '/../../vendor/wordpoints/module-uninstall-tester/bootstrap.php';
 
+/** The points parent test case. */
+require_once WORDPOINTS_WC_TESTS_DIR . '/includes/testcases/points.php';
+
 /**
  * The product factory.
  *

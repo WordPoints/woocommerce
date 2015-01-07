@@ -7,7 +7,28 @@
  * @since 1.0.0
  */
 
-/** The order complete points hook. */
-include dirname( __FILE__ ) . '/includes/hooks/order-complete.php';
+/**
+ * The general points-related functions.
+ *
+ * @since 1.0.0
+ */
+include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/functions.php' );
+
+/**
+ * The order complete points hook.
+ *
+ * @since 1.0.0
+ */
+include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/hooks/order-complete.php' );
+
+if ( class_exists( 'WC_Payment_Gateway' ) ) {
+
+	/**
+	 * The points payment gateway.
+	 *
+	 * @since 1.0.0
+	 */
+	include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/gateways/points.php' );
+}
 
 // EOF
