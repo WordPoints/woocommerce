@@ -34,7 +34,7 @@ class WordPoints_WooCommerce_Order_Complete_Points_Hook_Test extends WordPoints_
 	 */
 	public function test_points_awarded() {
 
-		wordpointstests_add_points_hook( 'wordpoints_woocommerce_order_complete_points_hook' );
+		wordpointstests_add_points_hook( 'wordpoints_wc_order_complete_points_hook' );
 
 		// Create an order for a $50 product.
 		$user_id    = $this->factory->user->create();
