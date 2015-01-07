@@ -6,7 +6,7 @@
  * Author URI:  http://codesymphony.co/
  * Version:     1.0.0
  * License:     GPLv2+
- * Description: Integrates WordPoints with WooCommerce to let you award points for user's purchases.
+ * Description: Let your users pay with points, and/or reward your users with points whem they make a purchase.
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2014  J.D. Grimes  (email : jdg@codesymphony.co)  All rights reserved.
