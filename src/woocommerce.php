@@ -18,15 +18,27 @@
  * @license GPLv2+
  */
 
-/** The module's constants. */
+/**
+ * The module's constants.
+ *
+ * @since 1.0.0
+ */
 include_once( dirname( __FILE__ ) . '/includes/constants.php' );
 
-/** The module's general utility functions. */
+/**
+ * The module's general utility functions.
+ *
+ * @since 1.0.0
+ */
 include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/includes/functions.php' );
 
 if ( wordpoints_component_is_active( 'points' ) ) {
 
-	/** Points-related code. */
+	/**
+	 * Points-related code.
+	 *
+	 * @since 1.0.0
+	 */
 	include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/points.php' );
 }
 
