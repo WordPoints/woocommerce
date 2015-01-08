@@ -92,15 +92,15 @@ class WordPoints_WC_Order_Complete_Points_Hook extends WordPoints_Points_Hook {
 			$order = new WC_Order( $meta['order_id'] );
 
 			if ( $order->id ) {
+				/* translators: order number */
 				return sprintf(
-					_x( 'Order <a href="%s">%s</a>.', 'points log description', 'wordpoints-woocommerce' )
-					, $order->get_view_order_url()
+					_x( 'Placed order %s.', 'points log description', 'wordpoints-woocommerce' )
 					, $order->get_order_number()
 				);
 			}
 		}
 
-		return _x( 'Completed order.', 'points log description', 'wordpoints-woocommerce' );
+		return _x( 'Placed an order.', 'points log description', 'wordpoints-woocommerce' );
 	}
 
 	/**

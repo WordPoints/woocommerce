@@ -24,7 +24,8 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		$this->id                   = 'wordpoints_points';
 		$this->icon                 = '';
 		$this->has_fields           = false;
-		$this->method_title         = __( 'WordPoints', 'wordpoints-woocommerce' );
+		$this->method_title         = _x( 'WordPoints', 'gateway title', 'wordpoints-woocommerce' );
+		/* translators: gateway description. */
 		$this->method_description   = __( 'WordPoints works by letting the user pay with points.', 'wordpoints-woocommerce' );
 		$this->supports 			= array( 'products', 'refunds' );
 
@@ -100,21 +101,21 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 				'default' => 'yes'
 			),
 			'title' => array(
-				'title'       => __( 'Title', 'wordpoints-woocommerce' ),
+				'title'       => _x( 'Title', 'form label', 'wordpoints-woocommerce' ),
 				'type'        => 'text',
 				'desc_tip'    => true,
 				'description' => __( 'This controls the title which the user sees during checkout.', 'wordpoints-woocommerce' ),
-				'default'     => __( 'Points', 'wordpoints-woocommerce' ),
+				'default'     => _x( 'Points', 'gateway title', 'wordpoints-woocommerce' ),
 			),
 			'description' => array(
-				'title'       => __( 'Description', 'wordpoints-woocommerce' ),
+				'title'       => _x( 'Description', 'form label', 'wordpoints-woocommerce' ),
 				'type'        => 'text',
 				'desc_tip'    => true,
 				'description' => __( 'This controls the description which the user sees during checkout.', 'wordpoints-woocommerce' ),
 				'default'     => __( 'Pay with points.', 'wordpoints-woocommerce' ),
 			),
 			'points_type' => array(
-				'title'       => __( 'Points Type', 'wordpoints-woocommerce' ),
+				'title'       => _x( 'Points Type', 'form label', 'wordpoints-woocommerce' ),
 				'type'        => 'select',
 				'desc_tip'    => true,
 				'description' => __( 'Select which points type is used to pay.', 'wordpoints-woocommerce' ),
@@ -125,11 +126,11 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 				'title'       => __( 'Conversion Rate', 'wordpoints-woocommerce' ),
 				'type'        => 'select',
 				'desc_tip'    => true,
-				'description' => __( 'How should points be converted to currency?', 'wordpoints-woocommerce' ),
+				'description' => __( 'How much should points be worth relative the currency&#2817;s primary denomination?', 'wordpoints-woocommerce' ),
 				'default'     => '1',
 				'options'     => array(
-					'1'   => __( '1 to 1', 'wordpoints-woocommerce' ),
-					'100' => __( '1 to 0.01', 'wordpoints-woocommerce' ),
+					'1'   => __( '1 point is worth 1 monetary unit', 'wordpoints-woocommerce' ),
+					'100' => __( '1 point is worth 0.01 monetary units', 'wordpoints-woocommerce' ),
 				),
 			),
 		);
@@ -230,7 +231,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		}
 
 		$order->add_order_note(
-			sprintf( __( 'Refunded %s', 'wordpoints-woocommerce' ), $refund )
+			sprintf( __( 'Refunded %s points.', 'wordpoints-woocommerce' ), $refund )
 		);
 
 		return true;
