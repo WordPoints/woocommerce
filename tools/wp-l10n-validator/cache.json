@@ -1,17 +1,17 @@
 {
     "\/components\/points\/includes\/functions.php": {
-        "size": 1085,
-        "hash": "2a560c53490ef2d9ca5e29a554465268",
+        "size": 1634,
+        "hash": "268e6793315b680fbdb33bc00ee9ca31",
         "errors": false
     },
     "\/components\/points\/includes\/gateways\/points.php": {
-        "size": 6144,
-        "hash": "2aaa4537431123433060a93ff18abe56",
-        "errors": true
+        "size": 6363,
+        "hash": "65b62e80d18b45a9d32e820116ec2aaf",
+        "errors": false
     },
     "\/components\/points\/includes\/hooks\/order-complete.php": {
-        "size": 3325,
-        "hash": "e964d2ac8c744aabd310d932a135964d",
+        "size": 3315,
+        "hash": "c49ecfbebd7ac401f1df2cea4b7c5be9",
         "errors": false
     },
     "\/components\/points\/points.php": {
@@ -25,8 +25,8 @@
         "errors": false
     },
     "\/includes\/functions.php": {
-        "size": 678,
-        "hash": "b7314c633bb3ddf716a1b7078336d5d3",
+        "size": 1023,
+        "hash": "bfe8e5c902b39c9cfdd92efc2c264497",
         "errors": false
     },
     "\/uninstall.php": {
@@ -35,8 +35,8 @@
         "errors": false
     },
     "\/woocommerce.php": {
-        "size": 1099,
-        "hash": "a5521b988feca577294a1be7425689eb",
+        "size": 1115,
+        "hash": "95040ee52d7213af866c28f8fc5e1414",
         "errors": false
     }
 }
