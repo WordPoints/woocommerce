@@ -16,10 +16,21 @@ function wordpoints_points_logs_woocommerce_points_gateway(
 		$text, $points, $points_type, $user_id, $log_type, $meta
 	) {
 
-	return sprintf(
-		_x( 'Payment for order #%s', 'points log description', 'wordpoints-woocommerce' )
-		, $meta['order_id']
-	);
+	if ( isset( $meta['order_id'] ) ) {
+
+		$order = new WC_Order( $meta['order_id'] );
+
+		if ( $order->id ) {
+
+			/* translators: order number */
+			return sprintf(
+				_x( 'Payment for order %s', 'points log description', 'wordpoints-woocommerce' )
+				, $order->get_order_number()
+			);
+		}
+	}
+
+	return _x( 'Payment for an order.', 'points log description', 'wordpoints-woocommerce' );
 }
 add_filter(
 	'wordpoints_points_log-woocommerce_points_gateway'
@@ -37,10 +48,22 @@ function wordpoints_points_logs_woocommerce_points_gateway_refund(
 		$text, $points, $points_type, $user_id, $log_type, $meta
 	) {
 
-	return sprintf(
-		_x( 'Refunded payment for order #%s', 'points log description', 'wordpoints-woocommerce' )
-		, $meta['order_id']
-	);
+	if ( isset( $meta['order_id'] ) ) {
+
+		$order = new WC_Order( $meta['order_id'] );
+
+		if ( $order->id ) {
+
+			/* translators: order number */
+			return sprintf(
+				_x( 'Refunded payment for order %s', 'points log description', 'wordpoints-woocommerce' )
+				, $order->get_order_number()
+			);
+		}
+	}
+
+	return _x( 'Refunded payment for an order.', 'points log description', 'wordpoints-woocommerce' );
+
 }
 add_filter(
 	'wordpoints_points_log-woocommerce_points_gateway_refund'
