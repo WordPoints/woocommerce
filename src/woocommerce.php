@@ -5,7 +5,7 @@
  * Author:      J.D. Grimes
  * Author URI:  http://codesymphony.co/
  * Version:     1.0.0
- * Description: Let your users pay with points, and/or reward your users with points when they make a purchase.
+ * Description: Let your users pay with points.
  * Text Domain: wordpoints-woocommerce
  * Domain Path: /languages
  *

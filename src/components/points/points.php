@@ -14,13 +14,6 @@
  */
 include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/functions.php' );
 
-/**
- * The order complete points hook.
- *
- * @since 1.0.0
- */
-include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/hooks/order-complete.php' );
-
 if ( class_exists( 'WC_Payment_Gateway' ) ) {
 
 	/**

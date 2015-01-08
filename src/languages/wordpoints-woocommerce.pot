@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPoints WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-08 21:24:33+00:00\n"
+"POT-Creation-Date: 2015-01-08 21:29:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,31 +131,8 @@ msgstr ""
 msgid "Refunded %s points."
 msgstr ""
 
-#: components/points/includes/hooks/order-complete.php:25
-msgctxt "points hook name"
-msgid "WooCommerce Order Complete"
-msgstr ""
-
-#: components/points/includes/hooks/order-complete.php:26
-msgctxt "points hook description"
-msgid "Completing an order."
-msgstr ""
-
-#. translators: order number
-#: components/points/includes/hooks/order-complete.php:97
-msgctxt "points log description"
-msgid "Placed order %s."
-msgstr ""
-
-#: components/points/includes/hooks/order-complete.php:103
-msgctxt "points log description"
-msgid "Placed an order."
-msgstr ""
-
 #. Description of the module
-msgid ""
-"Let your users pay with points, and/or reward your users with points when "
-"they make a purchase."
+msgid "Let your users pay with points."
 msgstr ""
 
 #. Author of the module
