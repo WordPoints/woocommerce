@@ -1,0 +1,171 @@
+# Copyright (C) 2015 J.D. Grimes
+# This file is distributed under the same license as the WordPoints WooCommerce package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPoints WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-08 21:24:33+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. translators: order number
+#: components/points/includes/functions.php:27
+msgctxt "points log description"
+msgid "Payment for order %s"
+msgstr ""
+
+#: components/points/includes/functions.php:33
+msgctxt "points log description"
+msgid "Payment for an order."
+msgstr ""
+
+#. translators: order number
+#: components/points/includes/functions.php:59
+msgctxt "points log description"
+msgid "Refunded payment for order %s"
+msgstr ""
+
+#: components/points/includes/functions.php:65
+msgctxt "points log description"
+msgid "Refunded payment for an order."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:27
+msgctxt "gateway title"
+msgid "WordPoints"
+msgstr ""
+
+#. translators: gateway description.
+#: components/points/includes/gateways/points.php:29
+msgid "WordPoints works by letting the user pay with points."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:81
+msgid "Gateway Disabled:"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:82
+msgid "You need to create one or more types of points."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:98
+msgid "Enable/Disable"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:100
+msgid "Enable WordPoints points"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:104
+msgctxt "form label"
+msgid "Title"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:107
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:108
+msgctxt "gateway title"
+msgid "Points"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:111
+msgctxt "form label"
+msgid "Description"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:114
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:115
+msgid "Pay with points."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:118
+msgctxt "form label"
+msgid "Points Type"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:121
+msgid "Select which points type is used to pay."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:126
+msgid "Conversion Rate"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:129
+msgid ""
+"How much should points be worth relative the currency&#2817;s primary "
+"denomination?"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:132
+msgid "1 point is worth 1 monetary unit"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:133
+msgid "1 point is worth 0.01 monetary units"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:159
+#: components/points/includes/gateways/points.php:181
+msgid "Payment error:"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:160
+msgid "You have insufficient points to make this purchase."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:182
+msgid "Unable to subtract the points from your account."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:234
+msgid "Refunded %s points."
+msgstr ""
+
+#: components/points/includes/hooks/order-complete.php:25
+msgctxt "points hook name"
+msgid "WooCommerce Order Complete"
+msgstr ""
+
+#: components/points/includes/hooks/order-complete.php:26
+msgctxt "points hook description"
+msgid "Completing an order."
+msgstr ""
+
+#. translators: order number
+#: components/points/includes/hooks/order-complete.php:97
+msgctxt "points log description"
+msgid "Placed order %s."
+msgstr ""
+
+#: components/points/includes/hooks/order-complete.php:103
+msgctxt "points log description"
+msgid "Placed an order."
+msgstr ""
+
+#. Description of the module
+msgid ""
+"Let your users pay with points, and/or reward your users with points when "
+"they make a purchase."
+msgstr ""
+
+#. Author of the module
+msgid "J.D. Grimes"
+msgstr ""
+
+#. Author URI of the module
+msgid "http://codesymphony.co/"
+msgstr ""
+
+#. Module Name of the module
+msgid "WooCommerce"
+msgstr ""
