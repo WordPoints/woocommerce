@@ -26,4 +26,18 @@ wordpoints_register_module_activation_hook(
 	, 'wordpoints_woocommerce_install'
 );
 
+/**
+ * Load the module's text domain.
+ *
+ * @since 1.0.0
+ */
+function wordpoints_woocommerce_load_textdomain() {
+
+	wordpoints_load_module_textdomain(
+		'wordpoints-woocommerce'
+		, wordpoints_module_basename( WORDPOINTS_WOOCOMMERCE_DIR ) . '/languages'
+	);
+}
+add_action( 'wordpoints_modules_loaded', 'wordpoints_woocommerce_load_textdomain' );
+
 // EOF
