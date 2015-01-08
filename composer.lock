@@ -3,20 +3,21 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "41680e8c003b3133d6a6fc99dc0e9815",
-    "packages": [
+    "hash": "89f08abd0343b2e122afb90a061e80c2",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "jdgrimes/wp-plugin-uninstall-tester",
-            "version": "0.3.0",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JDGrimes/wp-plugin-uninstall-tester.git",
-                "reference": "341b3ffc95c75f66620ec489dfb20f923cac1454"
+                "reference": "ee09116b088115919b1b81fcff19f74da6e5833e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JDGrimes/wp-plugin-uninstall-tester/zipball/341b3ffc95c75f66620ec489dfb20f923cac1454",
-                "reference": "341b3ffc95c75f66620ec489dfb20f923cac1454",
+                "url": "https://api.github.com/repos/JDGrimes/wp-plugin-uninstall-tester/zipball/ee09116b088115919b1b81fcff19f74da6e5833e",
+                "reference": "ee09116b088115919b1b81fcff19f74da6e5833e",
                 "shasum": ""
             },
             "require": {
@@ -37,20 +38,42 @@
             ],
             "description": "Utilities for testing WordPress plugin install/uninstall with PHPUnit",
             "homepage": "https://github.com/JDGrimes/wp-plugin-uninstall-tester",
-            "time": "2014-08-30 19:37:26"
+            "time": "2014-11-25 14:47:10"
         },
         {
-            "name": "wordpoints/module-uninstall-tester",
-            "version": "0.2.0",
+            "name": "wordpoints/l10n-validator-config",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/WordPoints/wordpoints-module-uninstall-tester.git",
-                "reference": "8c3f506380a7b4db73c1d22ec04e140fe7669f41"
+                "url": "https://github.com/WordPoints/l10n-validator-config.git",
+                "reference": "b5083fb51c17e3626b8f0279ff920d38f587971b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPoints/wordpoints-module-uninstall-tester/zipball/8c3f506380a7b4db73c1d22ec04e140fe7669f41",
-                "reference": "8c3f506380a7b4db73c1d22ec04e140fe7669f41",
+                "url": "https://api.github.com/repos/WordPoints/l10n-validator-config/zipball/b5083fb51c17e3626b8f0279ff920d38f587971b",
+                "reference": "b5083fb51c17e3626b8f0279ff920d38f587971b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "WordPoints-specific configuration for https://github.com/JDGrimes/wp-l10n-validator",
+            "time": "2015-01-07 22:32:10"
+        },
+        {
+            "name": "wordpoints/module-uninstall-tester",
+            "version": "0.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WordPoints/module-uninstall-tester.git",
+                "reference": "1470fdee74c738403415aee51cc319b651d33b1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WordPoints/module-uninstall-tester/zipball/1470fdee74c738403415aee51cc319b651d33b1a",
+                "reference": "1470fdee74c738403415aee51cc319b651d33b1a",
                 "shasum": ""
             },
             "require": {
@@ -72,23 +95,14 @@
             ],
             "description": "Utilities for testing WordPoints module install/uninstall with PHPUnit",
             "homepage": "https://github.com/WordPoints/wordpoints-module-uninstall-tester",
-            "time": "2014-09-02 19:48:35"
+            "time": "2015-01-02 15:22:16"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": [],
     "platform": {
         "php": ">=5.2.0"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }

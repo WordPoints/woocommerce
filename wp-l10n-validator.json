@@ -1,7 +1,7 @@
 {
 	"textdomain": "wordpoints-woocommerce",
 	"basedir": "./src",
-	"bootstrap": "/Users/johngrimes/git/wordpoints-l10n-validator-config/bootstrap.php",
+	"bootstrap": "./vendor/wordpoints/l10n-validator-config/bootstrap.php",
 	"cache": "./tools/wp-l10n-validator/cache.json",
 	"ignores-cache": "./tools/wp-l10n-validator/ignores-cache.json",
 	"ignores-tolerance": 25,
