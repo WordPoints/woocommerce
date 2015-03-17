@@ -8,6 +8,8 @@
  * Description: Let your users pay with points.
  * Text Domain: wordpoints-woocommerce
  * Domain Path: /languages
+ * ID:          445
+ * Channel:     wordpoints.org
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2014-15  J.D. Grimes  (email : jdg@codesymphony.co)
