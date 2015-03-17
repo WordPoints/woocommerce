@@ -4,7 +4,7 @@
  * Module Name: WooCommerce
  * Author:      J.D. Grimes
  * Author URI:  http://codesymphony.co/
- * Version:     1.0.0
+ * Version:     1.0.1
  * Description: Let your users pay with points.
  * Text Domain: wordpoints-woocommerce
  * Domain Path: /languages
@@ -14,7 +14,7 @@
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_WooCommerce
- * @version 1.0.0
+ * @version 1.0.1
  * @author  J.D. Grimes <jdg@codesymphony.co>
  */
 
