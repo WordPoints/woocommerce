@@ -36,9 +36,12 @@ function wordpoints_wc_tests_manually_load_woocommerce() {
 					AND table_name LIKE  "' . esc_sql( $wpdb->esc_like( $wpdb->base_prefix . 'woocommerce_' ) ) . '%"
 		'
 	);
-	$wpdb->query( 'PREPARE s1 FROM @dropcmd' );
-	$wpdb->query( 'EXECUTE s1' );
-	$wpdb->query( 'DEALLOCATE PREPARE s1' );
+
+	if ( $wpdb->get_var( 'SELECT @dropcmd' ) ) {
+		$wpdb->query( 'PREPARE s1 FROM @dropcmd' );
+		$wpdb->query( 'EXECUTE s1' );
+		$wpdb->query( 'DEALLOCATE PREPARE s1' );
+	}
 
 	$config_file_path = getenv( 'WP_TESTS_DIR' );
 
