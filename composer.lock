@@ -1,23 +1,25 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "89f08abd0343b2e122afb90a061e80c2",
+    "hash": "bdfb0751a2404bf6ff143efcbedfabe0",
+    "content-hash": "b4741820ad2bd8932638b42d098a06f2",
     "packages": [],
     "packages-dev": [
         {
             "name": "jdgrimes/wp-plugin-uninstall-tester",
-            "version": "0.4.2",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JDGrimes/wp-plugin-uninstall-tester.git",
-                "reference": "ee09116b088115919b1b81fcff19f74da6e5833e"
+                "reference": "0a5d9b52710e301529c86b7c4c81ec4d6afd0532"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JDGrimes/wp-plugin-uninstall-tester/zipball/ee09116b088115919b1b81fcff19f74da6e5833e",
-                "reference": "ee09116b088115919b1b81fcff19f74da6e5833e",
+                "url": "https://api.github.com/repos/JDGrimes/wp-plugin-uninstall-tester/zipball/0a5d9b52710e301529c86b7c4c81ec4d6afd0532",
+                "reference": "0a5d9b52710e301529c86b7c4c81ec4d6afd0532",
                 "shasum": ""
             },
             "require": {
@@ -38,42 +40,20 @@
             ],
             "description": "Utilities for testing WordPress plugin install/uninstall with PHPUnit",
             "homepage": "https://github.com/JDGrimes/wp-plugin-uninstall-tester",
-            "time": "2014-11-25 14:47:10"
-        },
-        {
-            "name": "wordpoints/l10n-validator-config",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/WordPoints/l10n-validator-config.git",
-                "reference": "b5083fb51c17e3626b8f0279ff920d38f587971b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/WordPoints/l10n-validator-config/zipball/b5083fb51c17e3626b8f0279ff920d38f587971b",
-                "reference": "b5083fb51c17e3626b8f0279ff920d38f587971b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "WordPoints-specific configuration for https://github.com/JDGrimes/wp-l10n-validator",
-            "time": "2015-01-07 22:32:10"
+            "time": "2015-04-30 19:35:18"
         },
         {
             "name": "wordpoints/module-uninstall-tester",
-            "version": "0.2.2",
+            "version": "0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPoints/module-uninstall-tester.git",
-                "reference": "1470fdee74c738403415aee51cc319b651d33b1a"
+                "reference": "129f99866d2dcca319ad36392eb2878866caf7c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPoints/module-uninstall-tester/zipball/1470fdee74c738403415aee51cc319b651d33b1a",
-                "reference": "1470fdee74c738403415aee51cc319b651d33b1a",
+                "url": "https://api.github.com/repos/WordPoints/module-uninstall-tester/zipball/129f99866d2dcca319ad36392eb2878866caf7c4",
+                "reference": "129f99866d2dcca319ad36392eb2878866caf7c4",
                 "shasum": ""
             },
             "require": {
@@ -95,12 +75,14 @@
             ],
             "description": "Utilities for testing WordPoints module install/uninstall with PHPUnit",
             "homepage": "https://github.com/WordPoints/wordpoints-module-uninstall-tester",
-            "time": "2015-01-02 15:22:16"
+            "time": "2015-06-25 21:42:04"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.2.0"
     },

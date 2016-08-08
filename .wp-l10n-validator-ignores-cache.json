@@ -86,16 +86,5 @@
                 "parentheses": 1
             }
         }
-    },
-    "\/includes\/functions.php": {
-        "wordpoints-woocommerce": {
-            "37": {
-                "name": "wordpoints_load_module_textdomain",
-                "type": "unknown",
-                "args_started": true,
-                "arg_count": 0,
-                "parentheses": 1
-            }
-        }
     }
 }

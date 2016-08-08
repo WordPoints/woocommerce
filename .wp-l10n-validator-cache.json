@@ -1,0 +1,40 @@
+{
+    "files": {
+        "\/components\/points\/includes\/functions.php": {
+            "size": 1634,
+            "hash": "268e6793315b680fbdb33bc00ee9ca31",
+            "errors": false
+        },
+        "\/components\/points\/includes\/gateways\/points.php": {
+            "size": 6363,
+            "hash": "65b62e80d18b45a9d32e820116ec2aaf",
+            "errors": false
+        },
+        "\/components\/points\/points.php": {
+            "size": 494,
+            "hash": "5d7c235bbb9fc10e4e85fc64f1211651",
+            "errors": false
+        },
+        "\/includes\/constants.php": {
+            "size": 449,
+            "hash": "a495f3a0c7ab9a2bf7c27055078bd228",
+            "errors": false
+        },
+        "\/includes\/functions.php": {
+            "size": 1023,
+            "hash": "bfe8e5c902b39c9cfdd92efc2c264497",
+            "errors": false
+        },
+        "\/uninstall.php": {
+            "size": 490,
+            "hash": "0e88f799d2a463e3908f6e6c27d559ba",
+            "errors": false
+        },
+        "\/woocommerce.php": {
+            "size": 1102,
+            "hash": "f3cd3afabf552f81cdb4f069565125c3",
+            "errors": false
+        }
+    },
+    "config_signature": "ccc5d7466d01917d2e9d21b81ed87ca6"
+}
