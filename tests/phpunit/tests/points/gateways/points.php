@@ -48,7 +48,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		$this->original_user_id = get_current_user_id();
 		wp_set_current_user( $this->factory->user->create() );
 
-		wordpoints_update_network_option(
+		wordpoints_update_maybe_network_option(
 			'wordpoints_default_points_type'
 			, 'points'
 		);
