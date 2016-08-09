@@ -30,7 +30,7 @@ define( 'WORDPOINTS_WC_TESTS_DIR', dirname( dirname( __FILE__ ) ) );
  *
  * @since 1.0.0
  */
-require_once getenv( 'WP_TESTS_DIR' ) . 'includes/functions.php';
+require_once getenv( 'WP_TESTS_DIR' ) . '/includes/functions.php';
 
 /**
  * The module's utilitiy functions for the tests.
@@ -69,7 +69,7 @@ define( 'RUNNING_WORDPOINTS_MODULE_TESTS', true );
  *
  * @since 1.0.0
  */
-require_once getenv( 'WORDPOINTS_TESTS_DIR' ) . 'includes/bootstrap.php';
+require_once getenv( 'WORDPOINTS_TESTS_DIR' ) . '/includes/bootstrap.php';
 
 /** The plugin uninstall tester functions. */
 require_once WORDPOINTS_WC_TESTS_DIR . '/../../vendor/jdgrimes/wp-plugin-uninstall-tester/bootstrap.php';
