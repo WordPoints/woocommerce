@@ -3,6 +3,6 @@
         "php": ">=5.2.0"
     },
     "require-dev": {
-        "wordpoints/module-uninstall-tester": "~0.2"
+        "wordpoints/module-uninstall-tester": "^0.4"
     }
 }

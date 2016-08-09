@@ -1,24 +1,31 @@
 <?php
 
 /**
- * Module Name: WooCommerce
- * Author:      J.D. Grimes
- * Author URI:  http://codesymphony.co/
- * Version:     1.0.1
- * Description: Let your users pay with points.
- * Text Domain: wordpoints-woocommerce
- * Domain Path: /languages
- * ID:          445
- * Channel:     wordpoints.org
+ * WordPoints WooCommerce integration module.
  *
  * ---------------------------------------------------------------------------------|
- * Copyright 2014-15  J.D. Grimes  (email : jdg@codesymphony.co)
+ * Copyright 2014-16  J.D. Grimes  (email : jdg@codesymphony.co)
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_WooCommerce
  * @version 1.0.1
  * @author  J.D. Grimes <jdg@codesymphony.co>
  */
+
+WordPoints_Modules::register(
+	'
+		Module Name: WooCommerce
+		Author:      J.D. Grimes
+		Author URI:  http://codesymphony.co/
+		Version:     1.0.1
+		Description: Let your users pay with points.
+		Text Domain: wordpoints-woocommerce
+		Domain Path: /languages
+		ID:          445
+		Channel:     wordpoints.org
+	'
+	, __FILE__
+);
 
 /**
  * The module's constants.
