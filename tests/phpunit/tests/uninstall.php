@@ -22,22 +22,9 @@ class WordPoints_WooCommerce_Uninstall_Test
 	//
 
 	/**
-	 * The full path to the main module file.
-	 *
 	 * @since 1.0.0
-	 *
-	 * @type string $module_file
 	 */
-	protected $module_file;
-
-	/**
-	 * The module's install function.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @type callable $install_function
-	 */
-	protected $install_function = 'wordpoints_woocommerce_install';
+	protected $module_file = 'woocommerce/woocommerce.php';
 
 	/**
 	 * Whether the tests are being run with the module is network-activated.
@@ -59,23 +46,9 @@ class WordPoints_WooCommerce_Uninstall_Test
 	 */
 	public function setUp() {
 
-		$this->module_file = WORDPOINTS_WC_TESTS_DIR . '/../../src/woocommerce.php';
 		$this->simulation_file = WORDPOINTS_WC_TESTS_DIR . '/includes/usage-simulator.php';
 
 		parent::setUp();
-	}
-
-	/**
-	 * Tear down after the tests.
-	 *
-	 * @since 1.0.0
-	 *
-	public function tearDown() {
-
-		// We've just deleted the tables, so this will have a DB error.
-		remove_action( 'delete_blog', 'wordpoints_delete_points_logs_for_blog' );
-
-		parent::tearDown();
 	}
 
 	/**

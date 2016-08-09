@@ -80,11 +80,11 @@ class WordPoints_WooCommerce_UnitTest_Factory_For_Order extends WP_UnitTest_Fact
 	 */
 	public function create_object( $args ) {
 
-        $order = wc_create_order( $args );
+		$order = wc_create_order( $args );
 
-        if ( is_wp_error( $order ) ) {
-        	return $order;
-        }
+		if ( is_wp_error( $order ) ) {
+			return $order;
+		}
 
 		$default_args = array(
 			'billing_address'  => $this->default_adress,

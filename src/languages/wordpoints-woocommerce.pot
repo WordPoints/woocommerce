@@ -1,14 +1,14 @@
-# Copyright (C) 2015 J.D. Grimes
+# Copyright (C) 2016 J.D. Grimes
 # This file is distributed under the same license as the WordPoints WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPoints WooCommerce 1.0.0\n"
+"Project-Id-Version: WordPoints WooCommerce 1.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-08 21:29:13+00:00\n"
+"POT-Creation-Date: 2016-08-09 14:42:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -114,20 +114,20 @@ msgstr ""
 msgid "1 point is worth 0.01 monetary units"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:159
-#: components/points/includes/gateways/points.php:181
+#: components/points/includes/gateways/points.php:157
+#: components/points/includes/gateways/points.php:179
 msgid "Payment error:"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:160
+#: components/points/includes/gateways/points.php:158
 msgid "You have insufficient points to make this purchase."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:182
+#: components/points/includes/gateways/points.php:180
 msgid "Unable to subtract the points from your account."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:234
+#: components/points/includes/gateways/points.php:228
 msgid "Refunded %s points."
 msgstr ""
 

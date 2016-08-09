@@ -37,13 +37,6 @@
             }
         },
         "text": {
-            "105": {
-                "name": "array",
-                "type": "unknown",
-                "args_started": true,
-                "arg_count": 1,
-                "parentheses": 1
-            },
             "112": {
                 "name": "array",
                 "type": "unknown",
@@ -53,13 +46,6 @@
             }
         },
         "select": {
-            "119": {
-                "name": "array",
-                "type": "unknown",
-                "args_started": true,
-                "arg_count": 1,
-                "parentheses": 1
-            },
             "127": {
                 "name": "array",
                 "type": "unknown",
@@ -78,7 +64,7 @@
             }
         },
         "success": {
-            "197": {
+            "195": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
@@ -87,15 +73,12 @@
             }
         }
     },
-    "\/includes\/functions.php": {
-        "wordpoints-woocommerce": {
-            "37": {
-                "name": "wordpoints_load_module_textdomain",
-                "type": "unknown",
-                "args_started": true,
-                "arg_count": 0,
-                "parentheses": 1
-            }
+    "\/includes\/class-un-installer.php": {
+        "module": {
+            "20": false
+        },
+        "WordPoints_WooCommerce_Un_Installer": {
+            "34": false
         }
     }
 }

@@ -11,33 +11,32 @@
  * Install the module.
  *
  * @since 1.0.0
+ * @deprecated 1.0.2 Use WordPoints_Installables::install( 'module', 'woocommerce' )
+ *                   instead.
  */
 function wordpoints_woocommerce_install() {
 
-	$wordpoints_data = wordpoints_get_network_option( 'wordpoints_data' );
+	_deprecated_function( __FUNCTION__, '1.0.2', 'WordPoints_Installables::install' );
 
-	if ( ! isset( $wordpoints_data['modules']['woocommerce']['version'] ) ) {
-		$wordpoints_data['modules']['woocommerce']['version'] = WORDPOINTS_WOOCOMMERCE_VERSION;
-		wordpoints_update_network_option( 'wordpoints_data', $wordpoints_data );
-	}
+	WordPoints_Installables::install( 'module', 'woocommerce' );
 }
-wordpoints_register_module_activation_hook(
-	WORDPOINTS_WOOCOMMERCE_DIR . '/wordpoints-woocommerce.php'
-	, 'wordpoints_woocommerce_install'
-);
 
 /**
  * Load the module's text domain.
  *
+ * No longer needed as this is done automatically by WordPoints_Modules::register().
+ *
  * @since 1.0.0
+ * @deprecated 1.0.2
  */
 function wordpoints_woocommerce_load_textdomain() {
+
+	_deprecated_function( __FUNCTION__, '1.0.2' );
 
 	wordpoints_load_module_textdomain(
 		'wordpoints-woocommerce'
 		, wordpoints_module_basename( WORDPOINTS_WOOCOMMERCE_DIR ) . '/languages'
 	);
 }
-add_action( 'wordpoints_modules_loaded', 'wordpoints_woocommerce_load_textdomain' );
 
 // EOF

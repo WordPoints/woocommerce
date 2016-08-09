@@ -14,7 +14,7 @@
  *
  * @type string WORDPOINTS_WOOCOMMERCE_VERSION
  */
-define( 'WORDPOINTS_WOOCOMMERCE_VERSION', '1.0.1' );
+define( 'WORDPOINTS_WOOCOMMERCE_VERSION', '1.0.2' );
 
 /**
  * The full path to the module's main directory.

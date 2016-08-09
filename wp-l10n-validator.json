@@ -1,9 +1,9 @@
 {
 	"textdomain": "wordpoints-woocommerce",
 	"basedir": "./src",
-	"bootstrap": "./vendor/wordpoints/l10n-validator-config/bootstrap.php",
-	"cache": "./tools/wp-l10n-validator/cache.json",
-	"ignores-cache": "./tools/wp-l10n-validator/ignores-cache.json",
+	"bootstrap": "dev-lib/l10n-validator/bootstrap.php",
+	"cache": "./.wp-l10n-validator-cache.json",
+	"ignores-cache": "./.wp-l10n-validator-ignores-cache.json",
 	"ignores-tolerance": 25,
 	"ignored-functions": {
 		"wc_add_notice": [ 2 ],
