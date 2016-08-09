@@ -55,7 +55,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	 *
 	 * @return bool Whether the gateway is enabled.
 	 */
-	function is_valid_for_use() {
+	public function is_valid_for_use() {
 
 		if ( ! wordpoints_get_points_types() ) {
 			return false;
@@ -98,7 +98,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 				'title'   => __( 'Enable/Disable', 'wordpoints-woocommerce' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable WordPoints points', 'wordpoints-woocommerce' ),
-				'default' => 'yes'
+				'default' => 'yes',
 			),
 			'title' => array(
 				'title'       => _x( 'Title', 'form label', 'wordpoints-woocommerce' ),
@@ -139,8 +139,6 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	/**
 	 * Process the payment and return the result.
 	 *
-	 * @param int $order_id
-	 *
 	 * @return array
 	 */
 	public function process_payment( $order_id ) {
@@ -157,10 +155,10 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 			wc_add_notice(
 				__( 'Payment error:', 'wordpoints-woocommerce' ) . ' '
-					. __(
-						'You have insufficient points to make this purchase.'
-						, 'wordpoints-woocommerce'
-					)
+				. __(
+					'You have insufficient points to make this purchase.'
+					, 'wordpoints-woocommerce'
+				)
 				, 'error'
 			);
 
@@ -179,10 +177,10 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 			wc_add_notice(
 				__( 'Payment error:', 'wordpoints-woocommerce' ) . ' '
-					. __(
-						'Unable to subtract the points from your account.'
-						, 'wordpoints-woocommerce'
-					)
+				. __(
+					'Unable to subtract the points from your account.'
+					, 'wordpoints-woocommerce'
+				)
 				, 'error'
 			);
 
@@ -201,10 +199,6 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 	/**
 	 * Process a refund if supported.
-	 *
-	 * @param int    $order_id
-	 * @param float  $amount
-	 * @param string $reason
 	 *
 	 * @return  bool|wp_error True or false based on success, or a WP_Error object
 	 */

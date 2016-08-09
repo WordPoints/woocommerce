@@ -28,13 +28,16 @@ function wordpoints_wc_tests_manually_load_woocommerce() {
 	global $wpdb;
 
 	$wpdb->query(
-		'
-			SELECT CONCAT( "DROP TABLE ", GROUP_CONCAT( CONCAT( table_schema, ".", table_name ) ), ";" )
-				INTO @dropcmd
-				FROM information_schema.tables
-				WHERE table_schema = database()
-					AND table_name LIKE  "' . esc_sql( $wpdb->esc_like( $wpdb->base_prefix . 'woocommerce_' ) ) . '%"
-		'
+		$wpdb->prepare(
+			'
+				SELECT CONCAT( "DROP TABLE ", GROUP_CONCAT( CONCAT( table_schema, ".", table_name ) ), ";" )
+					INTO @dropcmd
+					FROM information_schema.tables
+					WHERE table_schema = database()
+						AND table_name LIKE %s
+			'
+			, $wpdb->esc_like( $wpdb->base_prefix . 'woocommerce_' ) . '%'
+		)
 	);
 
 	if ( $wpdb->get_var( 'SELECT @dropcmd' ) ) {

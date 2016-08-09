@@ -184,7 +184,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	 *
 	 * @since 1.0.0
 	 *
-	 * @throws Exception
+	 * @throws Exception An exception.
 	 */
 	public function throw_exception() {
 		throw new Exception( __CLASS__ );
@@ -227,11 +227,11 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	protected function simulate_checkout( array $args = array() ) {
 
 		// Add items to the cart.
-        WC()->cart->add_to_cart( $this->factory->product->create() );
+		WC()->cart->add_to_cart( $this->factory->product->create() );
 
-        $_POST['_wpnonce']           = wp_create_nonce( 'woocommerce-process_checkout' );
+		$_POST['_wpnonce']           = wp_create_nonce( 'woocommerce-process_checkout' );
 		$_POST['terms']              = 1;
-        $_POST['payment_method']     = 'wordpoints_points';
+		$_POST['payment_method']     = 'wordpoints_points';
 		$_POST['billing_country']    = 'US';
 		$_POST['billing_first_name'] = 'Joe';
 		$_POST['billing_last_name']  = 'Tester';
@@ -275,9 +275,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		}
 
 		$this->assertEquals(
-			'<ul class="woocommerce-error">' . "\n"
-				. $expected_errors
-				. '	</ul>'
+			'<ul class="woocommerce-error">' . "\n" . $expected_errors . '	</ul>'
 			, trim( $messages )
 		);
 	}
