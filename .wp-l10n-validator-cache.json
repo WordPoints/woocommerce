@@ -6,8 +6,8 @@
             "errors": false
         },
         "\/components\/points\/includes\/gateways\/points.php": {
-            "size": 6363,
-            "hash": "65b62e80d18b45a9d32e820116ec2aaf",
+            "size": 6250,
+            "hash": "ea3dd18ff0de80df7d129dac4e987b2a",
             "errors": false
         },
         "\/components\/points\/points.php": {
@@ -15,26 +15,26 @@
             "hash": "5d7c235bbb9fc10e4e85fc64f1211651",
             "errors": false
         },
+        "\/includes\/class-un-installer.php": {
+            "size": 526,
+            "hash": "3fafcdde71acee86a0be045db47bc446",
+            "errors": false
+        },
         "\/includes\/constants.php": {
             "size": 449,
-            "hash": "a495f3a0c7ab9a2bf7c27055078bd228",
+            "hash": "cd895286efb36fff138393ba52ac61f9",
             "errors": false
         },
         "\/includes\/functions.php": {
-            "size": 1023,
-            "hash": "bfe8e5c902b39c9cfdd92efc2c264497",
-            "errors": false
-        },
-        "\/uninstall.php": {
-            "size": 490,
-            "hash": "0e88f799d2a463e3908f6e6c27d559ba",
+            "size": 899,
+            "hash": "e3862371baeae43c74ecc2ff489613f6",
             "errors": false
         },
         "\/woocommerce.php": {
-            "size": 1102,
-            "hash": "f3cd3afabf552f81cdb4f069565125c3",
+            "size": 1191,
+            "hash": "a14114c7cdf4aa604cadb6f93793548d",
             "errors": false
         }
     },
-    "config_signature": "ccc5d7466d01917d2e9d21b81ed87ca6"
+    "config_signature": "59e021655228772535dbe74b7e705298"
 }
