@@ -16,7 +16,7 @@ WordPoints_Modules::register(
 	'
 		Module Name: WooCommerce
 		Author:      J.D. Grimes
-		Author URI:  http://codesymphony.co/
+		Author URI:  https://codesymphony.co/
 		Version:     1.0.2
 		Description: Let your users pay with points.
 		Text Domain: wordpoints-woocommerce

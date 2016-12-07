@@ -46,7 +46,7 @@ if ( is_multisite() ) {
 
 	switch_to_blog( $original_blog_id );
 
-	// See http://wordpress.stackexchange.com/a/89114/27757
+	// See https://wordpress.stackexchange.com/a/89114/27757
 	unset( $GLOBALS['_wp_switched_stack'] );
 	$GLOBALS['switched'] = false;
 

@@ -10,12 +10,12 @@ php:
     - 5.5
     - 5.6
     - 7.0
+    - 7.1
 
 env:
     - TRAVISCI_RUN=codesniff
-    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master WC_VERSION=2.6.4
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.5 WORDPOINTS_VERSION=master WC_VERSION=2.6.4
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.4 WORDPOINTS_VERSION=master WC_VERSION=2.6.4
+    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master WC_VERSION=2.6.8
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=2.6.8
 
 sudo: false
 
@@ -23,10 +23,10 @@ matrix:
   include:
     # Only run HHVM against trunk for now.
     - php: hhvm
-      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.4
+      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.8
     # Only run nightly against trunk.
     - php: nightly
-      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.4
+      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.8
   exclude:
     # The codesniff pass only needs to be run once, I chose PHP 5.3, since WPCS requires it.
     - php: 5.2
@@ -39,6 +39,10 @@ matrix:
       env: TRAVISCI_RUN=codesniff
     - php: 7.0
       env: TRAVISCI_RUN=codesniff
+    - php: 7.1
+      env: TRAVISCI_RUN=codesniff
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=2.6.8
   allow_failures:
     - php: hhvm
     - php: nightly
@@ -54,6 +58,7 @@ script:
     - codesniff-php-syntax
     - codesniff-php-autoloaders
     - codesniff-phpcs
+    - codesniff-strings
     - codesniff-jshint
     - codesniff-l10n
     - codesniff-xmllint
@@ -68,6 +73,7 @@ script:
     - phpunit-ajax
     - phpunit-ms-ajax
     - phpunit-ms-network-ajax
+    - wpcept-run
 
 after_script:
     - source $DEV_LIB_PATH/travis/after_script.sh
