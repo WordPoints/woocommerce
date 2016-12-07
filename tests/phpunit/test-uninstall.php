@@ -49,7 +49,7 @@ class WordPoints_WooCommerce_Uninstall_Test
 
 		if ( is_multisite() ) {
 
-			$blog_ids = get_sites( array( 'fields' => 'ids', 'number' => 0 ) );;
+			$blog_ids = get_sites( array( 'fields' => 'ids', 'number' => 0 ) );
 
 			$original_blog_id = get_current_blog_id();
 
