@@ -1,1 +1,16 @@
-dev-lib/phpunit/phpunit.uninstall.xml.dist
+<phpunit
+		bootstrap="dev-lib/phpunit/module-bootstrap.php"
+		backupGlobals="false"
+		colors="true"
+	>
+	<testsuites>
+		<testsuite>
+			<file>tests/phpunit/test-uninstall.php</file>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist>
+			<directory suffix=".php">src/</directory>
+		</whitelist>
+	</filter>
+</phpunit>
