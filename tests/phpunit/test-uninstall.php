@@ -8,48 +8,12 @@
  */
 
 /**
- * Test that the module unintalls itself properly.
+ * Test that the module uninstalls itself properly.
  *
  * @since 1.0.0
- *
- * @group uninstall
  */
 class WordPoints_WooCommerce_Uninstall_Test
-	extends WordPoints_Module_Uninstall_UnitTestCase {
-
-	//
-	// Protected properties.
-	//
-
-	/**
-	 * @since 1.0.0
-	 */
-	protected $module_file = 'woocommerce/woocommerce.php';
-
-	/**
-	 * Whether the tests are being run with the module is network-activated.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @type bool $network_wide
-	 */
-	protected $network_wide = false;
-
-	//
-	// Public methods.
-	//
-
-	/**
-	 * Set up for the tests.
-	 *
-	 * @since 1.0.0
-	 */
-	public function setUp() {
-
-		$this->simulation_file = WORDPOINTS_WC_TESTS_DIR . '/includes/usage-simulator.php';
-
-		parent::setUp();
-	}
+	extends WordPoints_Dev_Lib_PHPUnit_TestCase_Module_Uninstall {
 
 	/**
 	 * Test installation and uninstallation.
@@ -85,7 +49,7 @@ class WordPoints_WooCommerce_Uninstall_Test
 
 		if ( is_multisite() ) {
 
-			$blog_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
+			$blog_ids = get_sites( array( 'fields' => 'ids', 'number' => 0 ) );
 
 			$original_blog_id = get_current_blog_id();
 
@@ -102,7 +66,7 @@ class WordPoints_WooCommerce_Uninstall_Test
 
 			switch_to_blog( $original_blog_id );
 
-			// See http://wordpress.stackexchange.com/a/89114/27757
+			// See https://wordpress.stackexchange.com/a/89114/27757
 			unset( $GLOBALS['_wp_switched_stack'] );
 			$GLOBALS['switched'] = false;
 

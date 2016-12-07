@@ -140,7 +140,7 @@ msgid "J.D. Grimes"
 msgstr ""
 
 #. Author URI of the module
-msgid "http://codesymphony.co/"
+msgid "https://codesymphony.co/"
 msgstr ""
 
 #. Module Name of the module
