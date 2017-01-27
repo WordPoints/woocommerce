@@ -14,8 +14,18 @@ php:
 
 env:
     - TRAVISCI_RUN=codesniff
-    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master WC_VERSION=2.6.8
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=2.6.8
+    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master WC_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master WC_VERSION=2.6.13
+    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=stable WC_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=stable WC_VERSION=2.6.13
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=2.6.13
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=stable WC_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=stable WC_VERSION=2.6.13
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=2.6.13
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable WC_VERSION=master
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable WC_VERSION=2.6.13
 
 sudo: false
 
@@ -23,10 +33,10 @@ matrix:
   include:
     # Only run HHVM against trunk for now.
     - php: hhvm
-      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.8
+      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.13
     # Only run nightly against trunk.
     - php: nightly
-      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.8
+      env: TRAVISCI_RUN=phpunit WP_VERSION=master WC_VERSION=2.6.13
   exclude:
     # The codesniff pass only needs to be run once, I chose PHP 5.3, since WPCS requires it.
     - php: 5.2
@@ -42,7 +52,13 @@ matrix:
     - php: 7.1
       env: TRAVISCI_RUN=codesniff
     - php: 7.1
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=2.6.8
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=master
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=2.6.13
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable WC_VERSION=master
+    - php: 7.1
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable WC_VERSION=2.6.13
   allow_failures:
     - php: hhvm
     - php: nightly
