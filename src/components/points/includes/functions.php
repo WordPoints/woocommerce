@@ -20,7 +20,14 @@ function wordpoints_points_logs_woocommerce_points_gateway(
 
 		$order = new WC_Order( $meta['order_id'] );
 
-		if ( $order->id ) {
+		// Back-compat for pre-WC 2.7.0.
+		if ( ! method_exists( $order, 'get_id' ) ) {
+			$order_id = $order->id;
+		} else {
+			$order_id = $order->get_id();
+		}
+
+		if ( $order_id ) {
 
 			/* translators: order number */
 			return sprintf(
@@ -52,7 +59,14 @@ function wordpoints_points_logs_woocommerce_points_gateway_refund(
 
 		$order = new WC_Order( $meta['order_id'] );
 
-		if ( $order->id ) {
+		// Back-compat for pre-WC 2.7.0.
+		if ( ! method_exists( $order, 'get_id' ) ) {
+			$order_id = $order->id;
+		} else {
+			$order_id = $order->get_id();
+		}
+
+		if ( $order_id ) {
 
 			/* translators: order number */
 			return sprintf(

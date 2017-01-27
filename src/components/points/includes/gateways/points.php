@@ -146,8 +146,15 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		$order = wc_get_order( $order_id );
 		$total = round( $order->get_total() * $this->settings['conversion_rate'] );
 
+		// Back-compat for pre-WC 2.7.0.
+		if ( ! method_exists( $order, 'get_user_id' ) ) {
+			$user_id = $order->user_id;
+		} else {
+			$user_id = $order->get_user_id();
+		}
+
 		$user_points = wordpoints_get_points(
-			$order->user_id
+			$user_id
 			, $this->settings['points_type']
 		);
 
@@ -166,7 +173,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		}
 
 		$result = wordpoints_subtract_points(
-			$order->user_id
+			$user_id
 			, $total
 			, $this->settings['points_type']
 			, 'woocommerce_points_gateway'
@@ -212,8 +219,15 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 		$refund = round( $amount * $this->settings['conversion_rate'] );
 
+		// Back-compat for pre-WC 2.7.0.
+		if ( ! method_exists( $order, 'get_user_id' ) ) {
+			$user_id = $order->user_id;
+		} else {
+			$user_id = $order->get_user_id();
+		}
+
 		$result = wordpoints_add_points(
-			$order->user_id
+			$user_id
 			, $refund
 			, $this->settings['points_type']
 			, 'woocommerce_points_gateway_refund'

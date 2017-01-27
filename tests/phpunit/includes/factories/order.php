@@ -106,7 +106,14 @@ class WordPoints_WooCommerce_UnitTest_Factory_For_Order extends WP_UnitTest_Fact
 
 		$order->calculate_totals();
 
-		return $order->id;
+		// Back-compat for pre-WC 2.7.0.
+		if ( ! method_exists( $order, 'get_id' ) ) {
+			$order_id = $order->id;
+		} else {
+			$order_id = $order->get_id();
+		}
+
+		return $order_id;
 	}
 
 	/**
