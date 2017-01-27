@@ -98,7 +98,7 @@ class WordPoints_WooCommerce_UnitTest_Factory_For_Order extends WP_UnitTest_Fact
 		}
 
 		foreach ( $args['products'] as $product_id => $number ) {
-			$order->add_product( get_product( $product_id ), $number );
+			$order->add_product( wc_get_product( $product_id ), $number );
 		}
 
 		$order->set_address( $args['billing_address'], 'billing' );
