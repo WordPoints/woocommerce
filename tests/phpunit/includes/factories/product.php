@@ -93,7 +93,7 @@ class WordPoints_WooCommerce_UnitTest_Factory_For_Product extends WP_UnitTest_Fa
 			return $result;
 		}
 
-		foreach ( $this->custom_field as $field ) {
+		foreach ( $this->custom_fields as $field ) {
 			if ( isset( $args[ $field ] ) ) {
 				update_post_meta( $post_id, $field, $args[ $field ] );
 			}
