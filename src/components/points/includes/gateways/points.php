@@ -139,7 +139,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	/**
 	 * Process the payment and return the result.
 	 *
-	 * @return array
+	 * @since 1.0.0
 	 */
 	public function process_payment( $order_id ) {
 
@@ -169,7 +169,10 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 				, 'error'
 			);
 
-			return;
+			return array(
+				'result'   => 'fail',
+				'redirect' => '',
+			);
 		}
 
 		$result = wordpoints_subtract_points(
@@ -191,7 +194,10 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 				, 'error'
 			);
 
-			return;
+			return array(
+				'result'   => 'fail',
+				'redirect' => '',
+			);
 		}
 
 		$order->payment_complete();
@@ -207,7 +213,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	/**
 	 * Process a refund if supported.
 	 *
-	 * @return  bool|wp_error True or false based on success, or a WP_Error object
+	 * @since 1.0.0
 	 */
 	public function process_refund( $order_id, $amount = null, $reason = '' ) {
 
