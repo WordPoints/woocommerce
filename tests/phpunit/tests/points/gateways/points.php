@@ -65,7 +65,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		wp_set_current_user( $this->original_user_id );
 
-		$gateways = WC()->payment_gateways->get_available_payment_gateways();
+		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
 		$gateways['wordpoints_points']->settings['conversion_rate'] = 1;
 
 		WC()->cart->empty_cart();
@@ -119,7 +119,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		wordpoints_set_points( $user_id, 3000, 'points', 'test' );
 
 		// Set the exchange rate.
-		$gateways = WC()->payment_gateways->get_available_payment_gateways();
+		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
 		$gateways['wordpoints_points']->settings['conversion_rate'] = 100;
 
 		$this->simulate_checkout();
@@ -136,7 +136,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		// Give the user points to make the purchase with.
 		$user_id = get_current_user_id();
-		$result = wordpoints_set_points( $user_id, 100, 'points', 'test' );
+		wordpoints_set_points( $user_id, 100, 'points', 'test' );
 
 		$this->simulate_checkout();
 
@@ -147,7 +147,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		$refund_amount = 20;
 		$refund_reason = 'Testing refunds.';
 
-		$refund = wc_create_refund(
+		wc_create_refund(
 			array(
 				'amount' => $refund_amount,
 				'reason' => $refund_reason,
@@ -155,7 +155,8 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 			)
 		);
 
-		$payment_gateways = WC()->payment_gateways->payment_gateways();
+		/** @var WC_Payment_Gateway[] $payment_gateways */
+		$payment_gateways = WC()->payment_gateways()->payment_gateways();
 
 		$this->assertArrayHasKey( 'wordpoints_points', $payment_gateways );
 		$this->assertTrue(
@@ -197,6 +198,10 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	 * it back, based on whether the order was created successfully.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param string $query The query SQL.
+	 *
+	 * @return string The query SQL.
 	 */
 	public function no_commit_queries( $query ) {
 
@@ -246,7 +251,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		try {
 			add_action( 'woocommerce_new_order', array( $this, 'capture_order_id' ) );
-			WC()->checkout->process_checkout();
+			WC()->checkout()->process_checkout();
 			remove_action( 'woocommerce_new_order', array( $this, 'capture_order_id' ) );
 		} catch ( Exception $e ) {
 			$this->assertEquals(
@@ -259,7 +264,6 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		wc_print_notices();
 		$messages = ob_get_clean();
 
-		$expected_errors = '';
 		if ( ! empty( $args['expected_errors'] ) ) {
 
 			$expected_errors = '			<li>'
@@ -281,9 +285,11 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	}
 
 	/**
-	 * Capture the ID of a new order when it's created by the chckout simulator.
+	 * Capture the ID of a new order when it's created by the checkout simulator.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param int $order_id The order ID.
 	 */
 	public function capture_order_id( $order_id ) {
 
