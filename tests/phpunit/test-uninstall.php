@@ -13,7 +13,7 @@
  * @since 1.0.0
  */
 class WordPoints_WooCommerce_Uninstall_Test
-	extends WordPoints_Dev_Lib_PHPUnit_TestCase_Module_Uninstall {
+	extends WordPoints_PHPUnit_TestCase_Module_Uninstall {
 
 	/**
 	 * Test installation and uninstallation.
@@ -21,8 +21,6 @@ class WordPoints_WooCommerce_Uninstall_Test
 	 * @since 1.0.0
 	 */
 	public function test_uninstall() {
-
-		global $wpdb;
 
 		/*
 		 * Install.
@@ -59,7 +57,6 @@ class WordPoints_WooCommerce_Uninstall_Test
 
 				$this->assertNoUserOptionsWithPrefix( 'wordpoints_woocommerce' );
 				$this->assertNoOptionsWithPrefix( 'wordpoints_woocommerce' );
-				$this->assertNoOptionsWithPrefix( 'wordpoints_hook-wordpoints_wc' );
 				$this->assertNoOptionsWithPrefix( 'widget_wordpoints_woocommerce' );
 				$this->assertNoCommentMetaWithPrefix( 'wordpoints_woocommerce' );
 			}
@@ -73,7 +70,6 @@ class WordPoints_WooCommerce_Uninstall_Test
 		} else {
 
 			$this->assertNoOptionsWithPrefix( 'wordpoints_woocommerce' );
-			$this->assertNoOptionsWithPrefix( 'wordpoints_hook-wordpoints_wc' );
 			$this->assertNoOptionsWithPrefix( 'widget_wordpoints_woocommerce' );
 			$this->assertNoCommentMetaWithPrefix( 'wordpoints_woocommerce' );
 		}

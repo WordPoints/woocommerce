@@ -21,8 +21,7 @@
  */
 function wordpointswctests_simulate_usage() {
 
-	// Add each of our points hooks.
-	wordpointstests_add_points_hook( 'wordpoints_registration_points_hook' );
+	// Do nothing right now.
 }
 
 // Include the test functions so we can simulate adding points hooks and widgets.
