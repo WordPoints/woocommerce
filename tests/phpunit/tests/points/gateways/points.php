@@ -66,7 +66,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		wp_set_current_user( $this->original_user_id );
 
 		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate'] = 1;
+		$gateways['wordpoints_points']->settings['conversion_rate'] = $gateways['wordpoints_points']->form_fields['conversion_rate']['default'];
 
 		WC()->cart->empty_cart();
 
@@ -82,11 +82,11 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		// Give the user points to make the purchase with.
 		$user_id = get_current_user_id();
-		wordpoints_set_points( $user_id, 100, 'points', 'test' );
+		wordpoints_set_points( $user_id, 10000, 'points', 'test' );
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 75, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertEquals( 7500, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
@@ -96,7 +96,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	 */
 	public function test_insufficient_points() {
 
-		// Give the user points to make the purchase with.
+		// Give the user (not enough) points to make the purchase with.
 		$user_id = get_current_user_id();
 		wordpoints_set_points( $user_id, 10, 'points', 'test' );
 
@@ -108,23 +108,23 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	}
 
 	/**
-	 * Test when the exchange rate is 100.
+	 * Test when the exchange rate is 1.
 	 *
 	 * @since 1.0.0
 	 */
-	public function test_100_exchange_rate() {
+	public function test_1_exchange_rate() {
 
 		// Give the user points to make the purchase with.
 		$user_id = get_current_user_id();
-		wordpoints_set_points( $user_id, 3000, 'points', 'test' );
+		wordpoints_set_points( $user_id, 30, 'points', 'test' );
 
 		// Set the exchange rate.
 		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate'] = 100;
+		$gateways['wordpoints_points']->settings['conversion_rate'] = 1;
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 500, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertEquals( 5, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
@@ -136,11 +136,11 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		// Give the user points to make the purchase with.
 		$user_id = get_current_user_id();
-		wordpoints_set_points( $user_id, 100, 'points', 'test' );
+		wordpoints_set_points( $user_id, 10000, 'points', 'test' );
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 75, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertEquals( 7500, wordpoints_get_points( $user_id, 'points' ) );
 
 		// Refund the order.
 		$order_id = $this->checkout_order_id;
@@ -171,7 +171,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		$this->assertTrue( $result );
 
-		$this->assertEquals( 95, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertEquals( 9500, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	//

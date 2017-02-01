@@ -124,13 +124,13 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 			),
 			'conversion_rate' => array(
 				'title'       => __( 'Conversion Rate', 'wordpoints-woocommerce' ),
-				'type'        => 'select',
+				'type'        => 'number',
+				'default'     => '100',
 				'desc_tip'    => true,
-				'description' => __( 'How much should points be worth relative the currency&#2817;s primary denomination?', 'wordpoints-woocommerce' ),
-				'default'     => '1',
-				'options'     => array(
-					'1'   => __( '1 point is worth 1 monetary unit', 'wordpoints-woocommerce' ),
-					'100' => __( '1 point is worth 0.01 monetary units', 'wordpoints-woocommerce' ),
+				'description' => sprintf(
+					// translators: The formatted price (i.e., "$1.00").
+					__( 'How many points should be counted as worth one monetary unit? For example, enter 100 if each 100 points should equal %s.', 'wordpoints-woocommerce' )
+					, wc_price( 1 )
 				),
 			),
 		);
@@ -245,6 +245,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		}
 
 		$order->add_order_note(
+			// translators: The number of points refunded.
 			sprintf( __( 'Refunded %s points.', 'wordpoints-woocommerce' ), $refund )
 		);
 
