@@ -12,20 +12,10 @@
  *
  * @since 1.0.0
  *
- * @group gateways
+ * @covers WordPoints_WooCommerce_Gateway_Points
  */
-class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_Points_UnitTestCase {
-
-	/**
-	 * The ID of the original current user.
-	 *
-	 * This is overridden during the tests.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @type int $original_user_id
-	 */
-	protected $original_user_id;
+class WordPoints_WooCommerce_Points_Gateway_Test
+	extends WordPoints_WooCommerce_Points_UnitTestCase {
 
 	/**
 	 * The ID of the order created by the checkout simulator.
@@ -45,13 +35,14 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		parent::setUp();
 
-		$this->original_user_id = get_current_user_id();
 		wp_set_current_user( $this->factory->user->create() );
 
 		wordpoints_update_maybe_network_option(
 			'wordpoints_default_points_type'
 			, 'points'
 		);
+
+		WC()->payment_gateways()->init();
 
 		add_filter( 'query', array( $this, 'no_commit_queries' ) );
 	}
@@ -62,11 +53,6 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	 * @since 1.0.0
 	 */
 	public function tearDown() {
-
-		wp_set_current_user( $this->original_user_id );
-
-		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate'] = $gateways['wordpoints_points']->form_fields['conversion_rate']['default'];
 
 		WC()->cart->empty_cart();
 
@@ -101,7 +87,9 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		wordpoints_set_points( $user_id, 10, 'points', 'test' );
 
 		$this->simulate_checkout(
-			array( 'expected_errors' => 'Payment error: You have insufficient points to make this purchase.' )
+			array(
+				'expected_errors' => 'Payment error: You have insufficient points to make this purchase.',
+			)
 		);
 
 		$this->assertEquals( 10, wordpoints_get_points( $user_id, 'points' ) );
