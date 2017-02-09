@@ -37,6 +37,13 @@
             }
         },
         "text": {
+            "105": {
+                "name": "array",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 1,
+                "parentheses": 1
+            },
             "112": {
                 "name": "array",
                 "type": "unknown",
@@ -46,6 +53,15 @@
             }
         },
         "select": {
+            "119": {
+                "name": "array",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 1,
+                "parentheses": 1
+            }
+        },
+        "number": {
             "127": {
                 "name": "array",
                 "type": "unknown",
@@ -54,17 +70,33 @@
                 "parentheses": 1
             }
         },
-        "1": {
-            "130": {
+        "100": {
+            "128": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
-                "arg_count": 4,
+                "arg_count": 2,
+                "parentheses": 1
+            }
+        },
+        "fail": {
+            "173": {
+                "name": "array",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            },
+            "198": {
+                "name": "array",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
                 "parentheses": 1
             }
         },
         "success": {
-            "195": {
+            "208": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
@@ -78,7 +110,49 @@
             "20": false
         },
         "WordPoints_WooCommerce_Un_Installer": {
-            "34": false
+            "23": false
+        }
+    },
+    "\/classes\/entity\/order\/attr.php": {
+        "post": {
+            "21": false
+        }
+    },
+    "\/classes\/entity\/order\/created\/via.php": {
+        "text": {
+            "21": false
+        }
+    },
+    "\/classes\/entity\/order\/date\/created.php": {
+        "Y-m-d H:i:s": {
+            "51": {
+                "name": "date",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            }
+        }
+    },
+    "\/classes\/entity\/order\/total\/grand.php": {
+        "total": {
+            "26": false
+        }
+    },
+    "\/classes\/entity\/order.php": {
+        "ID": {
+            "30": false
+        }
+    },
+    "\/includes\/functions.php": {
+        "completed": {
+            "129": {
+                "name": "array",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            }
         }
     }
 }

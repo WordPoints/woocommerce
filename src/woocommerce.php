@@ -29,6 +29,8 @@ WordPoints_Modules::register(
 	, __FILE__
 );
 
+WordPoints_Class_Autoloader::register_dir( dirname( __FILE__ ) . '/classes' );
+
 /**
  * The module's constants.
  *
@@ -42,6 +44,13 @@ include_once( dirname( __FILE__ ) . '/includes/constants.php' );
  * @since 1.0.0
  */
 include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/includes/functions.php' );
+
+/**
+ * Hooks up the module's action and filter hooks.
+ *
+ * @since 1.1.0
+ */
+include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/includes/actions.php' );
 
 if ( wordpoints_component_is_active( 'points' ) ) {
 

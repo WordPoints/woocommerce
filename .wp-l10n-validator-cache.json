@@ -1,13 +1,13 @@
 {
     "files": {
         "\/components\/points\/includes\/functions.php": {
-            "size": 1634,
-            "hash": "268e6793315b680fbdb33bc00ee9ca31",
+            "size": 1948,
+            "hash": "d83de4432f89b1026ceac490fc3f6dbb",
             "errors": false
         },
         "\/components\/points\/includes\/gateways\/points.php": {
-            "size": 6250,
-            "hash": "ea3dd18ff0de80df7d129dac4e987b2a",
+            "size": 6612,
+            "hash": "e77317938d8b217f0b0e067ccdf513d0",
             "errors": false
         },
         "\/components\/points\/points.php": {
@@ -16,8 +16,8 @@
             "errors": false
         },
         "\/includes\/class-un-installer.php": {
-            "size": 526,
-            "hash": "3fafcdde71acee86a0be045db47bc446",
+            "size": 352,
+            "hash": "df640860649c729a502ed66823342b95",
             "errors": false
         },
         "\/includes\/constants.php": {
@@ -26,13 +26,103 @@
             "errors": false
         },
         "\/includes\/functions.php": {
-            "size": 899,
-            "hash": "e3862371baeae43c74ecc2ff489613f6",
+            "size": 5077,
+            "hash": "8ecfd195dd290dd6dc2053013959adce",
             "errors": false
         },
         "\/woocommerce.php": {
-            "size": 1191,
-            "hash": "a14114c7cdf4aa604cadb6f93793548d",
+            "size": 1506,
+            "hash": "9eeb3134b9cd8339d723f5816d96a190",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/attr.php": {
+            "size": 1225,
+            "hash": "8f8d83219b2eac7c854355c77ee2ca1f",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/created\/via.php": {
+            "size": 594,
+            "hash": "fcd56fdb66e0af7d010c8b612a95d8cc",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/customer\/note.php": {
+            "size": 808,
+            "hash": "a304bf9f7e062b78b8408a2da1fbf841",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/customer.php": {
+            "size": 1378,
+            "hash": "081bba099b75932174a81ea0b4258ee7",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/date\/completed.php": {
+            "size": 658,
+            "hash": "9d6e72aaeee5a263fe1ffdd87d6c2e96",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/date\/created.php": {
+            "size": 877,
+            "hash": "a2f510deedcb6e72c3d3dffc62662ea8",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/date\/paid.php": {
+            "size": 636,
+            "hash": "5aed13d723cc588fc07e52304348ab61",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/tax\/cart.php": {
+            "size": 725,
+            "hash": "a934e2067b8af651dca051e535527d61",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/tax\/shipping.php": {
+            "size": 684,
+            "hash": "f341b865d6c635df30fa67df2a716d2f",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/total\/discount.php": {
+            "size": 657,
+            "hash": "8d2473eaa7832d71163f6578e93be20c",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/total\/grand.php": {
+            "size": 672,
+            "hash": "6486d03d2236af6b1564826a7d36b5b3",
+            "errors": false
+        },
+        "\/classes\/entity\/order\/total\/shipping.php": {
+            "size": 683,
+            "hash": "632466bf314141dd6a66d327bd1d529a",
+            "errors": false
+        },
+        "\/classes\/entity\/order.php": {
+            "size": 1261,
+            "hash": "dcd59629a7177ff904f4d58d48db592d",
+            "errors": false
+        },
+        "\/classes\/entity\/restriction\/order\/nonpublic.php": {
+            "size": 796,
+            "hash": "c06ce34a520adaa23a2f790dccae588e",
+            "errors": false
+        },
+        "\/classes\/hook\/action\/order\/delete.php": {
+            "size": 505,
+            "hash": "78beb8d550bb7a5262358b7e2cecae53",
+            "errors": false
+        },
+        "\/classes\/hook\/event\/order\/complete.php": {
+            "size": 755,
+            "hash": "bdabf36e5486c7bfd604dcda523486f5",
+            "errors": false
+        },
+        "\/classes\/index.php": {
+            "size": 1555,
+            "hash": "d6c8b5c3cf4a0b2a13a7dc6dfc0e4d01",
+            "errors": false
+        },
+        "\/includes\/actions.php": {
+            "size": 572,
+            "hash": "bbad33804738274c45a61ebfbbbd0cef",
             "errors": false
         }
     },
