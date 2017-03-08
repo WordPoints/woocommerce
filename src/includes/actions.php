@@ -7,6 +7,11 @@
  * @since   1.1.0
  */
 
+// Don't hook up the actions if WooCommerce isn't active.
+if ( ! function_exists( 'wc_get_order' ) ) {
+	return;
+}
+
 add_action( 'wordpoints_init_app_registry-apps-entities', 'wordpoints_woocommerce_entities_init' );
 add_action( 'wordpoints_init_app_registry-entities-restrictions-know', 'wordpoints_woocommerce_entity_restrictions_know_init' );
 
