@@ -14,18 +14,19 @@
  *
  * @covers WordPoints_WooCommerce_Entity_Order
  * @covers WordPoints_WooCommerce_Entity_Order_Attr
- * @covers WordPoints_WooCommerce_Entity_Order_Tax_Cart
  * @covers WordPoints_WooCommerce_Entity_Order_Created_Via
  * @covers WordPoints_WooCommerce_Entity_Order_Customer
  * @covers WordPoints_WooCommerce_Entity_Order_Customer_Note
  * @covers WordPoints_WooCommerce_Entity_Order_Date_Completed
  * @covers WordPoints_WooCommerce_Entity_Order_Date_Created
  * @covers WordPoints_WooCommerce_Entity_Order_Date_Paid
+ * @covers WordPoints_WooCommerce_Entity_Order_Tax_Cart
+ * @covers WordPoints_WooCommerce_Entity_Order_Tax_Discount
+ * @covers WordPoints_WooCommerce_Entity_Order_Tax_Shipping
+ * @covers WordPoints_WooCommerce_Entity_Order_Tax_Total
  * @covers WordPoints_WooCommerce_Entity_Order_Total_Discount
  * @covers WordPoints_WooCommerce_Entity_Order_Total_Grand
- * @covers WordPoints_WooCommerce_Entity_Order_Tax_Shipping
  * @covers WordPoints_WooCommerce_Entity_Order_Total_Shipping
- * @covers WordPoints_WooCommerce_Entity_Order_Tax_Total
  */
 class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities {
 
@@ -169,6 +170,21 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 									'type'             => 'meta_table',
 									'table_name'       => $wpdb->postmeta,
 									'meta_key'         => '_cart_discount',
+									'meta_key_field'   => 'meta_key',
+									'meta_value_field' => 'meta_value',
+									'entity_id_field'  => 'post_id',
+								),
+							),
+						),
+						'discount_tax' => array(
+							'class'     => 'WordPoints_WooCommerce_Entity_Order_Tax_Discount',
+							'data_type' => 'decimal_number',
+							'storage_info' => array(
+								'type' => 'db',
+								'info' => array(
+									'type'             => 'meta_table',
+									'table_name'       => $wpdb->postmeta,
+									'meta_key'         => '_cart_discount_tax',
 									'meta_key_field'   => 'meta_key',
 									'meta_value_field' => 'meta_value',
 									'entity_id_field'  => 'post_id',

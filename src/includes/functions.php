@@ -64,6 +64,7 @@ function wordpoints_woocommerce_entities_init( $entities ) {
 	$children->register( 'woocommerce_order', 'date_completed', 'WordPoints_WooCommerce_Entity_Order_Date_Completed' );
 	$children->register( 'woocommerce_order', 'date_created', 'WordPoints_WooCommerce_Entity_Order_Date_Created' );
 	$children->register( 'woocommerce_order', 'date_paid', 'WordPoints_WooCommerce_Entity_Order_Date_Paid' );
+	$children->register( 'woocommerce_order', 'discount_tax', 'WordPoints_WooCommerce_Entity_Order_Tax_Discount' );
 	$children->register( 'woocommerce_order', 'discount_total', 'WordPoints_WooCommerce_Entity_Order_Total_Discount' );
 	$children->register( 'woocommerce_order', 'grand_total', 'WordPoints_WooCommerce_Entity_Order_Total_Grand' );
 	$children->register( 'woocommerce_order', 'shipping_tax', 'WordPoints_WooCommerce_Entity_Order_Tax_Shipping' );

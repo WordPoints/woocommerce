@@ -18,6 +18,7 @@ return array(
 	'wordpoints_woocommerce_entity_order_date_created' => 'entity/order/date/created.php',
 	'wordpoints_woocommerce_entity_order_date_paid' => 'entity/order/date/paid.php',
 	'wordpoints_woocommerce_entity_order_tax_cart' => 'entity/order/tax/cart.php',
+	'wordpoints_woocommerce_entity_order_tax_discount' => 'entity/order/tax/discount.php',
 	'wordpoints_woocommerce_entity_order_tax_shipping' => 'entity/order/tax/shipping.php',
 	'wordpoints_woocommerce_entity_order_total_discount' => 'entity/order/total/discount.php',
 	'wordpoints_woocommerce_entity_order_total_grand' => 'entity/order/total/grand.php',
