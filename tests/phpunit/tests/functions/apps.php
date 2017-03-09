@@ -105,6 +105,7 @@ class WordPoints_WooCommerce_Apps_Functions_Test
 		wordpoints_woocommerce_hook_events_init( $events );
 
 		$this->assertEventRegistered( 'post_publish\\product' );
+		$this->assertEventRegistered( 'comment_leave\\product' );
 		$this->assertEventRegistered( 'woocommerce_order_complete', 'woocommerce_order' );
 	}
 }

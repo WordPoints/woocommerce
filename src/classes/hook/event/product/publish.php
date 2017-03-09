@@ -26,7 +26,7 @@ class WordPoints_WooCommerce_Hook_Event_Product_Publish
 	 * @since 1.1.0
 	 */
 	public function get_description() {
-		return __( 'When a Product is published.', 'wordpoints-woocommerce' );
+		return __( 'When a Product is published on the WooCommerce-powered store.', 'wordpoints-woocommerce' );
 	}
 
 	/**

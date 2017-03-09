@@ -162,6 +162,11 @@ function wordpoints_woocommerce_hook_events_init( $events ) {
 	);
 
 	$events->register(
+		'comment_leave\\product'
+		, 'WordPoints_WooCommerce_Hook_Event_Product_Review_Leave'
+	);
+
+	$events->register(
 		'woocommerce_order_complete'
 		, 'WordPoints_WooCommerce_Hook_Event_Order_Complete'
 		, array(

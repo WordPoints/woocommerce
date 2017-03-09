@@ -27,6 +27,7 @@ return array(
 	'wordpoints_woocommerce_hook_action_order_delete' => 'hook/action/order/delete.php',
 	'wordpoints_woocommerce_hook_event_order_complete' => 'hook/event/order/complete.php',
 	'wordpoints_woocommerce_hook_event_product_publish' => 'hook/event/product/publish.php',
+	'wordpoints_woocommerce_hook_event_product_review_leave' => 'hook/event/product/review/leave.php',
 	// }
 );
 
