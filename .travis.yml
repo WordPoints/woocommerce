@@ -15,11 +15,8 @@ php:
 env:
     - TRAVISCI_RUN=codesniff
     - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=master WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=master WORDPOINTS_VERSION=stable WC_VERSION=master
     - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=stable WC_VERSION=master
     - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable WC_VERSION=master
 
 sudo: false
 
@@ -47,8 +44,6 @@ matrix:
       env: TRAVISCI_RUN=codesniff
     - php: 7.1
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=master WC_VERSION=master
-    - php: 7.1
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.6 WORDPOINTS_VERSION=stable WC_VERSION=master
   allow_failures:
     - php: hhvm
     - php: nightly
