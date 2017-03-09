@@ -33,12 +33,14 @@ require_once WORDPOINTS_WC_TESTS_DIR . '/includes/factories/product.php';
  */
 require_once WORDPOINTS_WC_TESTS_DIR . '/includes/factories/order.php';
 
-/**
- * Load the WooCommerce tests bootstrap.
- *
- * @since 1.1.0
- */
-require_once WP_PLUGIN_DIR . '/woocommerce/tests/bootstrap.php';
+if ( ! WordPoints_PHPUnit_Bootstrap_Loader::instance()->running_uninstall_tests() ) {
+	/**
+	 * Load the WooCommerce tests bootstrap.
+	 *
+	 * @since 1.1.0
+	 */
+	require_once WP_PLUGIN_DIR . '/woocommerce/tests/bootstrap.php';
+}
 
 // wc_create_order() expects this to be set.
 if ( ! isset( $_SERVER['REMOTE_ADDR'] ) ) {
