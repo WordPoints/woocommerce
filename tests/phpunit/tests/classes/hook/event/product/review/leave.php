@@ -37,8 +37,6 @@ class WordPoints_WooCommerce_Hook_Event_Product_Review_Leave_Test
 	 */
 	protected $expected_targets = array(
 		array( 'comment\\', 'author', 'user' ),
-		array( 'comment\\', 'parent', 'comment\\', 'author', 'user' ),
-		array( 'comment\\', 'parent', 'comment\\', 'post\\', 'post\\', 'author', 'user' ),
 		array( 'comment\\', 'post\\', 'post\\', 'author', 'user' ),
 	);
 
