@@ -267,9 +267,5 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		return $methods;
 	}
 }
-add_filter(
-	'woocommerce_payment_gateways'
-	, 'WordPoints_WooCommerce_Gateway_Points::add_gateway_class'
-);
 
 // EOF

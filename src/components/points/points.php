@@ -7,6 +7,10 @@
  * @since 1.0.0
  */
 
+WordPoints_Class_Autoloader::register_dir(
+	WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes'
+);
+
 /**
  * The general points-related functions.
  *
@@ -14,14 +18,11 @@
  */
 include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/functions.php' );
 
-if ( class_exists( 'WC_Payment_Gateway' ) ) {
-
-	/**
-	 * The points payment gateway.
-	 *
-	 * @since 1.0.0
-	 */
-	include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/gateways/points.php' );
-}
+/**
+ * Hooks up the points-related actions.
+ *
+ * @since 1.1.0
+ */
+include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/actions.php' );
 
 // EOF
