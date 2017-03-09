@@ -155,6 +155,12 @@ function wordpoints_woocommerce_hook_actions_init( $actions ) {
  */
 function wordpoints_woocommerce_hook_events_init( $events ) {
 
+	// Update the Publish Product event class so as to use our translation strings.
+	$events->register(
+		'post_publish\\product'
+		, 'WordPoints_WooCommerce_Hook_Event_Product_Publish'
+	);
+
 	$events->register(
 		'woocommerce_order_complete'
 		, 'WordPoints_WooCommerce_Hook_Event_Order_Complete'

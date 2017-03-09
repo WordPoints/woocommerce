@@ -26,6 +26,7 @@ return array(
 	'wordpoints_woocommerce_entity_restriction_order_nonpublic' => 'entity/restriction/order/nonpublic.php',
 	'wordpoints_woocommerce_hook_action_order_delete' => 'hook/action/order/delete.php',
 	'wordpoints_woocommerce_hook_event_order_complete' => 'hook/event/order/complete.php',
+	'wordpoints_woocommerce_hook_event_product_publish' => 'hook/event/product/publish.php',
 	// }
 );
 

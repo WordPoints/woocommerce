@@ -12,15 +12,15 @@
  *
  * @since 1.1.0
  *
- * @coversNothing
+ * @covers WordPoints_WooCommerce_Hook_Event_Product_Publish
  */
-class WordPoints_WooCommerce_Hook_Event_Publish_Product_Test
+class WordPoints_WooCommerce_Hook_Event_Product_Publish_Test
 	extends WordPoints_PHPUnit_TestCase_Hook_Event_Dynamic {
 
 	/**
 	 * @since 1.1.0
 	 */
-	protected $event_class = 'WordPoints_Hook_Event_Post_Publish';
+	protected $event_class = 'WordPoints_WooCommerce_Hook_Event_Product_Publish';
 
 	/**
 	 * @since 1.1.0
