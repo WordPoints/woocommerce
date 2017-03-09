@@ -74,7 +74,7 @@ class WordPoints_WooCommerce_Uninstall_Test
 			$this->assertNoCommentMetaWithPrefix( 'wordpoints_woocommerce' );
 		}
 
-	} // function test_uninstall()
+	} // End public function test_uninstall().
 }
 
 // EOF

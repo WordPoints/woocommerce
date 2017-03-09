@@ -44,6 +44,8 @@ wp_register_plugin_realpath( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' );
 
 require WP_PLUGIN_DIR . '/woocommerce/woocommerce.php';
 
+// @codingStandardsIgnoreStart
 do_action( 'activate_woocommerce/woocommerce.php', false );
+// @codingStandardsIgnoreEnd
 
 // EOF

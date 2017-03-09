@@ -29,8 +29,8 @@ function wordpoints_points_logs_woocommerce_points_gateway(
 
 		if ( $order_id ) {
 
-			/* translators: order number */
 			return sprintf(
+				// translators: Order number.
 				_x( 'Payment for order %s', 'points log description', 'wordpoints-woocommerce' )
 				, $order->get_order_number()
 			);
@@ -68,8 +68,8 @@ function wordpoints_points_logs_woocommerce_points_gateway_refund(
 
 		if ( $order_id ) {
 
-			/* translators: order number */
 			return sprintf(
+				// translators: Order number.
 				_x( 'Refunded payment for order %s', 'points log description', 'wordpoints-woocommerce' )
 				, $order->get_order_number()
 			);

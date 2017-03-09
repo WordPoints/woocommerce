@@ -72,7 +72,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 7500, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
@@ -92,7 +92,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 			)
 		);
 
-		$this->assertEquals( 10, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 10, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
@@ -112,7 +112,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 5, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 5, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
@@ -128,7 +128,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 7500, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
 
 		// Refund the order.
 		$order_id = $this->checkout_order_id;
@@ -159,7 +159,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 
 		$this->assertTrue( $result );
 
-		$this->assertEquals( 9500, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 9500, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	//
@@ -242,7 +242,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 			WC()->checkout()->process_checkout();
 			remove_action( 'woocommerce_new_order', array( $this, 'capture_order_id' ) );
 		} catch ( Exception $e ) {
-			$this->assertEquals(
+			$this->assertSame(
 				'WordPoints_WooCommerce_Points_Gateway_Test'
 				, $e->getMessage()
 			);
@@ -266,7 +266,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 
 		}
 
-		$this->assertEquals(
+		$this->assertSame(
 			'<ul class="woocommerce-error">' . "\n" . $expected_errors . '	</ul>'
 			, trim( $messages )
 		);
