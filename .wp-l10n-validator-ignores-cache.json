@@ -37,13 +37,6 @@
             }
         },
         "text": {
-            "105": {
-                "name": "array",
-                "type": "unknown",
-                "args_started": true,
-                "arg_count": 1,
-                "parentheses": 1
-            },
             "112": {
                 "name": "array",
                 "type": "unknown",
@@ -145,8 +138,26 @@
         }
     },
     "\/includes\/functions.php": {
+        "comment\\\\product": {
+            "77": {
+                "name": "$children->deregister",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 0,
+                "parentheses": 1
+            }
+        },
+        "parent": {
+            "77": {
+                "name": "$children->deregister",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 1,
+                "parentheses": 1
+            }
+        },
         "completed": {
-            "129": {
+            "136": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
