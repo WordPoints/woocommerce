@@ -23,6 +23,7 @@ return array(
 	'wordpoints_woocommerce_entity_order_total_discount' => 'entity/order/total/discount.php',
 	'wordpoints_woocommerce_entity_order_total_grand' => 'entity/order/total/grand.php',
 	'wordpoints_woocommerce_entity_order_total_shipping' => 'entity/order/total/shipping.php',
+	'wordpoints_woocommerce_entity_product_review' => 'entity/product/review.php',
 	'wordpoints_woocommerce_entity_restriction_order_nonpublic' => 'entity/restriction/order/nonpublic.php',
 	'wordpoints_woocommerce_hook_action_order_delete' => 'hook/action/order/delete.php',
 	'wordpoints_woocommerce_hook_event_order_complete' => 'hook/event/order/complete.php',

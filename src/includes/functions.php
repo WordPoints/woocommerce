@@ -69,6 +69,12 @@ function wordpoints_woocommerce_entities_init( $entities ) {
 	$children->register( 'woocommerce_order', 'grand_total', 'WordPoints_WooCommerce_Entity_Order_Total_Grand' );
 	$children->register( 'woocommerce_order', 'shipping_tax', 'WordPoints_WooCommerce_Entity_Order_Tax_Shipping' );
 	$children->register( 'woocommerce_order', 'shipping_total', 'WordPoints_WooCommerce_Entity_Order_Total_Shipping' );
+
+	// Register our own handler for product comments, to give them a custom title.
+	$entities->register( 'comment\\product', 'WordPoints_WooCommerce_Entity_Product_Review' );
+
+	// Deregister the comment parent, because reviews don't support replies.
+	$children->deregister( 'comment\\product', 'parent' );
 }
 
 /**

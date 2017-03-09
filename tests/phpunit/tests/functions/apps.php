@@ -48,6 +48,9 @@ class WordPoints_WooCommerce_Apps_Functions_Test
 		$this->assertTrue( $children->is_registered( 'woocommerce_order', 'grand_total' ) );
 		$this->assertTrue( $children->is_registered( 'woocommerce_order', 'shipping_tax' ) );
 		$this->assertTrue( $children->is_registered( 'woocommerce_order', 'shipping_total' ) );
+
+		$this->assertTrue( $entities->is_registered( 'comment\\product' ) );
+		$this->assertFalse( $children->is_registered( 'comment\\product', 'parent' ) );
 	}
 
 	/**
