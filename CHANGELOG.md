@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
 
 ## [Unreleased]
 
+Nothing documented right now.
+
+## [1.1.0] - 2017-03-25
+
 ### Requirements
 
 - WordPoints 2.3+
@@ -71,6 +75,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
  - How many points to charge for the monetary amount can be set to 1 to 1 or 1 to 100.
 
 [unreleased]: https://github.com/WordPoints/woocommerce/compare/master...HEAD
+[1.1.0]: https://github.com/WordPoints/woocommerce/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/WordPoints/woocommerce/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/WordPoints/woocommerce/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/WordPoints/woocommerce/compare/...1.0.0
