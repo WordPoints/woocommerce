@@ -142,7 +142,7 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 								'type' => 'db',
 								'info' => array(
 									'type'  => 'field',
-									'field' => 'post_date',
+									'field' => 'post_date_gmt',
 								),
 							),
 						),

@@ -28,7 +28,7 @@ class WordPoints_WooCommerce_Entity_Order_Date_Created
 	/**
 	 * @since 1.1.0
 	 */
-	protected $field = 'post_date';
+	protected $field = 'post_date_gmt';
 
 	/**
 	 * @since 1.1.0
@@ -42,13 +42,13 @@ class WordPoints_WooCommerce_Entity_Order_Date_Created
 	 */
 	protected function get_attr_value_from_entity( WordPoints_Entity $entity ) {
 
-		$timestamp = $entity->get_the_attr_value( 'date_created' );
+		$datetime = $entity->get_the_attr_value( 'date_created' );
 
-		if ( ! $timestamp ) {
+		if ( ! $datetime instanceof DateTime ) {
 			return null;
 		}
 
-		return date( 'Y-m-d H:i:s', $timestamp );
+		return date( 'Y-m-d H:i:s', $datetime->getTimestamp() );
 	}
 }
 
