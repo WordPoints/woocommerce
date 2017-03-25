@@ -12,7 +12,7 @@
  *
  * @since 1.0.0
  */
-class WordPoints_WooCommerce_Points_UnitTestCase extends WordPoints_Points_UnitTestCase {
+class WordPoints_WooCommerce_Points_UnitTestCase extends WordPoints_PHPUnit_TestCase_Points {
 
 	/**
 	 * Add the custom factories on setup.

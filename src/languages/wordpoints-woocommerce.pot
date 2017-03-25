@@ -1,35 +1,142 @@
-# Copyright (C) 2016 J.D. Grimes
+# Copyright (C) 2017 J.D. Grimes
 # This file is distributed under the same license as the WordPoints WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPoints WooCommerce 1.0.2\n"
+"Project-Id-Version: WordPoints WooCommerce 1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-09 14:42:33+00:00\n"
+"POT-Creation-Date: 2017-03-25 19:14:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#. translators: order number
-#: components/points/includes/functions.php:27
+#: classes/entity/order/created/via.php:32
+msgctxt "order entity"
+msgid "Created Via"
+msgstr ""
+
+#: classes/entity/order/customer/note.php:37
+msgctxt "order entity"
+msgid "Customer Note"
+msgstr ""
+
+#: classes/entity/order/customer.php:53
+msgctxt "order entity"
+msgid "Customer"
+msgstr ""
+
+#: classes/entity/order/date/completed.php:37
+msgctxt "order entity"
+msgid "Date Completed"
+msgstr ""
+
+#: classes/entity/order/date/created.php:37
+msgctxt "order entity"
+msgid "Date Created"
+msgstr ""
+
+#: classes/entity/order/date/paid.php:37
+msgctxt "order entity"
+msgid "Date Paid"
+msgstr ""
+
+#: classes/entity/order/tax/cart.php:39
+msgctxt "order entity"
+msgid "Cart Tax"
+msgstr ""
+
+#: classes/entity/order/tax/discount.php:37
+msgctxt "order entity"
+msgid "Tax Discount"
+msgstr ""
+
+#: classes/entity/order/tax/shipping.php:37
+msgctxt "order entity"
+msgid "Shipping Tax"
+msgstr ""
+
+#: classes/entity/order/total/discount.php:37
+msgctxt "order entity"
+msgid "Discount"
+msgstr ""
+
+#: classes/entity/order/total/grand.php:37
+msgctxt "order entity"
+msgid "Grand Total"
+msgstr ""
+
+#: classes/entity/order/total/shipping.php:39
+msgctxt "order entity"
+msgid "Shipping"
+msgstr ""
+
+#: classes/entity/order.php:36
+msgctxt "entity title"
+msgid "Order"
+msgstr ""
+
+#: classes/entity/product/review.php:22
+msgid "Review"
+msgstr ""
+
+#: classes/hook/event/order/complete.php:23
+msgid "Order Complete"
+msgstr ""
+
+#: classes/hook/event/order/complete.php:30
+msgid "When an order placed through the WooCommerce store is completed."
+msgstr ""
+
+#: classes/hook/event/order/complete.php:37
+msgid "Order status changed."
+msgstr ""
+
+#: classes/hook/event/product/publish.php:22
+msgid "Publish Product"
+msgstr ""
+
+#: classes/hook/event/product/publish.php:29
+msgid "When a Product is published on the WooCommerce-powered store."
+msgstr ""
+
+#: classes/hook/event/product/publish.php:36
+msgid "Product removed."
+msgstr ""
+
+#: classes/hook/event/product/review/leave.php:22
+msgid "Reviewing a Product"
+msgstr ""
+
+#: classes/hook/event/product/review/leave.php:29
+msgid ""
+"When a user leaves a review for a Product sold through the WooCommerce-"
+"powered store."
+msgstr ""
+
+#: classes/hook/event/product/review/leave.php:36
+msgid "Review removed."
+msgstr ""
+
+#. translators: Order number.
+#: components/points/includes/functions.php:34
 msgctxt "points log description"
 msgid "Payment for order %s"
 msgstr ""
 
-#: components/points/includes/functions.php:33
+#: components/points/includes/functions.php:40
 msgctxt "points log description"
 msgid "Payment for an order."
 msgstr ""
 
-#. translators: order number
-#: components/points/includes/functions.php:59
+#. translators: Order number.
+#: components/points/includes/functions.php:73
 msgctxt "points log description"
 msgid "Refunded payment for order %s"
 msgstr ""
 
-#: components/points/includes/functions.php:65
+#: components/points/includes/functions.php:79
 msgctxt "points log description"
 msgid "Refunded payment for an order."
 msgstr ""
@@ -100,34 +207,28 @@ msgstr ""
 msgid "Conversion Rate"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:129
-msgid ""
-"How much should points be worth relative the currency&#2817;s primary "
-"denomination?"
-msgstr ""
-
+#. translators: The formatted price (i.e., "$1.00").
 #: components/points/includes/gateways/points.php:132
-msgid "1 point is worth 1 monetary unit"
+msgid ""
+"How many points should be counted as worth one monetary unit? For example, "
+"enter 100 if each 100 points should equal %s."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:133
-msgid "1 point is worth 0.01 monetary units"
-msgstr ""
-
-#: components/points/includes/gateways/points.php:157
-#: components/points/includes/gateways/points.php:179
+#: components/points/includes/gateways/points.php:164
+#: components/points/includes/gateways/points.php:189
 msgid "Payment error:"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:158
+#: components/points/includes/gateways/points.php:165
 msgid "You have insufficient points to make this purchase."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:180
+#: components/points/includes/gateways/points.php:190
 msgid "Unable to subtract the points from your account."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:228
+#. translators: The number of points refunded.
+#: components/points/includes/gateways/points.php:249
 msgid "Refunded %s points."
 msgstr ""
 
@@ -140,9 +241,13 @@ msgid "J.D. Grimes"
 msgstr ""
 
 #. Author URI of the module
-msgid "http://codesymphony.co/"
+msgid "https://codesymphony.co/"
 msgstr ""
 
 #. Module Name of the module
 msgid "WooCommerce"
+msgstr ""
+
+#. Module URI of the module
+msgid "https://wordpoints.org/modules/woocommerce/"
 msgstr ""

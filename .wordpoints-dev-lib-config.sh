@@ -8,8 +8,10 @@ install-woocommerce() {
 
     mkdir /tmp/woocommerce
 
-	curl -L "https://github.com/woothemes/woocommerce/archive/${WC_VERSION}.tar.gz" \
-		| tar xvz --strip-components=1 -C /tmp/woocommerce
+	# We have to clone with git because we need the tests directory, which isn't
+	# included in the export.
+	git clone --depth=1 --branch="$WC_VERSION" \
+		https://github.com/woocommerce/woocommerce.git /tmp/woocommerce
 
 	mv /tmp/woocommerce /tmp/wordpress/src/wp-content/plugins/woocommerce
 }

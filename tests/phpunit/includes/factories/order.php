@@ -98,7 +98,7 @@ class WordPoints_WooCommerce_UnitTest_Factory_For_Order extends WP_UnitTest_Fact
 		}
 
 		foreach ( $args['products'] as $product_id => $number ) {
-			$order->add_product( get_product( $product_id ), $number );
+			$order->add_product( wc_get_product( $product_id ), $number );
 		}
 
 		$order->set_address( $args['billing_address'], 'billing' );
@@ -106,7 +106,14 @@ class WordPoints_WooCommerce_UnitTest_Factory_For_Order extends WP_UnitTest_Fact
 
 		$order->calculate_totals();
 
-		return $order->id;
+		// Back-compat for pre-WC 3.0.0.
+		if ( ! method_exists( $order, 'get_id' ) ) {
+			$order_id = $order->id;
+		} else {
+			$order_id = $order->get_id();
+		}
+
+		return $order_id;
 	}
 
 	/**

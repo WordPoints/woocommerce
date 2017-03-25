@@ -12,20 +12,10 @@
  *
  * @since 1.0.0
  *
- * @group gateways
+ * @covers WordPoints_WooCommerce_Gateway_Points
  */
-class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_Points_UnitTestCase {
-
-	/**
-	 * The ID of the original current user.
-	 *
-	 * This is overridden during the tests.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @type int $original_user_id
-	 */
-	protected $original_user_id;
+class WordPoints_WooCommerce_Points_Gateway_Test
+	extends WordPoints_WooCommerce_Points_UnitTestCase {
 
 	/**
 	 * The ID of the order created by the checkout simulator.
@@ -45,13 +35,14 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		parent::setUp();
 
-		$this->original_user_id = get_current_user_id();
 		wp_set_current_user( $this->factory->user->create() );
 
 		wordpoints_update_maybe_network_option(
 			'wordpoints_default_points_type'
 			, 'points'
 		);
+
+		WC()->payment_gateways()->init();
 
 		add_filter( 'query', array( $this, 'no_commit_queries' ) );
 	}
@@ -62,11 +53,6 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	 * @since 1.0.0
 	 */
 	public function tearDown() {
-
-		wp_set_current_user( $this->original_user_id );
-
-		$gateways = WC()->payment_gateways->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate'] = 1;
 
 		WC()->cart->empty_cart();
 
@@ -82,11 +68,11 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		// Give the user points to make the purchase with.
 		$user_id = get_current_user_id();
-		wordpoints_set_points( $user_id, 100, 'points', 'test' );
+		wordpoints_set_points( $user_id, 10000, 'points', 'test' );
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 75, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
@@ -96,35 +82,37 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	 */
 	public function test_insufficient_points() {
 
-		// Give the user points to make the purchase with.
+		// Give the user (not enough) points to make the purchase with.
 		$user_id = get_current_user_id();
 		wordpoints_set_points( $user_id, 10, 'points', 'test' );
 
 		$this->simulate_checkout(
-			array( 'expected_errors' => 'Payment error: You have insufficient points to make this purchase.' )
+			array(
+				'expected_errors' => 'Payment error: You have insufficient points to make this purchase.',
+			)
 		);
 
-		$this->assertEquals( 10, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 10, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
-	 * Test when the exchange rate is 100.
+	 * Test when the exchange rate is 1.
 	 *
 	 * @since 1.0.0
 	 */
-	public function test_100_exchange_rate() {
+	public function test_1_exchange_rate() {
 
 		// Give the user points to make the purchase with.
 		$user_id = get_current_user_id();
-		wordpoints_set_points( $user_id, 3000, 'points', 'test' );
+		wordpoints_set_points( $user_id, 30, 'points', 'test' );
 
 		// Set the exchange rate.
-		$gateways = WC()->payment_gateways->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate'] = 100;
+		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
+		$gateways['wordpoints_points']->settings['conversion_rate'] = 1;
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 500, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 5, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	/**
@@ -136,18 +124,18 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		// Give the user points to make the purchase with.
 		$user_id = get_current_user_id();
-		$result = wordpoints_set_points( $user_id, 100, 'points', 'test' );
+		wordpoints_set_points( $user_id, 10000, 'points', 'test' );
 
 		$this->simulate_checkout();
 
-		$this->assertEquals( 75, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
 
 		// Refund the order.
 		$order_id = $this->checkout_order_id;
 		$refund_amount = 20;
 		$refund_reason = 'Testing refunds.';
 
-		$refund = wc_create_refund(
+		wc_create_refund(
 			array(
 				'amount' => $refund_amount,
 				'reason' => $refund_reason,
@@ -155,7 +143,8 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 			)
 		);
 
-		$payment_gateways = WC()->payment_gateways->payment_gateways();
+		/** @var WC_Payment_Gateway[] $payment_gateways */
+		$payment_gateways = WC()->payment_gateways()->payment_gateways();
 
 		$this->assertArrayHasKey( 'wordpoints_points', $payment_gateways );
 		$this->assertTrue(
@@ -170,7 +159,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		$this->assertTrue( $result );
 
-		$this->assertEquals( 95, wordpoints_get_points( $user_id, 'points' ) );
+		$this->assertSame( 9500, wordpoints_get_points( $user_id, 'points' ) );
 	}
 
 	//
@@ -197,6 +186,10 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 	 * it back, based on whether the order was created successfully.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param string $query The query SQL.
+	 *
+	 * @return string The query SQL.
 	 */
 	public function no_commit_queries( $query ) {
 
@@ -246,10 +239,10 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		try {
 			add_action( 'woocommerce_new_order', array( $this, 'capture_order_id' ) );
-			WC()->checkout->process_checkout();
+			WC()->checkout()->process_checkout();
 			remove_action( 'woocommerce_new_order', array( $this, 'capture_order_id' ) );
 		} catch ( Exception $e ) {
-			$this->assertEquals(
+			$this->assertSame(
 				'WordPoints_WooCommerce_Points_Gateway_Test'
 				, $e->getMessage()
 			);
@@ -259,7 +252,6 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 		wc_print_notices();
 		$messages = ob_get_clean();
 
-		$expected_errors = '';
 		if ( ! empty( $args['expected_errors'] ) ) {
 
 			$expected_errors = '			<li>'
@@ -274,16 +266,18 @@ class WordPoints_WooCommerce_Points_Gateway_Test extends WordPoints_WooCommerce_
 
 		}
 
-		$this->assertEquals(
+		$this->assertSame(
 			'<ul class="woocommerce-error">' . "\n" . $expected_errors . '	</ul>'
 			, trim( $messages )
 		);
 	}
 
 	/**
-	 * Capture the ID of a new order when it's created by the chckout simulator.
+	 * Capture the ID of a new order when it's created by the checkout simulator.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param int $order_id The order ID.
 	 */
 	public function capture_order_id( $order_id ) {
 

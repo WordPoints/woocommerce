@@ -7,10 +7,14 @@
  * @since 1.0.0
  */
 
+$loader = WordPoints_PHPUnit_Bootstrap_Loader::instance();
+$loader->add_plugin( 'woocommerce/woocommerce.php' );
+
 /**
  * Manually load the module.
  *
  * @since 1.0.0
+ * @deprecated 1.1.0 Use WPPPB instead.
  */
 function wordpoints_wc_tests_manually_load_module() {
 
@@ -21,6 +25,7 @@ function wordpoints_wc_tests_manually_load_module() {
  * Manually load the WooCommerce plugin.
  *
  * @since 1.0.0
+ * @deprecated 1.1.0 Use WPPPB instead.
  */
 function wordpoints_wc_tests_manually_load_woocommerce() {
 
@@ -65,12 +70,14 @@ function wordpoints_wc_tests_manually_load_woocommerce() {
 		exit( 'Error: Unable to locate the wp-tests-config.php file.' );
 	}
 
+	// @codingStandardsIgnoreStart
 	system(
 		WP_PHP_BINARY
 		. ' ' . escapeshellarg( dirname( __FILE__ ) . '/bin/install-woocommerce.php' )
 		. ' ' . escapeshellarg( $config_file_path )
 		. ' ' . (int) is_multisite()
 	);
+	// @codingStandardsIgnoreEnd
 
 	require WP_PLUGIN_DIR . '/woocommerce/woocommerce.php';
 }
