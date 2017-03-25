@@ -11,7 +11,7 @@
  * Represents an order.
  *
  * Orders are basically posts, by default, although in newer versions of WooCommerce
- * (2.7+) they can be stored almost anywhere in theory. We base our entity on the
+ * (3.0+) they can be stored almost anywhere in theory. We base our entity on the
  * default implementation; if a custom data store is being used, then a custom entity
  * may be needed, too.
  *

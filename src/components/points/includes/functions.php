@@ -20,7 +20,7 @@ function wordpoints_points_logs_woocommerce_points_gateway(
 
 		$order = new WC_Order( $meta['order_id'] );
 
-		// Back-compat for pre-WC 2.7.0.
+		// Back-compat for pre-WC 3.0.0.
 		if ( ! method_exists( $order, 'get_id' ) ) {
 			$order_id = $order->id;
 		} else {
@@ -59,7 +59,7 @@ function wordpoints_points_logs_woocommerce_points_gateway_refund(
 
 		$order = new WC_Order( $meta['order_id'] );
 
-		// Back-compat for pre-WC 2.7.0.
+		// Back-compat for pre-WC 3.0.0.
 		if ( ! method_exists( $order, 'get_id' ) ) {
 			$order_id = $order->id;
 		} else {

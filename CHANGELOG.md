@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
 ### Requirements
 
 - WordPoints 2.3+
-- WooCommerce 2.7+
+- WooCommerce 3.0+
 
 ### Added
 

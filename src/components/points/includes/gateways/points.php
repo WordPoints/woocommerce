@@ -146,7 +146,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		$order = wc_get_order( $order_id );
 		$total = round( $order->get_total() * $this->settings['conversion_rate'] );
 
-		// Back-compat for pre-WC 2.7.0.
+		// Back-compat for pre-WC 3.0.0.
 		if ( ! method_exists( $order, 'get_user_id' ) ) {
 			$user_id = $order->user_id;
 		} else {
@@ -225,7 +225,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 		$refund = round( $amount * $this->settings['conversion_rate'] );
 
-		// Back-compat for pre-WC 2.7.0.
+		// Back-compat for pre-WC 3.0.0.
 		if ( ! method_exists( $order, 'get_user_id' ) ) {
 			$user_id = $order->user_id;
 		} else {
