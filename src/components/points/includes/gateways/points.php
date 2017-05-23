@@ -159,7 +159,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 				, wc_price( 1 )
 			);
 
-			$description .= ' ' . __( 'Leave blank to disable checkout with this points type.' );
+			$description .= ' ' . __( 'Leave blank to disable checkout with this points type.', 'wordpoints-woocommerce' );
 
 			$this->form_fields[ "conversion_rate-{$slug}" ] = array(
 				// translators: Points type name.
@@ -198,7 +198,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		?>
 
 		<p class="form-row form-row-first">
-			<label for="<?php echo esc_attr( $this->id ) ?>-points-type"><?php echo esc_html__( 'Points Type', 'woocommerce' ) ?> <span class="required">*</span></label>
+			<label for="<?php echo esc_attr( $this->id ) ?>-points-type"><?php echo esc_html__( 'Points Type', 'wordpoints-woocommerce' ) ?> <span class="required">*</span></label>
 			<?php
 
 			$dropdown = new WordPoints_Dropdown_Builder(
