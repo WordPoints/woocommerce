@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the WordPoints WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPoints WooCommerce 1.1.0\n"
+"Project-Id-Version: WordPoints WooCommerce 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-25 19:14:53+00:00\n"
+"POT-Creation-Date: 2017-05-23 22:19:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -151,85 +151,99 @@ msgstr ""
 msgid "WordPoints works by letting the user pay with points."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:81
+#: components/points/includes/gateways/points.php:113
 msgid "Gateway Disabled:"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:82
+#: components/points/includes/gateways/points.php:114
 msgid "You need to create one or more types of points."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:98
+#: components/points/includes/gateways/points.php:130
 msgid "Enable/Disable"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:100
+#: components/points/includes/gateways/points.php:132
 msgid "Enable WordPoints points"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:104
+#: components/points/includes/gateways/points.php:136
 msgctxt "form label"
 msgid "Title"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:107
+#: components/points/includes/gateways/points.php:139
 msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:108
+#: components/points/includes/gateways/points.php:140
 msgctxt "gateway title"
 msgid "Points"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:111
+#: components/points/includes/gateways/points.php:143
 msgctxt "form label"
 msgid "Description"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:114
+#: components/points/includes/gateways/points.php:146
 msgid "This controls the description which the user sees during checkout."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:115
+#: components/points/includes/gateways/points.php:147
 msgid "Pay with points."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:118
-msgctxt "form label"
-msgid "Points Type"
-msgstr ""
-
-#: components/points/includes/gateways/points.php:121
-msgid "Select which points type is used to pay."
-msgstr ""
-
-#: components/points/includes/gateways/points.php:126
-msgid "Conversion Rate"
-msgstr ""
-
 #. translators: The formatted price (i.e., "$1.00").
-#: components/points/includes/gateways/points.php:132
+#: components/points/includes/gateways/points.php:155
 msgid ""
 "How many points should be counted as worth one monetary unit? For example, "
 "enter 100 if each 100 points should equal %s."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:164
-#: components/points/includes/gateways/points.php:189
+#: components/points/includes/gateways/points.php:162
+msgid "Leave blank to disable checkout with this points type."
+msgstr ""
+
+#. translators: Points type name.
+#: components/points/includes/gateways/points.php:166
+msgid "Conversion Rate for %s"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:201
+msgid "Points Type"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:240
+msgid "Payment Error:"
+msgstr ""
+
+#: components/points/includes/gateways/points.php:241
+msgid "Please select a points type to pay with."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:296
+#: components/points/includes/gateways/points.php:321
 msgid "Payment error:"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:165
+#: components/points/includes/gateways/points.php:297
 msgid "You have insufficient points to make this purchase."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:190
+#: components/points/includes/gateways/points.php:322
 msgid "Unable to subtract the points from your account."
 msgstr ""
 
 #. translators: The number of points refunded.
-#: components/points/includes/gateways/points.php:249
+#: components/points/includes/gateways/points.php:393
 msgid "Refunded %s points."
+msgstr ""
+
+#: components/points/includes/gateways/points.php:480
+msgid ""
+"Sorry, you must be logged in and have sufficient points in order to check "
+"out."
 msgstr ""
 
 #. Description of the module

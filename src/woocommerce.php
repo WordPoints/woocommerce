@@ -8,7 +8,7 @@
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_WooCommerce
- * @version 1.2.0-alpha-1
+ * @version 1.2.0
  * @author  J.D. Grimes <jdg@codesymphony.co>
  */
 
@@ -18,7 +18,7 @@ WordPoints_Modules::register(
 		Module URI:  https://wordpoints.org/modules/woocommerce/
 		Author:      J.D. Grimes
 		Author URI:  https://codesymphony.co/
-		Version:     1.2.0-alpha-1
+		Version:     1.2.0
 		Description: Let your users pay with points.
 		Text Domain: wordpoints-woocommerce
 		Domain Path: /languages
