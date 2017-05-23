@@ -23,7 +23,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 		$this->id                   = 'wordpoints_points';
 		$this->icon                 = '';
-		$this->has_fields           = false;
+		$this->has_fields           = count( $this->get_points_types_for_checkout() ) > 1;
 		$this->method_title         = _x( 'WordPoints', 'gateway title', 'wordpoints-woocommerce' );
 		/* translators: gateway description. */
 		$this->method_description   = __( 'WordPoints works by letting the user pay with points.', 'wordpoints-woocommerce' );
@@ -49,6 +49,27 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Gets the list of points types that users can use during checkout.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @return array The list of points types that users can use to pay.
+	 */
+	public function get_points_types_for_checkout() {
+
+		$for_checkout = array();
+		$points_types = wordpoints_get_points_types();
+
+		foreach ( $points_types as $slug => $data ) {
+			if ( $this->get_option( "conversion_rate-{$slug}" ) ) {
+				$for_checkout[ $slug ] = $data;
+			}
+		}
+
+		return $for_checkout;
+	}
+
+	/**
 	 * Check if this gateway is enabled.
 	 *
 	 * @since 1.0.0
@@ -57,7 +78,9 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	 */
 	public function is_valid_for_use() {
 
-		if ( ! wordpoints_get_points_types() ) {
+		$points_types = $this->get_points_types_for_checkout();
+
+		if ( empty( $points_types ) ) {
 			return false;
 		}
 
@@ -69,7 +92,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	 */
 	public function admin_options() {
 
-		if ( $this->is_valid_for_use() ) {
+		if ( wordpoints_get_points_types() ) {
 
 			parent::admin_options();
 
@@ -114,26 +137,121 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 				'description' => __( 'This controls the description which the user sees during checkout.', 'wordpoints-woocommerce' ),
 				'default'     => __( 'Pay with points.', 'wordpoints-woocommerce' ),
 			),
-			'points_type' => array(
-				'title'       => _x( 'Points Type', 'form label', 'wordpoints-woocommerce' ),
-				'type'        => 'select',
-				'desc_tip'    => true,
-				'description' => __( 'Select which points type is used to pay.', 'wordpoints-woocommerce' ),
-				'default'     => wordpoints_get_default_points_type(),
-				'options'     => wp_list_pluck( wordpoints_get_points_types(), 'name' ),
-			),
-			'conversion_rate' => array(
-				'title'       => __( 'Conversion Rate', 'wordpoints-woocommerce' ),
-				'type'        => 'number',
-				'default'     => '100',
-				'desc_tip'    => true,
-				'description' => sprintf(
-					// translators: The formatted price (i.e., "$1.00").
-					__( 'How many points should be counted as worth one monetary unit? For example, enter 100 if each 100 points should equal %s.', 'wordpoints-woocommerce' )
-					, wc_price( 1 )
-				),
-			),
 		);
+
+		foreach ( wordpoints_get_points_types() as $slug => $data ) {
+
+			$description = sprintf(
+				// translators: The formatted price (i.e., "$1.00").
+				__(
+					'How many points should be counted as worth one monetary unit? For example, enter 100 if each 100 points should equal %s.',
+					'wordpoints-woocommerce'
+				)
+				, wc_price( 1 )
+			);
+
+			$description .= ' ' . __( 'Leave blank to disable checkout with this points type.' );
+
+			$this->form_fields[ "conversion_rate-{$slug}" ] = array(
+				// translators: Points type name.
+				'title'       => sprintf( __( 'Conversion Rate for %s', 'wordpoints-woocommerce' ), $data['name'] ),
+				'type'        => 'number',
+				'default'     => '',
+				'desc_tip'    => true,
+				'description' => $description,
+			);
+		}
+	}
+
+	/**
+	 * @since 1.2.0
+	 */
+	public function payment_fields() {
+
+		parent::payment_fields();
+
+		$this->points_type_field();
+	}
+
+	/**
+	 * Displays the points type field during checkout.
+	 *
+	 * @since 1.2.0
+	 */
+	public function points_type_field() {
+
+		$points_types = $this->get_points_types_for_checkout();
+
+		if ( count( $points_types ) < 2 ) {
+			return;
+		}
+
+		?>
+
+		<p class="form-row form-row-first">
+			<label for="<?php echo esc_attr( $this->id ) ?>-points-type"><?php echo esc_html__( 'Points Type', 'woocommerce' ) ?> <span class="required">*</span></label>
+			<?php
+
+			$dropdown = new WordPoints_Dropdown_Builder(
+				wp_list_pluck( $points_types, 'name' )
+				, array( 'name' => "{$this->id}-points-type" )
+			);
+
+			$dropdown->display();
+
+			?>
+		</p>
+
+		<?php
+	}
+
+	/**
+	 * Gets the points type that should be used to pay for the order.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @return string|false The slug of the points type, or false.
+	 */
+	protected function get_points_type_to_pay_with() {
+
+		$points_types = $this->get_points_types_for_checkout();
+
+		if ( count( $points_types ) < 2 ) {
+			return key( $points_types );
+		}
+
+		if (
+			! isset(
+				$_POST[ "{$this->id}-points-type" ], // WPCS: CSRF OK.
+				$points_types[ $_POST[ "{$this->id}-points-type" ] ] // WPCS: CSRF OK.
+			)
+		) {
+
+			wc_add_notice(
+				__( 'Payment Error:', 'wordpoints-woocommerce' ) . ' '
+				. __(
+					'Please select a points type to pay with.'
+					, 'wordpoints-woocommerce'
+				)
+				, 'error'
+			);
+
+			return false;
+		}
+
+		return sanitize_key( $_POST[ "{$this->id}-points-type" ] );
+	}
+
+	/**
+	 * @since 1.2.0
+	 */
+	public function validate_fields() {
+
+		if ( ! $this->get_points_type_to_pay_with() ) {
+			return false;
+		}
+
+		return parent::validate_fields();
 	}
 
 	/**
@@ -143,8 +261,16 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	 */
 	public function process_payment( $order_id ) {
 
+		$points_type = $this->get_points_type_to_pay_with();
+
+		if ( ! $points_type ) {
+			return array( 'result' => 'fail', 'redirect' => '' );
+		}
+
+		$conversion_rate = $this->settings[ "conversion_rate-{$points_type}" ];
+
 		$order = wc_get_order( $order_id );
-		$total = round( $order->get_total() * $this->settings['conversion_rate'] );
+		$total = round( $order->get_total() * $conversion_rate );
 
 		// Back-compat for pre-WC 3.0.0.
 		if ( ! method_exists( $order, 'get_user_id' ) ) {
@@ -153,10 +279,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 			$user_id = $order->get_user_id();
 		}
 
-		$user_points = wordpoints_get_points(
-			$user_id
-			, $this->settings['points_type']
-		);
+		$user_points = wordpoints_get_points( $user_id, $points_type );
 
 		if ( $user_points < $total ) {
 
@@ -178,9 +301,9 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		$result = wordpoints_subtract_points(
 			$user_id
 			, $total
-			, $this->settings['points_type']
+			, $points_type
 			, 'woocommerce_points_gateway'
-			, array( 'order_id' => $order_id )
+			, array( 'order_id' => $order_id, 'conversion_rate' => $conversion_rate )
 		);
 
 		if ( ! $result ) {
@@ -223,7 +346,19 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 			return false;
 		}
 
-		$refund = round( $amount * $this->settings['conversion_rate'] );
+		$log = $this->get_points_log_for_order( $order_id );
+
+		if ( ! $log ) {
+			return false;
+		}
+
+		$conversion_rate = wordpoints_get_points_log_meta( $log->id, 'conversion_rate', true );
+
+		if ( ! $conversion_rate ) {
+			$conversion_rate = $this->settings[ "conversion_rate-{$log->points_type}" ];
+		}
+
+		$refund = round( $amount * $conversion_rate );
 
 		// Back-compat for pre-WC 3.0.0.
 		if ( ! method_exists( $order, 'get_user_id' ) ) {
@@ -235,7 +370,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		$result = wordpoints_add_points(
 			$user_id
 			, $refund
-			, $this->settings['points_type']
+			, $log->points_type
 			, 'woocommerce_points_gateway_refund'
 			, array( 'order_id' => $order_id )
 		);
@@ -250,6 +385,34 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		);
 
 		return true;
+	}
+
+	/**
+	 * Gets the points log for an order.
+	 *
+	 * @since 2.4.0
+	 *
+	 * @param int $order_id The ID of order.
+	 *
+	 * @return object|false The log or false.
+	 */
+	public function get_points_log_for_order( $order_id ) {
+
+		$query = new WordPoints_Points_Logs_Query(
+			array(
+				'log_type'   => 'woocommerce_points_gateway',
+				'meta_key'   => 'order_id',
+				'meta_value' => $order_id,
+			)
+		);
+
+		$log = $query->get( 'row' );
+
+		if ( ! $log ) {
+			return false;
+		}
+
+		return $log;
 	}
 
 	/**

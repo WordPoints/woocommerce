@@ -44,6 +44,10 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 
 		WC()->payment_gateways()->init();
 
+		// Set the exchange rate.
+		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
+		$gateways['wordpoints_points']->settings['conversion_rate-points'] = 100;
+
 		add_filter( 'query', array( $this, 'no_commit_queries' ) );
 	}
 
@@ -60,6 +64,107 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 	}
 
 	/**
+	 * Tests that it doesn't have checkout fields by default.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_has_fields() {
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+
+		$this->assertFalse( $gateway->has_fields() );
+	}
+
+	/**
+	 * Tests that it doesn't have checkout fields when only one points type can be used.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_has_fields_one_points_type() {
+
+		// A second points type may exist, but the conversion rate isn't set.
+		$this->factory->wordpoints->points_type->create();
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+		$gateway->settings['conversion_rate-points'] = 100;
+		update_option( $gateway->get_option_key(), $gateway->settings );
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+
+		$this->assertFalse( $gateway->has_fields() );
+	}
+
+	/**
+	 * Tests that it does have checkout fields when there are multiple points types.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_has_fields_multiple_points_types() {
+
+		$slug = $this->factory->wordpoints->points_type->create();
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+		$gateway->settings['conversion_rate-points']  = 100;
+		$gateway->settings[ "conversion_rate-{$slug}" ] = 50;
+		update_option( $gateway->get_option_key(), $gateway->settings );
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+
+		$this->assertTrue( $gateway->has_fields() );
+	}
+
+	/**
+	 * Tests getting the points types that can be used to pay.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_get_points_types_for_checkout() {
+
+		// A second points type may exist, but the conversion rate isn't set.
+		$this->factory->wordpoints->points_type->create();
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+		$gateway->settings['conversion_rate-points'] = 100;
+
+		$this->assertSame(
+			array(
+				'points' => array(
+					'name' => 'Points',
+					'prefix' => '$',
+					'suffix' => 'pts.',
+				),
+			)
+			, $gateway->get_points_types_for_checkout()
+		);
+	}
+
+	/**
+	 * Tests checking if the gateway is valid for use.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_is_valid_for_use() {
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+		$gateway->settings['conversion_rate-points'] = 100;
+
+		$this->assertTrue( $gateway->is_valid_for_use() );
+	}
+
+	/**
+	 * Tests checking if it is valid for use when no conversion rates are set.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_is_valid_for_use_no_conversion_rates_set() {
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+		$gateway->settings['conversion_rate-points'] = 0;
+
+		$this->assertFalse( $gateway->is_valid_for_use() );
+	}
+
+	/**
 	 * Test that points are charged when a user checks out.
 	 *
 	 * @since 1.0.0
@@ -73,6 +178,30 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$this->simulate_checkout();
 
 		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
+	}
+
+	/**
+	 * Test that points are charged when a user checks out.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_processing_payment_multiple_points_types() {
+
+		$slug = $this->factory->wordpoints->points_type->create();
+
+		// Give the user points to make the purchase with.
+		$user_id = get_current_user_id();
+		wordpoints_set_points( $user_id, 10000, $slug, 'test' );
+
+		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
+		$gateways['wordpoints_points']->settings['conversion_rate-points'] = 100;
+		$gateways['wordpoints_points']->settings[ "conversion_rate-{$slug}" ] = 50;
+
+		$_POST[ "{$gateways['wordpoints_points']->id}-points-type" ] = $slug;
+
+		$this->simulate_checkout();
+
+		$this->assertSame( 8750, wordpoints_get_points( $user_id, $slug ) );
 	}
 
 	/**
@@ -108,7 +237,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 
 		// Set the exchange rate.
 		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate'] = 1;
+		$gateways['wordpoints_points']->settings['conversion_rate-points'] = 1;
 
 		$this->simulate_checkout();
 
@@ -160,6 +289,61 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$this->assertTrue( $result );
 
 		$this->assertSame( 9500, wordpoints_get_points( $user_id, 'points' ) );
+	}
+
+	/**
+	 * Test that points are refunded correctly.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_refund_multiple_points_types() {
+
+		$slug = $this->factory->wordpoints->points_type->create();
+
+		// Give the user points to make the purchase with.
+		$user_id = get_current_user_id();
+		wordpoints_set_points( $user_id, 10000, $slug, 'test' );
+
+		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
+		$gateways['wordpoints_points']->settings['conversion_rate-points'] = 100;
+		$gateways['wordpoints_points']->settings[ "conversion_rate-{$slug}" ] = 50;
+
+		$_POST[ "{$gateways['wordpoints_points']->id}-points-type" ] = $slug;
+
+		$this->simulate_checkout();
+
+		$this->assertSame( 8750, wordpoints_get_points( $user_id, $slug ) );
+
+		// Refund the order.
+		$order_id = $this->checkout_order_id;
+		$refund_amount = 20;
+		$refund_reason = 'Testing refunds.';
+
+		wc_create_refund(
+			array(
+				'amount' => $refund_amount,
+				'reason' => $refund_reason,
+				'order_id' => $order_id,
+			)
+		);
+
+		/** @var WC_Payment_Gateway[] $payment_gateways */
+		$payment_gateways = WC()->payment_gateways()->payment_gateways();
+
+		$this->assertArrayHasKey( 'wordpoints_points', $payment_gateways );
+		$this->assertTrue(
+			$payment_gateways['wordpoints_points']->supports( 'refunds' )
+		);
+
+		$result = $payment_gateways['wordpoints_points']->process_refund(
+			$order_id
+			, $refund_amount
+			, $refund_reason
+		);
+
+		$this->assertTrue( $result );
+
+		$this->assertSame( 9750, wordpoints_get_points( $user_id, $slug ) );
 	}
 
 	//
