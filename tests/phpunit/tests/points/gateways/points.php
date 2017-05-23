@@ -361,6 +361,57 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$this->assertSame( 9750, wordpoints_get_points( $user_id, $slug ) );
 	}
 
+	/**
+	 * Test that points are refunded correctly when the conversion rate wasn't saved.
+	 *
+	 * @since 1.0.0
+	 */
+	public function test_refund_legacy() {
+
+		// Give the user points to make the purchase with.
+		$user_id = get_current_user_id();
+		wordpoints_set_points( $user_id, 10000, 'points', 'test' );
+
+		$this->simulate_checkout();
+
+		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
+
+		// Refund the order.
+		$order_id = $this->checkout_order_id;
+		$refund_amount = 20;
+		$refund_reason = 'Testing refunds.';
+
+		wc_create_refund(
+			array(
+				'amount' => $refund_amount,
+				'reason' => $refund_reason,
+				'order_id' => $order_id,
+			)
+		);
+
+		/** @var WC_Payment_Gateway[] $payment_gateways */
+		$payment_gateways = WC()->payment_gateways()->payment_gateways();
+
+		$this->assertArrayHasKey( 'wordpoints_points', $payment_gateways );
+
+		/** @var WordPoints_WooCommerce_Gateway_Points $gateway */
+		$gateway = $payment_gateways['wordpoints_points'];
+		$gateway->settings['conversion_rate-points'] = 50;
+
+		$log = $gateway->get_points_log_for_order( $order_id );
+		wordpoints_delete_points_log_meta( $log->id, 'conversion_rate' );
+
+		$result = $gateway->process_refund(
+			$order_id
+			, $refund_amount
+			, $refund_reason
+		);
+
+		$this->assertTrue( $result );
+
+		$this->assertSame( 9500, wordpoints_get_points( $user_id, 'points' ) );
+	}
+
 	//
 	// Helpers.
 	//

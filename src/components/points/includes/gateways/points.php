@@ -364,7 +364,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		$conversion_rate = wordpoints_get_points_log_meta( $log->id, 'conversion_rate', true );
 
 		if ( ! $conversion_rate ) {
-			$conversion_rate = $this->settings[ "conversion_rate-{$log->points_type}" ];
+			$conversion_rate = -$log->points / $order->get_total();
 		}
 
 		$refund = round( $amount * $conversion_rate );
