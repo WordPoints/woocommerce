@@ -23,7 +23,6 @@
  * @covers WordPoints_WooCommerce_Entity_Order_Tax_Cart
  * @covers WordPoints_WooCommerce_Entity_Order_Tax_Discount
  * @covers WordPoints_WooCommerce_Entity_Order_Tax_Shipping
- * @covers WordPoints_WooCommerce_Entity_Order_Tax_Total
  * @covers WordPoints_WooCommerce_Entity_Order_Total_Discount
  * @covers WordPoints_WooCommerce_Entity_Order_Total_Grand
  * @covers WordPoints_WooCommerce_Entity_Order_Total_Shipping
