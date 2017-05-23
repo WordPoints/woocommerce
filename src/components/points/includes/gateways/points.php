@@ -43,8 +43,13 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 			, array( $this, 'process_admin_options' )
 		);
 
+		add_filter(
+			'woocommerce_no_available_payment_methods_message'
+			, array( $this, 'no_available_payment_methods_message' )
+		);
+
 		if ( ! $this->is_valid_for_use() ) {
-			$this->enabled = false;
+			$this->enabled = 'no';
 		}
 	}
 
@@ -432,6 +437,51 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 		$methods[] = __CLASS__;
 		return $methods;
+	}
+
+	/**
+	 * Overrides the message displayed when no payment methods are available.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param string $message The message being displayed.
+	 *
+	 * @return string The message to display.
+	 */
+	public function no_available_payment_methods_message( $message ) {
+
+		// If the gateway is enabled, but isn't usable because the user is logged out.
+		if (
+			'yes' === $this->get_option( 'enabled' )
+			&& $this->get_points_types_for_checkout()
+			&& ! is_user_logged_in()
+		) {
+
+			/** @var WC_Payment_Gateway[] $gateways */
+			$gateways = WC()->payment_gateways()->payment_gateways();
+
+			// Check if any other gateways are enabled.
+			$others_enabled = false;
+
+			foreach ( $gateways as $id => $gateway ) {
+
+				if ( $id === $this->id ) {
+					continue;
+				}
+
+				if ( 'yes' === $gateway->get_option( 'enabled' ) ) {
+					$others_enabled = true;
+					break;
+				}
+			}
+
+			// And if not, show a customized message.
+			if ( ! $others_enabled ) {
+				return __( 'Sorry, you must be logged in and have sufficient points in order to check out.', 'wordpoints-woocommerce' );
+			}
+		}
+
+		return $message;
 	}
 }
 
