@@ -84,6 +84,10 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 			return false;
 		}
 
+		if ( ! is_user_logged_in() ) {
+			return false;
+		}
+
 		return true;
 	}
 

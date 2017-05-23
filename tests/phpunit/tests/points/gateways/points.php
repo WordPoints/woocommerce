@@ -165,6 +165,21 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 	}
 
 	/**
+	 * Tests checking if it is valid for use when the user is not logged in.
+	 *
+	 * @since 1.2.0
+	 */
+	public function test_is_valid_for_use_not_logged_in() {
+
+		wp_set_current_user( 0 );
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+		$gateway->settings['conversion_rate-points'] = 100;
+
+		$this->assertFalse( $gateway->is_valid_for_use() );
+	}
+
+	/**
 	 * Test that points are charged when a user checks out.
 	 *
 	 * @since 1.0.0
