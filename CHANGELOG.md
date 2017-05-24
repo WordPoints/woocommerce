@@ -8,6 +8,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
 
 Nothing documented right now.
 
+## [1.2.0] - 2017-04-24
+
+### Changed
+
+- Multiple points types can be set up for use in the gateway, instead of just one. #34
+- The gateway is now only enabled when the current user is logged in, and when the user is not logged in and this is the only gateway enabled on the site, a custom message is displayed to the user rather than the default shown with WooCommerce. #36
+
+### Fixed
+
+- The refund amount for an order is now calculated using the conversion rate at the time the order was placed, rather than at the time of the refund. #35
+- Removed a reference to a nonexistent class in the `@covers` annotations.
+
 ## [1.1.0] - 2017-03-25
 
 ### Requirements

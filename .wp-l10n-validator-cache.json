@@ -26,8 +26,8 @@
             "errors": false
         },
         "\/classes\/entity\/order\/date\/created.php": {
-            "size": 877,
-            "hash": "a2f510deedcb6e72c3d3dffc62662ea8",
+            "size": 914,
+            "hash": "afad98831c21ebc49cdbe07ffa6345f8",
             "errors": false
         },
         "\/classes\/entity\/order\/date\/paid.php": {
@@ -67,7 +67,12 @@
         },
         "\/classes\/entity\/order.php": {
             "size": 1261,
-            "hash": "dcd59629a7177ff904f4d58d48db592d",
+            "hash": "60f9a0940017a491c69437ec8502baa4",
+            "errors": false
+        },
+        "\/classes\/entity\/product\/review.php": {
+            "size": 394,
+            "hash": "367c8bdf1e8891bcfb5f5d3b66ecc9e6",
             "errors": false
         },
         "\/classes\/entity\/restriction\/order\/nonpublic.php": {
@@ -90,19 +95,34 @@
             "hash": "64303b627b0638f189c8659e8ad43619",
             "errors": false
         },
+        "\/classes\/hook\/event\/product\/review\/leave.php": {
+            "size": 787,
+            "hash": "d82488409c2a5fe865156e206a8e7cd4",
+            "errors": false
+        },
         "\/classes\/index.php": {
             "size": 1913,
             "hash": "480685c940669dbee6a7f5b7509c7a7a",
             "errors": false
         },
+        "\/components\/points\/includes\/actions.php": {
+            "size": 267,
+            "hash": "a3017b6ce609d09e076a2879b7d3cc83",
+            "errors": false
+        },
         "\/components\/points\/includes\/functions.php": {
             "size": 1946,
-            "hash": "5cec2e5a176f1b63e80e88b56a49548f",
+            "hash": "53ee7cc85e34e751788a7951331ffff9",
             "errors": false
         },
         "\/components\/points\/includes\/gateways\/points.php": {
-            "size": 6503,
-            "hash": "38b37af067649b783ff0d50d5cac7553",
+            "size": 11019,
+            "hash": "118800240714c3271cfbd2ffec2734d6",
+            "errors": false
+        },
+        "\/components\/points\/includes\/index.php": {
+            "size": 239,
+            "hash": "fbb3cb4630e2b8aa2fd732f7521c48f4",
             "errors": false
         },
         "\/components\/points\/points.php": {
@@ -116,13 +136,13 @@
             "errors": false
         },
         "\/includes\/class-un-installer.php": {
-            "size": 352,
-            "hash": "df640860649c729a502ed66823342b95",
+            "size": 1409,
+            "hash": "11caa402d800f536bfee3910daec3c3e",
             "errors": false
         },
         "\/includes\/constants.php": {
-            "size": 449,
-            "hash": "cd895286efb36fff138393ba52ac61f9",
+            "size": 457,
+            "hash": "160828d1993b8bd70f89fca29d65b85c",
             "errors": false
         },
         "\/includes\/functions.php": {
@@ -131,35 +151,10 @@
             "errors": false
         },
         "\/woocommerce.php": {
-            "size": 1506,
-            "hash": "9eeb3134b9cd8339d723f5816d96a190",
-            "errors": false
-        },
-        "\/components\/points\/includes\/actions.php": {
-            "size": 267,
-            "hash": "a3017b6ce609d09e076a2879b7d3cc83",
-            "errors": false
-        },
-        "\/components\/points\/includes\/index.php": {
-            "size": 239,
-            "hash": "fbb3cb4630e2b8aa2fd732f7521c48f4",
-            "errors": false
-        },
-        "\/classes\/entity\/product\/review.php": {
-            "size": 394,
-            "hash": "367c8bdf1e8891bcfb5f5d3b66ecc9e6",
-            "errors": false
-        },
-        "\/classes\/hook\/event\/product\/review\/leave.php": {
-            "size": 787,
-            "hash": "d82488409c2a5fe865156e206a8e7cd4",
-            "errors": false
-        },
-        "\/components\/points\/classes\/index.php": {
-            "size": 50,
-            "hash": "68bb31a1666d301f8eaa2bbf29ce7bd6",
+            "size": 1522,
+            "hash": "8fa47d1b3a9f8a56739e3d073cd4763f",
             "errors": false
         }
     },
-    "config_signature": "71990e2371ef73a47e41db324a78bb1c"
+    "config_signature": "1ca1af7095becd556417f9dd5dd6403f"
 }
