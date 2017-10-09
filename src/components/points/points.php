@@ -16,13 +16,13 @@ WordPoints_Class_Autoloader::register_dir(
  *
  * @since 1.0.0
  */
-include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/functions.php' );
+require_once WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/functions.php';
 
 /**
  * Hooks up the points-related actions.
  *
  * @since 1.1.0
  */
-include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/actions.php' );
+require_once WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/includes/actions.php';
 
 // EOF

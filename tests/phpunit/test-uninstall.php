@@ -11,9 +11,11 @@
  * Test that the module uninstalls itself properly.
  *
  * @since 1.0.0
+ *
+ * @covers WordPoints_WooCommerce_Un_Installer
  */
 class WordPoints_WooCommerce_Uninstall_Test
-	extends WordPoints_PHPUnit_TestCase_Module_Uninstall {
+	extends WordPoints_PHPUnit_TestCase_Extension_Uninstall {
 
 	/**
 	 * Test installation and uninstallation.
@@ -26,7 +28,7 @@ class WordPoints_WooCommerce_Uninstall_Test
 		 * Install.
 		 */
 
-		// Check the the basic module data option was added.
+		// Check that the basic module data option was added.
 		if ( $this->network_wide ) {
 			$wordpoints_data = get_site_option( 'wordpoints_data' );
 		} else {

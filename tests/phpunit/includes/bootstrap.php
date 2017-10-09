@@ -44,7 +44,7 @@ if ( ! WordPoints_PHPUnit_Bootstrap_Loader::instance()->running_uninstall_tests(
 
 // wc_create_order() expects this to be set.
 if ( ! isset( $_SERVER['REMOTE_ADDR'] ) ) {
-	 $_SERVER['REMOTE_ADDR'] = '';
+	$_SERVER['REMOTE_ADDR'] = '';
 }
 
 // EOF

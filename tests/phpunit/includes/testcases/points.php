@@ -23,8 +23,8 @@ class WordPoints_WooCommerce_Points_UnitTestCase extends WordPoints_PHPUnit_Test
 
 		parent::setUp();
 
-		$this->factory->order   = new WordPoints_WooCommerce_UnitTest_Factory_For_Order;
-		$this->factory->product = new WordPoints_WooCommerce_UnitTest_Factory_For_Product;
+		$this->factory->order   = new WordPoints_WooCommerce_UnitTest_Factory_For_Order();
+		$this->factory->product = new WordPoints_WooCommerce_UnitTest_Factory_For_Product();
 	}
 }
 

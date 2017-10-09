@@ -21,13 +21,13 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 	 */
 	public function __construct() {
 
-		$this->id                   = 'wordpoints_points';
-		$this->icon                 = '';
-		$this->has_fields           = count( $this->get_points_types_for_checkout() ) > 1;
-		$this->method_title         = _x( 'WordPoints', 'gateway title', 'wordpoints-woocommerce' );
+		$this->id           = 'wordpoints_points';
+		$this->icon         = '';
+		$this->has_fields   = count( $this->get_points_types_for_checkout() ) > 1;
+		$this->supports     = array( 'products', 'refunds' );
+		$this->method_title = _x( 'WordPoints', 'gateway title', 'wordpoints-woocommerce' );
 		/* translators: gateway description. */
-		$this->method_description   = __( 'WordPoints works by letting the user pay with points.', 'wordpoints-woocommerce' );
-		$this->supports 			= array( 'products', 'refunds' );
+		$this->method_description = __( 'WordPoints works by letting the user pay with points.', 'wordpoints-woocommerce' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -198,7 +198,7 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		?>
 
 		<p class="form-row form-row-first">
-			<label for="<?php echo esc_attr( $this->id ) ?>-points-type"><?php echo esc_html__( 'Points Type', 'wordpoints-woocommerce' ) ?> <span class="required">*</span></label>
+			<label for="<?php echo esc_attr( $this->id ); ?>-points-type"><?php echo esc_html__( 'Points Type', 'wordpoints-woocommerce' ); ?> <span class="required">*</span></label>
 			<?php
 
 			$dropdown = new WordPoints_Dropdown_Builder(
@@ -337,8 +337,8 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 		WC()->cart->empty_cart();
 
 		return array(
-			'result' 	=> 'success',
-			'redirect'	=> $this->get_return_url( $order ),
+			'result'   => 'success',
+			'redirect' => $this->get_return_url( $order ),
 		);
 	}
 

@@ -18,7 +18,7 @@ WC_Install::create_pages();
  */
 require_once WP_PLUGIN_DIR . '/woocommerce/tests/bootstrap.php';
 
-$factory = new WordPoints_WooCommerce_UnitTest_Factory_For_Product();
+$factory    = new WordPoints_WooCommerce_UnitTest_Factory_For_Product();
 $product_id = $factory->create();
 
 $user_id = wp_insert_user( array( 'user_login' => 'customer', 'user_pass' => 'password' ) );

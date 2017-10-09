@@ -41,7 +41,8 @@ class WordPoints_WooCommerce_Update_1_2_0_Test extends WordPoints_PHPUnit_TestCa
 		$gateway->init_settings();
 
 		$settings = $gateway->settings;
-		$settings['points_type'] = 'points';
+
+		$settings['points_type']     = 'points';
 		$settings['conversion_rate'] = '100';
 
 		update_option( $gateway->get_option_key(), $settings );
