@@ -1,4 +1,4 @@
-# Change Log for WooCommerce Module
+# Change Log for WooCommerce Extension
 
 All notable changes to this project will be documented in this file.
 

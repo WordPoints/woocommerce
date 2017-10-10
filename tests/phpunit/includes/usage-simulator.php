@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simulate module usage.
+ * Simulate extension usage.
  *
  * Used by the install/uninstall tests to provide a more full test of whether
  * everything is properly deleted on uninstall. Uninstalling a fresh install is
@@ -13,9 +13,9 @@
  */
 
 /**
- * Simulate module usage.
+ * Simulate extension usage.
  *
- * Only available from the module uninstall usage simulator.
+ * Only available from the extension uninstall usage simulator.
  *
  * @since 1.0.0
  */

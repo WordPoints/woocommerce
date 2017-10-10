@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Hooks up the actions and filters used by the module.
+ * Hooks up the actions and filters used by the extension.
  *
  * @package WordPoints_WooCommerce
  * @since   1.1.0

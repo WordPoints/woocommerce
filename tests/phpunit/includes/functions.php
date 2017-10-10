@@ -11,7 +11,7 @@ $loader = WordPoints_PHPUnit_Bootstrap_Loader::instance();
 $loader->add_plugin( 'woocommerce/woocommerce.php' );
 
 /**
- * Manually load the module.
+ * Manually load the extension.
  *
  * @since 1.0.0
  * @deprecated 1.1.0 Use WPPPB instead.

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class to un/install the module.
+ * Class to un/install the extension.
  *
  * @package WordPoints_WooCommrce
  * @since 1.0.2
@@ -11,7 +11,7 @@
 _deprecated_file( __FILE__, '1.2.1' );
 
 /**
- * Un/install the module.
+ * Un/install the extension.
  *
  * @since 1.0.2
  * @deprecated 1.2.1

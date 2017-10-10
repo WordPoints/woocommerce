@@ -1,14 +1,14 @@
 <?php
 
 /**
- * PHPUnit tests bootstrap for the module.
+ * PHPUnit tests bootstrap for the extension.
  *
  * @package WordPoints_WooCommerce\Tests
  * @since 1.0.0
  */
 
 /**
- * The module's tests directory.
+ * The extension's tests directory.
  *
  * @since 1.0.0
  *

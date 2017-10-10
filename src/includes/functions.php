@@ -1,14 +1,14 @@
 <?php
 
 /**
- * General utility functions of the module.
+ * General utility functions of the extension.
  *
  * @package WordPoints_WooCommerce
  * @since 1.0.0
  */
 
 /**
- * Install the module.
+ * Install the extension.
  *
  * @since 1.0.0
  * @deprecated 1.0.2 Use WordPoints_Installables::install( 'module', 'woocommerce' )
@@ -22,7 +22,7 @@ function wordpoints_woocommerce_install() {
 }
 
 /**
- * Load the module's text domain.
+ * Load the extension's text domain.
  *
  * No longer needed as this is done automatically by WordPoints_Modules::register().
  *

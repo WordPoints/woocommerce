@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WordPoints WooCommerce integration module.
+ * WordPoints WooCommerce integration extension.
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2014-17  J.D. Grimes  (email : jdg@codesymphony.co)
@@ -32,21 +32,21 @@ wordpoints_register_extension(
 WordPoints_Class_Autoloader::register_dir( dirname( __FILE__ ) . '/classes' );
 
 /**
- * The module's constants.
+ * The extension's constants.
  *
  * @since 1.0.0
  */
 require_once dirname( __FILE__ ) . '/includes/constants.php';
 
 /**
- * The module's general utility functions.
+ * The extension's general utility functions.
  *
  * @since 1.0.0
  */
 require_once WORDPOINTS_WOOCOMMERCE_DIR . '/includes/functions.php';
 
 /**
- * Hooks up the module's action and filter hooks.
+ * Hooks up the extension's action and filter hooks.
  *
  * @since 1.1.0
  */

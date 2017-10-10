@@ -26,7 +26,7 @@ class WordPoints_WooCommerce_Update_1_2_0_Test extends WordPoints_PHPUnit_TestCa
 	/**
 	 * @since 1.2.0
 	 */
-	protected $wordpoints_module = 'woocommerce';
+	protected $wordpoints_extension = 'woocommerce';
 
 	/**
 	 * Tests updating to 1.2.0.
@@ -47,7 +47,7 @@ class WordPoints_WooCommerce_Update_1_2_0_Test extends WordPoints_PHPUnit_TestCa
 
 		update_option( $gateway->get_option_key(), $settings );
 
-		$this->update_module();
+		$this->update_extension();
 
 		$gateway = new WordPoints_WooCommerce_Gateway_Points();
 
