@@ -52,6 +52,12 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 						'info' => array(
 							'type'       => 'table',
 							'table_name' => $wpdb->posts,
+							'conditions' => array(
+								array(
+									'field' => 'post_type',
+									'value' => 'shop_order',
+								),
+							),
 						),
 					),
 					'the_context'  => array( 'site' => 1, 'network' => 1 ),
