@@ -84,7 +84,7 @@ Nothing documented right now.
 
 - Payment gateway that uses points as currency.
  - The admin sets which points type to use.
- - How many points to charge for the monetary amount can be set to 1 to 1 or 1 to 100.
+ - How many points to charge for the monetary amount can be set to 1-to-1 or 1-to-100.
 
 [unreleased]: https://github.com/WordPoints/woocommerce/compare/master...HEAD
 [1.2.0]: https://github.com/WordPoints/woocommerce/compare/1.1.0...1.2.0
