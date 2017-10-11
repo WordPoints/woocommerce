@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the WordPoints WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPoints WooCommerce 1.2.0\n"
+"Project-Id-Version: WordPoints WooCommerce 1.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-23 22:19:15+00:00\n"
+"POT-Creation-Date: 2017-10-11 21:40:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,11 +72,6 @@ msgctxt "order entity"
 msgid "Shipping"
 msgstr ""
 
-#: classes/entity/order.php:36
-msgctxt "entity title"
-msgid "Order"
-msgstr ""
-
 #: classes/entity/product/review.php:22
 msgid "Review"
 msgstr ""
@@ -141,13 +136,13 @@ msgctxt "points log description"
 msgid "Refunded payment for an order."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:27
+#: components/points/includes/gateways/points.php:28
 msgctxt "gateway title"
 msgid "WordPoints"
 msgstr ""
 
 #. translators: gateway description.
-#: components/points/includes/gateways/points.php:29
+#: components/points/includes/gateways/points.php:30
 msgid "WordPoints works by letting the user pay with points."
 msgstr ""
 
@@ -246,22 +241,22 @@ msgid ""
 "out."
 msgstr ""
 
-#. Description of the module
+#. Description of the extension
 msgid "Let your users pay with points."
 msgstr ""
 
-#. Author of the module
+#. Author of the extension
 msgid "J.D. Grimes"
 msgstr ""
 
-#. Author URI of the module
+#. Author URI of the extension
 msgid "https://codesymphony.co/"
 msgstr ""
 
-#. Module Name of the module
+#. Extension Name of the extension
 msgid "WooCommerce"
 msgstr ""
 
-#. Module URI of the module
-msgid "https://wordpoints.org/modules/woocommerce/"
+#. Extension URI of the extension
+msgid "https://wordpoints.org/extensions/woocommerce/"
 msgstr ""
