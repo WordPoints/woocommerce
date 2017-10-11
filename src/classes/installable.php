@@ -31,6 +31,22 @@ class WordPoints_WooCommerce_Installable extends WordPoints_Installable_Extensio
 
 		return $factories;
 	}
+
+	/**
+	 * @since 1.2.1
+	 */
+	protected function get_uninstall_routine_factories() {
+
+		$factories = parent::get_uninstall_routine_factories();
+
+		$gateway = new WordPoints_WooCommerce_Gateway_Points();
+
+		$factories[] = new WordPoints_Uninstaller_Factory_Options(
+			array( $gateway->get_option_key() )
+		);
+
+		return $factories;
+	}
 }
 
 // EOF
