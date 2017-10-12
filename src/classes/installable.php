@@ -39,10 +39,8 @@ class WordPoints_WooCommerce_Installable extends WordPoints_Installable_Extensio
 
 		$factories = parent::get_uninstall_routine_factories();
 
-		$gateway = new WordPoints_WooCommerce_Gateway_Points();
-
 		$factories[] = new WordPoints_Uninstaller_Factory_Options(
-			array( $gateway->get_option_key() )
+			array( 'woocommerce_wordpoints_points_settings' )
 		);
 
 		return $factories;
