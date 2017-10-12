@@ -20,7 +20,6 @@ class WordPoints_WooCommerce_Updater_1_2_0_Gateway implements WordPoints_Routine
 	public function run() {
 
 		$gateway = new WordPoints_WooCommerce_Gateway_Points();
-		$gateway->init_settings();
 
 		$settings = $gateway->settings;
 

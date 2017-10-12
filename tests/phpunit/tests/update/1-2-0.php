@@ -38,7 +38,6 @@ class WordPoints_WooCommerce_Update_1_2_0_Test extends WordPoints_PHPUnit_TestCa
 		$this->create_points_type();
 
 		$gateway = new WordPoints_WooCommerce_Gateway_Points();
-		$gateway->init_settings();
 
 		$settings = $gateway->settings;
 
