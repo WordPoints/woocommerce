@@ -12,9 +12,7 @@
  *
  * @since 1.2.0
  *
- * @covers WordPoints_WooCommerce_Un_Installer::update_single_to_1_2_0()
- * @covers WordPoints_WooCommerce_Un_Installer::update_site_to_1_2_0()
- * @covers WordPoints_WooCommerce_Un_Installer::update_points_gateway_settings_to_1_2_0()
+ * @covers WordPoints_WooCommerce_Updater_1_2_0_Gateway
  */
 class WordPoints_WooCommerce_Update_1_2_0_Test extends WordPoints_PHPUnit_TestCase {
 

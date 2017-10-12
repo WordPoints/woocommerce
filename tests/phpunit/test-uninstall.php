@@ -12,7 +12,7 @@
  *
  * @since 1.0.0
  *
- * @covers WordPoints_WooCommerce_Un_Installer
+ * @covers WordPoints_WooCommerce_Installable
  */
 class WordPoints_WooCommerce_Uninstall_Test
 	extends WordPoints_PHPUnit_TestCase_Extension_Uninstall {
