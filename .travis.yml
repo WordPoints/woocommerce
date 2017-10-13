@@ -34,22 +34,40 @@ matrix:
     # Use Ubuntu Precise because Trusty doesn't support PHP 5.2 or 5.3.
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+    - php: 5.3
+      dist: precise
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+    - php: 5.3
+      dist: precise
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+    - php: 5.3
+      dist: precise
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+    - php: 5.2
+      dist: precise
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+    - php: 5.2
+      dist: precise
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+    - php: 5.2
+      dist: precise
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
     # Only run nightly against trunk.
     - php: nightly
       env: TRAVISCI_RUN=phpunit WP_VERSION=develop WC_VERSION=master
