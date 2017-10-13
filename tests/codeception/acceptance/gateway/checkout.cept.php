@@ -40,9 +40,9 @@ $I->hadCreatedAPointsType( array( 'name' => 'Test' ) );
 wordpoints_set_points( $user_id, 10000, 'test', 'test' );
 
 $I->loginAs( 'customer', 'password' );
-$I->amOnPage( get_permalink( $product_id ) );
+$I->amOnPage( str_replace( home_url(), '', get_permalink( $product_id ) ) );
 $I->click( 'Add to cart' );
-$I->amOnPage( wc_get_page_permalink( 'checkout' ) );
+$I->amOnPage( str_replace( home_url(), '', wc_get_page_permalink( 'checkout' ) ) );
 $I->click( '#payment_method_wordpoints_points' );
 $I->waitForElementVisible( '[name=wordpoints_points-points-type]' );
 $I->selectOption( 'wordpoints_points-points-type', 'Test' );
