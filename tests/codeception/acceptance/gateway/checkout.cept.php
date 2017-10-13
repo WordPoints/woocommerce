@@ -48,7 +48,7 @@ $I->waitForElementVisible( '[name=wordpoints_points-points-type]' );
 $I->selectOption( 'wordpoints_points-points-type', 'Test' );
 $I->click( 'Place order' );
 $I->waitForElementNotVisible( '.blockOverlay' );
-$I->waitForElementVisible( '.woocommerce' );
+$I->waitForElementVisible( '.woocommerce-thankyou-order-received' );
 $I->see( 'Thank you. Your order has been received.' );
 PHPUnit_Framework_Assert::assertSame( 8750, wordpoints_get_points( $user_id, 'test' ) );
 
