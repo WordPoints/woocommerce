@@ -93,6 +93,7 @@ before_script:
     - export DEV_LIB_PATH=dev-lib
     - if [ -e .wordpoints-dev-lib-config.sh ]; then source .wordpoints-dev-lib-config.sh; fi
     - source $DEV_LIB_PATH/travis/before_script.sh
+    - sleep 10
 
 script:
 #    - codesniff-php-syntax
