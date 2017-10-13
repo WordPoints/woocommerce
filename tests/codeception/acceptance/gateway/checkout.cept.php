@@ -7,17 +7,6 @@
  * @since   1.2.0
  */
 
-activate_plugin( 'woocommerce/woocommerce.php' );
-
-WC_Install::create_pages();
-
-/**
- * Load the WooCommerce tests bootstrap.
- *
- * @since 1.2.0
- */
-require_once WP_PLUGIN_DIR . '/woocommerce/tests/bootstrap.php';
-
 $factory    = new WordPoints_WooCommerce_UnitTest_Factory_For_Product();
 $product_id = $factory->create();
 
