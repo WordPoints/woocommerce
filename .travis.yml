@@ -3,89 +3,89 @@
 language: php
 
 php:
-    - 7.2
+#    - 7.2
     - 7.1
-    - 7.0
-    - 5.6
-    - 5.5
-    - 5.4
+#    - 7.0
+#    - 5.6
+#    - 5.5
+#    - 5.4
 
 env:
-    - TRAVISCI_RUN=codesniff
+#    - TRAVISCI_RUN=codesniff
     - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
 
 dist: trusty
 
 sudo: false
 
-addons:
-  apt:
-    packages:
-      # Needed for `xmllint`.
-      - libxml2-utils
+#addons:
+#  apt:
+#    packages:
+#      # Needed for `xmllint`.
+#      - libxml2-utils
 
 matrix:
-  include:
-    # Use Ubuntu Precise because Trusty doesn't support PHP 5.2 or 5.3.
-    - php: 5.3
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - php: 5.3
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    - php: 5.3
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - php: 5.3
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    - php: 5.3
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - php: 5.3
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    - php: 5.2
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - php: 5.2
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    - php: 5.2
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - php: 5.2
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    - php: 5.2
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
-    - php: 5.2
-      dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
-    # Only run nightly against trunk.
-    - php: nightly
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WC_VERSION=master
-  exclude:
-    # The codesniff pass only needs to be run once.
-    - php: 7.2
-      env: TRAVISCI_RUN=codesniff
-    - php: 7.0
-      env: TRAVISCI_RUN=codesniff
-    - php: 5.6
-      env: TRAVISCI_RUN=codesniff
-    - php: 5.5
-      env: TRAVISCI_RUN=codesniff
-    - php: 5.4
-      env: TRAVISCI_RUN=codesniff
-  allow_failures:
-    - php: nightly
-    - php: 7.2
+#  include:
+#    # Use Ubuntu Precise because Trusty doesn't support PHP 5.2 or 5.3.
+#    - php: 5.3
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - php: 5.3
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - php: 5.3
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - php: 5.3
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - php: 5.3
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - php: 5.3
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - php: 5.2
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - php: 5.2
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - php: 5.2
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - php: 5.2
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    - php: 5.2
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+#    - php: 5.2
+#      dist: precise
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=develop WC_VERSION=release/3.1
+#    # Only run nightly against trunk.
+#    - php: nightly
+#      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WC_VERSION=master
+#  exclude:
+#    # The codesniff pass only needs to be run once.
+#    - php: 7.2
+#      env: TRAVISCI_RUN=codesniff
+#    - php: 7.0
+#      env: TRAVISCI_RUN=codesniff
+#    - php: 5.6
+#      env: TRAVISCI_RUN=codesniff
+#    - php: 5.5
+#      env: TRAVISCI_RUN=codesniff
+#    - php: 5.4
+#      env: TRAVISCI_RUN=codesniff
+#  allow_failures:
+#    - php: nightly
+#    - php: 7.2
   fast_finish: true
 
 before_script:
@@ -95,29 +95,31 @@ before_script:
     - source $DEV_LIB_PATH/travis/before_script.sh
 
 script:
-    - codesniff-php-syntax
-    - codesniff-php-autoloaders
-    - codesniff-phpcs
-    - codesniff-strings
-    - codesniff-dittography
-    - codesniff-jshint
-    - codesniff-l10n
-    - codesniff-xmllint
-    - codesniff-bash
-    - codesniff-symlinks
-    - phpunit-basic
-    - phpunit-ms
-    - phpunit-ms-network
-    - phpunit-uninstall
-    - phpunit-ms-uninstall
-    - phpunit-ms-network-uninstall
-    - WORDPOINTS_ONLY_UNINSTALL_EXTENSION=1 phpunit-uninstall
-    - WORDPOINTS_ONLY_UNINSTALL_EXTENSION=1 phpunit-ms-uninstall
-    - WORDPOINTS_ONLY_UNINSTALL_EXTENSION=1 phpunit-ms-network-uninstall
-    - phpunit-ajax
-    - phpunit-ms-ajax
-    - phpunit-ms-network-ajax
+#    - codesniff-php-syntax
+#    - codesniff-php-autoloaders
+#    - codesniff-phpcs
+#    - codesniff-strings
+#    - codesniff-dittography
+#    - codesniff-jshint
+#    - codesniff-l10n
+#    - codesniff-xmllint
+#    - codesniff-bash
+#    - codesniff-symlinks
+#    - phpunit-basic
+#    - phpunit-ms
+#    - phpunit-ms-network
+#    - phpunit-uninstall
+#    - phpunit-ms-uninstall
+#    - phpunit-ms-network-uninstall
+#    - WORDPOINTS_ONLY_UNINSTALL_EXTENSION=1 phpunit-uninstall
+#    - WORDPOINTS_ONLY_UNINSTALL_EXTENSION=1 phpunit-ms-uninstall
+#    - WORDPOINTS_ONLY_UNINSTALL_EXTENSION=1 phpunit-ms-network-uninstall
+#    - phpunit-ajax
+#    - phpunit-ms-ajax
+#    - phpunit-ms-network-ajax
     - wpcept-run
 
 after_script:
+    - cat tests/codeception/_output/*.html
+    - if [[ -e tests/codeception/_output/gatewaycheckout.cept.fail.png ]]; then base64 tests/codeception/_output/gatewaycheckout.cept.fail.png; fi
     - source $DEV_LIB_PATH/travis/after_script.sh
