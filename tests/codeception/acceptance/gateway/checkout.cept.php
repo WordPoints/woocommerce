@@ -43,13 +43,12 @@ $I->loginAs( 'customer', 'password' );
 $I->amOnPage( str_replace( home_url(), '', get_permalink( $product_id ) ) );
 $I->click( 'Add to cart' );
 $I->amOnPage( str_replace( home_url(), '', wc_get_page_permalink( 'checkout' ) ) );
-$I->waitForElement( '.woocommerce' );
+$I->wait( 5 );
 $I->click( '#payment_method_wordpoints_points' );
 $I->waitForElementVisible( '[name=wordpoints_points-points-type]' );
 $I->selectOption( 'wordpoints_points-points-type', 'Test' );
 $I->click( 'Place order' );
 $I->waitForElementNotVisible( '.blockOverlay' );
-$I->waitForElementVisible( '.woocommerce-thankyou-order-received' );
 $I->see( 'Thank you. Your order has been received.' );
 PHPUnit_Framework_Assert::assertSame( 8750, wordpoints_get_points( $user_id, 'test' ) );
 
