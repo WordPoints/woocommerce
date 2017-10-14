@@ -43,8 +43,6 @@ $I->loginAs( 'customer', 'password' );
 $I->amOnPage( str_replace( home_url(), '', get_permalink( $product_id ) ) );
 $I->click( 'Add to cart' );
 $I->amOnPage( str_replace( home_url(), '', wc_get_page_permalink( 'checkout' ) ) );
-$I->wait( 5 );
-sleep( 10 );
 $I->click( '#payment_method_wordpoints_points' );
 $I->waitForElementVisible( '[name=wordpoints_points-points-type]' );
 $I->selectOption( 'wordpoints_points-points-type', 'Test' );

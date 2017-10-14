@@ -90,12 +90,10 @@ matrix:
 
 before_script:
     - export WORDPOINTS_PROJECT_TYPE=extension
-    - export DEV_LIB_DEBUG=1
     - export DEV_LIB_PATH=dev-lib
     - if [ -e .wordpoints-dev-lib-config.sh ]; then source .wordpoints-dev-lib-config.sh; fi
     - source $DEV_LIB_PATH/travis/before_script.sh
     - sleep 10
-    - ln -s $WP_CORE_DIR/wp-content/themes/twentyseventeen/ $WP_CORE_DIR/wp-content/themes/default
 
 script:
 #    - codesniff-php-syntax
