@@ -95,6 +95,7 @@ before_script:
     - if [ -e .wordpoints-dev-lib-config.sh ]; then source .wordpoints-dev-lib-config.sh; fi
     - source $DEV_LIB_PATH/travis/before_script.sh
     - sleep 10
+    - ln -s $WP_CORE_DIR/wp-content/themes/twentyseventeen/ $WP_CORE_DIR/wp-content/themes/default
 
 script:
 #    - codesniff-php-syntax
