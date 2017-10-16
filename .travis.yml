@@ -86,6 +86,7 @@ matrix:
   allow_failures:
     - php: nightly
     - php: 7.2
+    - env: WC_VERSION=master
   fast_finish: true
 
 before_script:
