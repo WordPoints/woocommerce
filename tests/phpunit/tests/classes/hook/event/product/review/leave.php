@@ -49,7 +49,7 @@ class WordPoints_WooCommerce_Hook_Event_Product_Review_Leave_Test
 			array(
 				'comment_approved' => 0,
 				'user_id'          => $this->factory->user->create(),
-				'comment_parent'  => $this->factory->comment->create(
+				'comment_parent'   => $this->factory->comment->create(
 					array(
 						'user_id'         => $this->factory->user->create(),
 						'comment_post_ID' => $this->factory->post->create(

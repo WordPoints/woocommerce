@@ -1,14 +1,14 @@
 <?php
 
 /**
- * PHPUnit tests bootstrap for the module.
+ * PHPUnit tests bootstrap for the extension.
  *
  * @package WordPoints_WooCommerce\Tests
  * @since 1.0.0
  */
 
 /**
- * The module's tests directory.
+ * The extension's tests directory.
  *
  * @since 1.0.0
  *
@@ -44,7 +44,7 @@ if ( ! WordPoints_PHPUnit_Bootstrap_Loader::instance()->running_uninstall_tests(
 
 // wc_create_order() expects this to be set.
 if ( ! isset( $_SERVER['REMOTE_ADDR'] ) ) {
-	 $_SERVER['REMOTE_ADDR'] = '';
+	$_SERVER['REMOTE_ADDR'] = '';
 }
 
 // EOF

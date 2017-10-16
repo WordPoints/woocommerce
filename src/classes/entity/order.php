@@ -30,11 +30,9 @@ class WordPoints_WooCommerce_Entity_Order extends WordPoints_Entity_Post {
 	protected $human_id_field = 'ID';
 
 	/**
-	 * @since 1.1.0
+	 * @since 1.2.1
 	 */
-	public function get_title() {
-		return _x( 'Order', 'entity title', 'wordpoints-woocommerce' );
-	}
+	protected $post_type = 'shop_order';
 
 	/**
 	 * @since 1.1.0

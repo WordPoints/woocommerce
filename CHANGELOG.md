@@ -1,4 +1,4 @@
-# Change Log for WooCommerce Module
+# Change Log for WooCommerce Extension
 
 All notable changes to this project will be documented in this file.
 
@@ -8,7 +8,19 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
 
 Nothing documented right now.
 
-## [1.2.0] - 2017-04-24
+## [1.2.1] - 2017-10-16
+
+### Requires
+
+- WordPoints: 2.4+
+
+### Fixed
+
+- Deprecated notices from `Channel`, `Module Name`, and `Module URI` extension headers.
+- Deprecated notices from the un/installer, by using the new installables API.
+- Gateway settings not being deleted on uninstall.
+
+## [1.2.0] - 2017-05-24
 
 ### Changed
 
@@ -84,9 +96,11 @@ Nothing documented right now.
 
 - Payment gateway that uses points as currency.
  - The admin sets which points type to use.
- - How many points to charge for the monetary amount can be set to 1 to 1 or 1 to 100.
+ - How many points to charge for the monetary amount can be set to 1-to-1 or 1-to-100.
 
 [unreleased]: https://github.com/WordPoints/woocommerce/compare/master...HEAD
+[1.2.1]: https://github.com/WordPoints/woocommerce/compare/1.2.0...1.2.1
+[1.2.0]: https://github.com/WordPoints/woocommerce/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/WordPoints/woocommerce/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/WordPoints/woocommerce/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/WordPoints/woocommerce/compare/1.0.0...1.0.1

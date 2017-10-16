@@ -7,8 +7,6 @@
  * @since   1.2.0
  */
 
-activate_plugin( 'woocommerce/woocommerce.php' );
-
 $I = new AcceptanceTester( $scenario );
 $I->wantTo( 'Save points gateway settings.' );
 $I->hadCreatedAPointsType();

@@ -104,7 +104,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$slug = $this->factory->wordpoints->points_type->create();
 
 		$gateway = new WordPoints_WooCommerce_Gateway_Points();
-		$gateway->settings['conversion_rate-points']  = 100;
+		$gateway->settings['conversion_rate-points']    = 100;
 		$gateway->settings[ "conversion_rate-{$slug}" ] = 50;
 		update_option( $gateway->get_option_key(), $gateway->settings );
 
@@ -129,7 +129,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$this->assertSame(
 			array(
 				'points' => array(
-					'name' => 'Points',
+					'name'   => 'Points',
 					'prefix' => '$',
 					'suffix' => 'pts.',
 				),
@@ -209,7 +209,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		wordpoints_set_points( $user_id, 10000, $slug, 'test' );
 
 		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate-points'] = 100;
+		$gateways['wordpoints_points']->settings['conversion_rate-points']    = 100;
 		$gateways['wordpoints_points']->settings[ "conversion_rate-{$slug}" ] = 50;
 
 		$_POST[ "{$gateways['wordpoints_points']->id}-points-type" ] = $slug;
@@ -275,14 +275,14 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
 
 		// Refund the order.
-		$order_id = $this->checkout_order_id;
+		$order_id      = $this->checkout_order_id;
 		$refund_amount = 20;
 		$refund_reason = 'Testing refunds.';
 
 		wc_create_refund(
 			array(
-				'amount' => $refund_amount,
-				'reason' => $refund_reason,
+				'amount'   => $refund_amount,
+				'reason'   => $refund_reason,
 				'order_id' => $order_id,
 			)
 		);
@@ -320,7 +320,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		wordpoints_set_points( $user_id, 10000, $slug, 'test' );
 
 		$gateways = WC()->payment_gateways()->get_available_payment_gateways();
-		$gateways['wordpoints_points']->settings['conversion_rate-points'] = 100;
+		$gateways['wordpoints_points']->settings['conversion_rate-points']    = 100;
 		$gateways['wordpoints_points']->settings[ "conversion_rate-{$slug}" ] = 50;
 
 		$_POST[ "{$gateways['wordpoints_points']->id}-points-type" ] = $slug;
@@ -330,14 +330,14 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$this->assertSame( 8750, wordpoints_get_points( $user_id, $slug ) );
 
 		// Refund the order.
-		$order_id = $this->checkout_order_id;
+		$order_id      = $this->checkout_order_id;
 		$refund_amount = 20;
 		$refund_reason = 'Testing refunds.';
 
 		wc_create_refund(
 			array(
-				'amount' => $refund_amount,
-				'reason' => $refund_reason,
+				'amount'   => $refund_amount,
+				'reason'   => $refund_reason,
 				'order_id' => $order_id,
 			)
 		);
@@ -377,14 +377,14 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$this->assertSame( 7500, wordpoints_get_points( $user_id, 'points' ) );
 
 		// Refund the order.
-		$order_id = $this->checkout_order_id;
+		$order_id      = $this->checkout_order_id;
 		$refund_amount = 20;
 		$refund_reason = 'Testing refunds.';
 
 		wc_create_refund(
 			array(
-				'amount' => $refund_amount,
-				'reason' => $refund_reason,
+				'amount'   => $refund_amount,
+				'reason'   => $refund_reason,
 				'order_id' => $order_id,
 			)
 		);

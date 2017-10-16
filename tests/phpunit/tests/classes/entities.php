@@ -36,7 +36,7 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 
 		global $wpdb;
 
-		$this->factory = new WP_UnitTest_Factory();
+		$this->factory             = new WP_UnitTest_Factory();
 		$this->factory->wordpoints = WordPoints_PHPUnit_Factory::$factory;
 
 		$entities = array(
@@ -52,6 +52,12 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 						'info' => array(
 							'type'       => 'table',
 							'table_name' => $wpdb->posts,
+							'conditions' => array(
+								array(
+									'field' => 'post_type',
+									'value' => 'shop_order',
+								),
+							),
 						),
 					),
 					'the_context'  => array( 'site' => 1, 'network' => 1 ),
@@ -59,13 +65,13 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 					'delete_func'  => 'WC_Helper_Order::delete_order',
 					'children'     => array(
 						'cart_tax' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Tax_Cart',
-							'data_type' => 'decimal_number',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Tax_Cart',
+							'data_type'    => 'decimal_number',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
 									'type'             => 'meta_table',
-							        'table_name'       => $wpdb->postmeta,
+									'table_name'       => $wpdb->postmeta,
 									'meta_key'         => '_order_tax',
 									'meta_key_field'   => 'meta_key',
 									'meta_value_field' => 'meta_value',
@@ -74,13 +80,13 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'created_via' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Created_Via',
-							'data_type' => 'text',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Created_Via',
+							'data_type'    => 'text',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
 									'type'             => 'meta_table',
-							        'table_name'       => $wpdb->postmeta,
+									'table_name'       => $wpdb->postmeta,
 									'meta_key'         => '_created_via',
 									'meta_key_field'   => 'meta_key',
 									'meta_value_field' => 'meta_value',
@@ -89,17 +95,17 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'customer' => array(
-							'class'   => 'WordPoints_WooCommerce_Entity_Order_Customer',
-							'primary' => 'woocommerce_order',
-							'related' => 'user',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Customer',
+							'primary'      => 'woocommerce_order',
+							'related'      => 'user',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
-									'type'  => 'table',
-									'table_name' => $wpdb->postmeta,
+									'type'             => 'table',
+									'table_name'       => $wpdb->postmeta,
 									'primary_id_field' => 'post_id',
 									'related_id_field' => 'meta_value',
-									'conditions' => array(
+									'conditions'       => array(
 										array(
 											'field' => 'meta_key',
 											'value' => '_customer_user',
@@ -109,8 +115,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'customer_note' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Customer_Note',
-							'data_type' => 'text',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Customer_Note',
+							'data_type'    => 'text',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -120,8 +126,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'date_completed' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Date_Completed',
-							'data_type' => 'unix_timestamp',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Date_Completed',
+							'data_type'    => 'unix_timestamp',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -135,8 +141,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'date_created' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Date_Created',
-							'data_type' => 'mysql_datetime',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Date_Created',
+							'data_type'    => 'mysql_datetime',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -146,8 +152,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'date_paid' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Date_Paid',
-							'data_type' => 'unix_timestamp',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Date_Paid',
+							'data_type'    => 'unix_timestamp',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -161,8 +167,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'discount_total' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Total_Discount',
-							'data_type' => 'decimal_number',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Total_Discount',
+							'data_type'    => 'decimal_number',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -176,8 +182,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'discount_tax' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Tax_Discount',
-							'data_type' => 'decimal_number',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Tax_Discount',
+							'data_type'    => 'decimal_number',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -191,8 +197,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'grand_total' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Total_Grand',
-							'data_type' => 'decimal_number',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Total_Grand',
+							'data_type'    => 'decimal_number',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -206,8 +212,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'shipping_tax' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Tax_Shipping',
-							'data_type' => 'decimal_number',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Tax_Shipping',
+							'data_type'    => 'decimal_number',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(
@@ -221,8 +227,8 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 							),
 						),
 						'shipping_total' => array(
-							'class'     => 'WordPoints_WooCommerce_Entity_Order_Total_Shipping',
-							'data_type' => 'decimal_number',
+							'class'        => 'WordPoints_WooCommerce_Entity_Order_Total_Shipping',
+							'data_type'    => 'decimal_number',
 							'storage_info' => array(
 								'type' => 'db',
 								'info' => array(

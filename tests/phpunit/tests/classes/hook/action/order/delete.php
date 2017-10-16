@@ -81,7 +81,7 @@ class WordPoints_WooCommerce_Hook_Action_Order_Delete_Test
 			'test'
 			, array( $order->get_id(), 'a' )
 			, array(
-				'arg_index' => array( 'woocommerce_order' => 0 ),
+				'arg_index'    => array( 'woocommerce_order' => 0 ),
 				'requirements' => array( 1 => 'a' ),
 			)
 		);
@@ -102,7 +102,7 @@ class WordPoints_WooCommerce_Hook_Action_Order_Delete_Test
 			'test'
 			, array( $order->get_id(), 'b' )
 			, array(
-				'arg_index' => array( 'woocommerce_order' => 0 ),
+				'arg_index'    => array( 'woocommerce_order' => 0 ),
 				'requirements' => array( 1 => 'a' ),
 			)
 		);

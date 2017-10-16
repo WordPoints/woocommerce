@@ -7,18 +7,7 @@
  * @since   1.2.0
  */
 
-activate_plugin( 'woocommerce/woocommerce.php' );
-
-WC_Install::create_pages();
-
-/**
- * Load the WooCommerce tests bootstrap.
- *
- * @since 1.2.0
- */
-require_once WP_PLUGIN_DIR . '/woocommerce/tests/bootstrap.php';
-
-$factory = new WordPoints_WooCommerce_UnitTest_Factory_For_Product();
+$factory    = new WordPoints_WooCommerce_UnitTest_Factory_For_Product();
 $product_id = $factory->create();
 
 $user_id = wp_insert_user( array( 'user_login' => 'customer', 'user_pass' => 'password' ) );
@@ -51,9 +40,9 @@ $I->hadCreatedAPointsType( array( 'name' => 'Test' ) );
 wordpoints_set_points( $user_id, 10000, 'test', 'test' );
 
 $I->loginAs( 'customer', 'password' );
-$I->amOnPage( get_permalink( $product_id ) );
+$I->amOnPage( str_replace( home_url(), '', get_permalink( $product_id ) ) );
 $I->click( 'Add to cart' );
-$I->amOnPage( wc_get_page_permalink( 'checkout' ) );
+$I->amOnPage( str_replace( home_url(), '', wc_get_page_permalink( 'checkout' ) ) );
 $I->click( '#payment_method_wordpoints_points' );
 $I->waitForElementVisible( '[name=wordpoints_points-points-type]' );
 $I->selectOption( 'wordpoints_points-points-type', 'Test' );

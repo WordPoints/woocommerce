@@ -1,30 +1,30 @@
 <?php
 
 /**
- * WordPoints WooCommerce integration module.
+ * WordPoints WooCommerce integration extension.
  *
  * ---------------------------------------------------------------------------------|
  * Copyright 2014-17  J.D. Grimes  (email : jdg@codesymphony.co)
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_WooCommerce
- * @version 1.2.0
+ * @version 1.2.1
  * @author  J.D. Grimes <jdg@codesymphony.co>
  */
 
-WordPoints_Modules::register(
+wordpoints_register_extension(
 	'
-		Module Name: WooCommerce
-		Module URI:  https://wordpoints.org/modules/woocommerce/
-		Author:      J.D. Grimes
-		Author URI:  https://codesymphony.co/
-		Version:     1.2.0
-		Description: Let your users pay with points.
-		Text Domain: wordpoints-woocommerce
-		Domain Path: /languages
-		ID:          445
-		Channel:     wordpoints.org
-		Namespace:   WooCommerce
+		Extension Name: WooCommerce
+		Extension URI:  https://wordpoints.org/extensions/woocommerce/
+		Author:         J.D. Grimes
+		Author URI:     https://codesymphony.co/
+		Version:        1.2.1
+		Description:    Let your users pay with points.
+		Text Domain:    wordpoints-woocommerce
+		Domain Path:    /languages
+		ID:             445
+		Server:         wordpoints.org
+		Namespace:      WooCommerce
 	'
 	, __FILE__
 );
@@ -32,25 +32,25 @@ WordPoints_Modules::register(
 WordPoints_Class_Autoloader::register_dir( dirname( __FILE__ ) . '/classes' );
 
 /**
- * The module's constants.
+ * The extension's constants.
  *
  * @since 1.0.0
  */
-include_once( dirname( __FILE__ ) . '/includes/constants.php' );
+require_once dirname( __FILE__ ) . '/includes/constants.php';
 
 /**
- * The module's general utility functions.
+ * The extension's general utility functions.
  *
  * @since 1.0.0
  */
-include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/includes/functions.php' );
+require_once WORDPOINTS_WOOCOMMERCE_DIR . '/includes/functions.php';
 
 /**
- * Hooks up the module's action and filter hooks.
+ * Hooks up the extension's action and filter hooks.
  *
  * @since 1.1.0
  */
-include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/includes/actions.php' );
+require_once WORDPOINTS_WOOCOMMERCE_DIR . '/includes/actions.php';
 
 if ( wordpoints_component_is_active( 'points' ) ) {
 
@@ -59,7 +59,7 @@ if ( wordpoints_component_is_active( 'points' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	include_once( WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/points.php' );
+	require_once WORDPOINTS_WOOCOMMERCE_DIR . '/components/points/points.php';
 }
 
 // EOF

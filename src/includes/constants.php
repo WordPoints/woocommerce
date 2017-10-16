@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Module constants.
+ * Extension constants.
  *
  * @package WordPoints_WooCommerce
  * @since 1.0.0
  */
 
 /**
- * The module's version.
+ * The extension's version.
  *
  * @since 1.0.0
  *
  * @type string WORDPOINTS_WOOCOMMERCE_VERSION
  */
-define( 'WORDPOINTS_WOOCOMMERCE_VERSION', '1.2.0' );
+define( 'WORDPOINTS_WOOCOMMERCE_VERSION', '1.2.1' );
 
 /**
- * The full path to the module's main directory.
+ * The full path to the extension's main directory.
  *
  * @since 1.0.0
  *

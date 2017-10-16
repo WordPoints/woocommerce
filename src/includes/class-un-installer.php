@@ -1,16 +1,20 @@
 <?php
 
 /**
- * Class to un/install the module.
+ * Class to un/install the extension.
  *
  * @package WordPoints_WooCommrce
  * @since 1.0.2
+ * @deprecated 1.2.1
  */
 
+_deprecated_file( __FILE__, '1.2.1' );
+
 /**
- * Un/install the module.
+ * Un/install the extension.
  *
  * @since 1.0.2
+ * @deprecated 1.2.1
  */
 class WordPoints_WooCommerce_Un_Installer extends WordPoints_Un_Installer_Base {
 
@@ -50,21 +54,8 @@ class WordPoints_WooCommerce_Un_Installer extends WordPoints_Un_Installer_Base {
 	 * @since 1.2.0
 	 */
 	protected function update_points_gateway_settings_to_1_2_0() {
-
-		$gateway = new WordPoints_WooCommerce_Gateway_Points();
-		$gateway->init_settings();
-
-		$settings = $gateway->settings;
-
-		if ( ! isset( $settings['points_type'], $settings['conversion_rate'] ) ) {
-			return;
-		}
-
-		$settings[ "conversion_rate-{$settings['points_type']}" ] = $settings['conversion_rate'];
-
-		unset( $settings['points_type'], $settings['conversion_rate'] );
-
-		update_option( $gateway->get_option_key(), $settings );
+		$routine = new WordPoints_WooCommerce_Updater_1_2_0_Gateway();
+		$routine->run();
 	}
 }
 
