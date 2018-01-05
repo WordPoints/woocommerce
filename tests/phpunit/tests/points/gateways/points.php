@@ -503,23 +503,14 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		$messages = ob_get_clean();
 
 		if ( ! empty( $args['expected_errors'] ) ) {
-
-			$expected_errors = '			<li>'
-				. implode( '', (array) $args['expected_errors'] )
-				. '</li>' . "\n";
-
+			$expected_errors = $args['expected_errors'];
 		} else {
-
-			$expected_errors =
-				'			<li>WordPoints_WooCommerce_Points_Gateway_Test</li>'
-				. "\n";
-
+			$expected_errors = 'WordPoints_WooCommerce_Points_Gateway_Test';
 		}
 
-		$this->assertSame(
-			'<ul class="woocommerce-error">' . "\n" . $expected_errors . '	</ul>'
-			, trim( $messages )
-		);
+		foreach ( (array) $expected_errors as $expected_error ) {
+			$this->assertStringContains( $expected_error, $messages );
+		}
 	}
 
 	/**
