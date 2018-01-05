@@ -29,7 +29,10 @@ env:
 
 dist: trusty
 
-sudo: false
+# See https://github.com/WordPoints/wordpoints/issues/757
+group: deprecated-2017Q4
+
+sudo: true
 
 addons:
   apt:
@@ -129,7 +132,7 @@ matrix:
       env: TRAVISCI_RUN=phpunit WP_VERSION=develop WC_VERSION=master
   exclude:
     # The codesniff pass only needs to be run once.
-    - php: 7.2
+    - php: 7.1
       env: TRAVISCI_RUN=codesniff
     - php: 7.0
       env: TRAVISCI_RUN=codesniff
@@ -139,6 +142,19 @@ matrix:
       env: TRAVISCI_RUN=codesniff
     - php: 5.4
       env: TRAVISCI_RUN=codesniff
+    # WordPress below 4.9 is not compatible with PHP 7.2.
+    - php: 7.2
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=master
+    - php: 7.2
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.2
+    - php: 7.2
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=master
+    - php: 7.2
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.2
+    - php: 7.2
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=master
+    - php: 7.2
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.2
   allow_failures:
     - php: nightly
   fast_finish: true
