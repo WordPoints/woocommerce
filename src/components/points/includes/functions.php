@@ -12,7 +12,7 @@
  *
  * @since 1.0.0
  */
-function wordpoints_points_logs_woocommerce_points_gateway(
+function wordpoints_points_logs_woocommerce_points_gateway( // WPCS: prefix OK.
 		$text, $points, $points_type, $user_id, $log_type, $meta
 	) {
 
@@ -51,7 +51,7 @@ add_filter(
  *
  * @since 1.0.0
  */
-function wordpoints_points_logs_woocommerce_points_gateway_refund(
+function wordpoints_points_logs_woocommerce_points_gateway_refund( // WPCS: prefix OK.
 		$text, $points, $points_type, $user_id, $log_type, $meta
 	) {
 
