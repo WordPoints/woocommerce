@@ -8,6 +8,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
 
 Nothing documented right now.
 
+## [1.3.0] - 2018-02-10
+
+### Added
+
+- Coupon settings that allow a certain number of points to be charged each time a coupon is used.
+
+### Fixed
+
+- Added missing `id` attribute to points type dropdown for the points gateway at checkout.
+
 ## [1.2.1] - 2017-10-16
 
 ### Requires
@@ -99,6 +109,7 @@ Nothing documented right now.
  - How many points to charge for the monetary amount can be set to 1-to-1 or 1-to-100.
 
 [unreleased]: https://github.com/WordPoints/woocommerce/compare/master...HEAD
+[1.3.0]: https://github.com/WordPoints/woocommerce/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/WordPoints/woocommerce/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/WordPoints/woocommerce/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/WordPoints/woocommerce/compare/1.0.2...1.1.0

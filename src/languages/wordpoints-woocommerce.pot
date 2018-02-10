@@ -1,14 +1,14 @@
-# Copyright (C) 2017 J.D. Grimes
+# Copyright (C) 2018 J.D. Grimes
 # This file is distributed under the same license as the WordPoints WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPoints WooCommerce 1.2.1\n"
+"Project-Id-Version: WordPoints WooCommerce 1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-11 21:40:32+00:00\n"
+"POT-Creation-Date: 2018-02-10 15:19:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -136,6 +136,56 @@ msgctxt "points log description"
 msgid "Refunded payment for an order."
 msgstr ""
 
+#: components/points/includes/functions.php:103
+msgid "Points"
+msgstr ""
+
+#: components/points/includes/functions.php:131
+msgid "Points cost per use"
+msgstr ""
+
+#: components/points/includes/functions.php:132
+msgid ""
+"Number of points it costs to use this coupon. Leave blank to not charge "
+"points for this coupon."
+msgstr ""
+
+#: components/points/includes/functions.php:142
+msgid "Points type"
+msgstr ""
+
+#. translators: 1: Coupon price in points. 2: Number of points the user has.
+#: components/points/includes/functions.php:224
+msgid "This coupon costs %1$s, you have only %2$s."
+msgstr ""
+
+#. translators: Coupon price in points.
+#: components/points/includes/functions.php:268
+msgid "(Cost: %s)"
+msgstr ""
+
+#. translators: Order number.
+#: components/points/includes/functions.php:374
+msgctxt "points log description"
+msgid "Coupon used on order %s"
+msgstr ""
+
+#: components/points/includes/functions.php:380
+msgctxt "points log description"
+msgid "Coupon used on an order."
+msgstr ""
+
+#. translators: Order number.
+#: components/points/includes/functions.php:413
+msgctxt "points log description"
+msgid "Refunded coupon for order %s"
+msgstr ""
+
+#: components/points/includes/functions.php:419
+msgctxt "points log description"
+msgid "Refunded coupon for an order."
+msgstr ""
+
 #: components/points/includes/gateways/points.php:28
 msgctxt "gateway title"
 msgid "WordPoints"
@@ -209,33 +259,33 @@ msgstr ""
 msgid "Points Type"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:240
+#: components/points/includes/gateways/points.php:243
 msgid "Payment Error:"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:241
+#: components/points/includes/gateways/points.php:244
 msgid "Please select a points type to pay with."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:296
-#: components/points/includes/gateways/points.php:321
+#: components/points/includes/gateways/points.php:299
+#: components/points/includes/gateways/points.php:324
 msgid "Payment error:"
 msgstr ""
 
-#: components/points/includes/gateways/points.php:297
+#: components/points/includes/gateways/points.php:300
 msgid "You have insufficient points to make this purchase."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:322
+#: components/points/includes/gateways/points.php:325
 msgid "Unable to subtract the points from your account."
 msgstr ""
 
 #. translators: The number of points refunded.
-#: components/points/includes/gateways/points.php:393
+#: components/points/includes/gateways/points.php:396
 msgid "Refunded %s points."
 msgstr ""
 
-#: components/points/includes/gateways/points.php:480
+#: components/points/includes/gateways/points.php:483
 msgid ""
 "Sorry, you must be logged in and have sufficient points in order to check "
 "out."
