@@ -124,10 +124,10 @@ function wordpoints_woocommerce_points_coupon_data_panel( $coupon_id, $coupon ) 
 	<div id="wordpoints_points_coupon_data" class="panel woocommerce_options_panel">
 		<?php
 
-		// Points amount.
+		// Points cost.
 		woocommerce_wp_text_input(
 			array(
-				'id'          => 'wordpoints_points_amount',
+				'id'          => 'wordpoints_woocommerce_points_coupon_cost',
 				'label'       => __( 'Points cost per use', 'wordpoints-woocommerce' ),
 				'description' => __( 'Number of points it costs to use this coupon. Leave blank to not charge points for this coupon.', 'wordpoints-woocommerce' ),
 				'type'        => 'number',
@@ -138,7 +138,7 @@ function wordpoints_woocommerce_points_coupon_data_panel( $coupon_id, $coupon ) 
 		// Points type.
 		woocommerce_wp_select(
 			array(
-				'id'      => 'wordpoints_points_type',
+				'id'      => 'wordpoints_woocommerce_points_coupon_points_type',
 				'label'   => __( 'Points type', 'wordpoints-woocommerce' ),
 				'options' => wp_list_pluck( wordpoints_get_points_types(), 'name' ),
 			)
@@ -172,18 +172,18 @@ add_action( 'woocommerce_coupon_data_panels', 'wordpoints_woocommerce_points_cou
 function wordpoints_woocommerce_points_coupon_options_save( $coupon_id, $coupon ) {
 
 	if (
-		isset( $_POST['wordpoints_points_type'] ) // WPCS: CSRF OK.
-		&& isset( $_POST['wordpoints_points_amount'] ) // WPCS: CSRF OK.
+		isset( $_POST['wordpoints_woocommerce_points_coupon_points_type'] ) // WPCS: CSRF OK.
+		&& isset( $_POST['wordpoints_woocommerce_points_coupon_cost'] ) // WPCS: CSRF OK.
 	) {
 
 		$coupon->update_meta_data(
-			'wordpoints_points_type',
-			sanitize_key( $_POST['wordpoints_points_type'] ) // WPCS: CSRF OK.
+			'wordpoints_woocommerce_points_coupon_points_type',
+			sanitize_key( $_POST['wordpoints_woocommerce_points_coupon_points_type'] ) // WPCS: CSRF OK.
 		);
 
 		$coupon->update_meta_data(
-			'wordpoints_points_amount'
-			, wordpoints_posint( $_POST['wordpoints_points_amount'] ) // WPCS: CSRF OK.
+			'wordpoints_woocommerce_points_coupon_cost'
+			, wordpoints_posint( $_POST['wordpoints_woocommerce_points_coupon_cost'] ) // WPCS: CSRF OK.
 		);
 
 		$coupon->save();
@@ -207,11 +207,11 @@ function wordpoints_woocommerce_points_coupon_is_valid( $is_valid, $coupon ) {
 
 	if ( $is_valid ) {
 
-		$points = $coupon->get_meta( 'wordpoints_points_amount' );
+		$points = $coupon->get_meta( 'wordpoints_woocommerce_points_coupon_cost' );
 
 		if ( wordpoints_posint( $points ) ) {
 
-			$points_type = $coupon->get_meta( 'wordpoints_points_type' );
+			$points_type = $coupon->get_meta( 'wordpoints_woocommerce_points_coupon_points_type' );
 
 			$user_id = get_current_user_id();
 
@@ -257,11 +257,11 @@ add_filter( 'woocommerce_coupon_is_valid', 'wordpoints_woocommerce_points_coupon
  */
 function wordpoints_woocommerce_points_coupon_amount_html_filter( $html, $coupon ) {
 
-	$points = $coupon->get_meta( 'wordpoints_points_amount' );
+	$points = $coupon->get_meta( 'wordpoints_woocommerce_points_coupon_cost' );
 
 	if ( wordpoints_posint( $points ) ) {
 
-		$points_type = $coupon->get_meta( 'wordpoints_points_type' );
+		$points_type = $coupon->get_meta( 'wordpoints_woocommerce_points_coupon_points_type' );
 
 		$cost = sprintf(
 			// translators: Coupon price in points.
@@ -319,13 +319,13 @@ function wordpoints_woocommerce_points_coupons_apply( $order_id ) {
 
 		$coupon = new WC_Coupon( $code );
 
-		$points = $coupon->get_meta( 'wordpoints_points_amount' );
+		$points = $coupon->get_meta( 'wordpoints_woocommerce_points_coupon_cost' );
 
 		if ( ! wordpoints_posint( $points ) ) {
 			continue;
 		}
 
-		$points_type = $coupon->get_meta( 'wordpoints_points_type' );
+		$points_type = $coupon->get_meta( 'wordpoints_woocommerce_points_coupon_points_type' );
 
 		$points = 'refund' === $action ? $points : -$points;
 

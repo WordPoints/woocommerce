@@ -39,8 +39,8 @@ class WordPoints_WooCommerce_Coupons_Functions_Test
 		// Create the coupon.
 		$coupon = WC_Helper_Coupon::create_coupon( 'fake-coupon' );
 		$coupon->set_amount( 10 );
-		$coupon->update_meta_data( 'wordpoints_points_type', 'points' );
-		$coupon->update_meta_data( 'wordpoints_points_amount', 10 );
+		$coupon->update_meta_data( 'wordpoints_woocommerce_points_coupon_points_type', 'points' );
+		$coupon->update_meta_data( 'wordpoints_woocommerce_points_coupon_cost', 10 );
 		$coupon->save();
 
 		// Apply the coupon.
@@ -79,8 +79,8 @@ class WordPoints_WooCommerce_Coupons_Functions_Test
 		// Create the coupon.
 		$coupon = WC_Helper_Coupon::create_coupon( 'fake-coupon' );
 		$coupon->set_amount( 5 );
-		$coupon->update_meta_data( 'wordpoints_points_type', 'points' );
-		$coupon->update_meta_data( 'wordpoints_points_amount', 10 );
+		$coupon->update_meta_data( 'wordpoints_woocommerce_points_coupon_points_type', 'points' );
+		$coupon->update_meta_data( 'wordpoints_woocommerce_points_coupon_cost', 10 );
 		$coupon->save();
 
 		// Apply the coupon.

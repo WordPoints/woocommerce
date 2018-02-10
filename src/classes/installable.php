@@ -43,6 +43,14 @@ class WordPoints_WooCommerce_Installable extends WordPoints_Installable_Extensio
 			array( 'woocommerce_wordpoints_points_settings' )
 		);
 
+		$factories[] = new WordPoints_Uninstaller_Factory_Metadata(
+			'post'
+			, array(
+				'wordpoints_woocommerce_points_coupon_cost',
+				'wordpoints_woocommerce_points_coupon_points_type',
+			)
+		);
+
 		return $factories;
 	}
 }

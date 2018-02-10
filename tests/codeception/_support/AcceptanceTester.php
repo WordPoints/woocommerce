@@ -70,8 +70,8 @@ class AcceptanceTester extends \WordPoints\Tests\Codeception\AcceptanceTester {
 
 		$coupon = WC_Helper_Coupon::create_coupon( 'fake-coupon' );
 		$coupon->set_amount( 5 );
-		$coupon->update_meta_data( 'wordpoints_points_type', $points_type );
-		$coupon->update_meta_data( 'wordpoints_points_amount', $amount );
+		$coupon->update_meta_data( 'wordpoints_woocommerce_points_coupon_points_type', $points_type );
+		$coupon->update_meta_data( 'wordpoints_woocommerce_points_coupon_cost', $amount );
 		$coupon->save();
 
 		return $coupon;

@@ -15,9 +15,9 @@ $I->amLoggedInAsAdminOnPage(
 );
 $I->fillField( 'coupon_amount', '10' );
 $I->click( 'Points', '.coupon_data_tabs' );
-$I->fillField( 'wordpoints_points_amount', '10' );
+$I->fillField( 'wordpoints_woocommerce_points_coupon_cost', '10' );
 $I->click( 'Publish' );
 $I->click( 'Points', '.coupon_data_tabs' );
-$I->seeInField( 'wordpoints_points_amount', '10' );
+$I->seeInField( 'wordpoints_woocommerce_points_coupon_cost', '10' );
 
 // EOF
