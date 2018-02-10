@@ -95,6 +95,7 @@ class WordPoints_WooCommerce_Hook_Event_Order_Complete_Test
 
 		$_POST['order_id']               = $order->get_id();
 		$_POST['refund_amount']          = $order->get_total();
+		$_POST['refunded_amount']        = '0.00';
 		$_POST['refund_reason']          = 'Testing.';
 		$_POST['line_item_qtys']         = '[]';
 		$_POST['line_item_totals']       = '[]';

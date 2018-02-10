@@ -66,8 +66,8 @@
             "errors": false
         },
         "\/classes\/entity\/order.php": {
-            "size": 1261,
-            "hash": "60f9a0940017a491c69437ec8502baa4",
+            "size": 1199,
+            "hash": "415cfc52bb9185a21bd9bb78a2ddbd20",
             "errors": false
         },
         "\/classes\/entity\/product\/review.php": {
@@ -101,23 +101,33 @@
             "errors": false
         },
         "\/classes\/index.php": {
-            "size": 1913,
-            "hash": "480685c940669dbee6a7f5b7509c7a7a",
+            "size": 2053,
+            "hash": "8428f150e024cf62be9c31048d3197fc",
+            "errors": false
+        },
+        "\/classes\/installable.php": {
+            "size": 871,
+            "hash": "46becfb0e95e9879b22c56de3f28b323",
+            "errors": false
+        },
+        "\/classes\/updater\/1\/2\/0\/gateway.php": {
+            "size": 731,
+            "hash": "ad835a26346d440ed8d239aaa32ba016",
             "errors": false
         },
         "\/components\/points\/includes\/actions.php": {
-            "size": 267,
-            "hash": "a3017b6ce609d09e076a2879b7d3cc83",
+            "size": 270,
+            "hash": "7a91e286beac7b353a0162293c702172",
             "errors": false
         },
         "\/components\/points\/includes\/functions.php": {
-            "size": 1946,
-            "hash": "53ee7cc85e34e751788a7951331ffff9",
+            "size": 10836,
+            "hash": "84f62bd625257e0daa25f8978ac27df2",
             "errors": false
         },
         "\/components\/points\/includes\/gateways\/points.php": {
-            "size": 11019,
-            "hash": "118800240714c3271cfbd2ffec2734d6",
+            "size": 11041,
+            "hash": "14c412352bf8a6484afab0da0476d79e",
             "errors": false
         },
         "\/components\/points\/includes\/index.php": {
@@ -126,35 +136,35 @@
             "errors": false
         },
         "\/components\/points\/points.php": {
-            "size": 547,
-            "hash": "7f3c9dfa9bee16c2b1b715be84877045",
+            "size": 541,
+            "hash": "a4705c37e76367027f431539344c8e37",
             "errors": false
         },
         "\/includes\/actions.php": {
-            "size": 687,
-            "hash": "1a6757c91ed59f6b3f91a9849ffdaeab",
+            "size": 690,
+            "hash": "9a3fd655d5050a230bd2522c09eeb0d7",
             "errors": false
         },
         "\/includes\/class-un-installer.php": {
-            "size": 1409,
-            "hash": "11caa402d800f536bfee3910daec3c3e",
+            "size": 1145,
+            "hash": "0c01188f924c4bcb3b00f1e93afba4b1",
             "errors": false
         },
         "\/includes\/constants.php": {
-            "size": 457,
-            "hash": "160828d1993b8bd70f89fca29d65b85c",
+            "size": 458,
+            "hash": "96c6c795b3f7871d3ca1d9a2d5c3a1e6",
             "errors": false
         },
         "\/includes\/functions.php": {
-            "size": 5795,
-            "hash": "002b34c80c573d7dd23f421f087e434a",
+            "size": 5804,
+            "hash": "1fa8266af9679df2f99242b207d29249",
             "errors": false
         },
         "\/woocommerce.php": {
-            "size": 1522,
-            "hash": "8fa47d1b3a9f8a56739e3d073cd4763f",
+            "size": 1543,
+            "hash": "c8711aa061765366f720edf049dd0446",
             "errors": false
         }
     },
-    "config_signature": "1ca1af7095becd556417f9dd5dd6403f"
+    "config_signature": "50c54bae94b7a74ab11249b59e47fdbb"
 }

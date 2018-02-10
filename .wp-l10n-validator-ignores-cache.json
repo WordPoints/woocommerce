@@ -1,7 +1,7 @@
 {
     "\/components\/points\/includes\/gateways\/points.php": {
         "products": {
-            "30": {
+            "27": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
@@ -10,7 +10,7 @@
             }
         },
         "refunds": {
-            "30": {
+            "27": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
@@ -40,13 +40,6 @@
             }
         },
         "text": {
-            "137": {
-                "name": "array",
-                "type": "unknown",
-                "args_started": true,
-                "arg_count": 1,
-                "parentheses": 1
-            },
             "144": {
                 "name": "array",
                 "type": "unknown",
@@ -80,21 +73,21 @@
             }
         },
         "fail": {
-            "276": {
+            "279": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
                 "arg_count": 0,
                 "parentheses": 1
             },
-            "305": {
+            "308": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
                 "arg_count": 0,
                 "parentheses": 1
             },
-            "330": {
+            "333": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
@@ -103,7 +96,7 @@
             }
         },
         "success": {
-            "340": {
+            "343": {
                 "name": "array",
                 "type": "unknown",
                 "args_started": true,
@@ -175,6 +168,24 @@
                 "arg_count": 0,
                 "parentheses": 1
             }
+        }
+    },
+    "\/components\/points\/includes\/functions.php": {
+        "number": {
+            "133": {
+                "name": "array",
+                "type": "unknown",
+                "args_started": true,
+                "arg_count": 3,
+                "parentheses": 1
+            }
+        },
+        "refund": {
+            "301": false,
+            "330": false
+        },
+        "charge": {
+            "303": false
         }
     }
 }

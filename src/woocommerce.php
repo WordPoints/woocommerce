@@ -4,11 +4,11 @@
  * WordPoints WooCommerce integration extension.
  *
  * ---------------------------------------------------------------------------------|
- * Copyright 2014-17  J.D. Grimes  (email : jdg@codesymphony.co)
+ * Copyright 2014-18  J.D. Grimes  (email : jdg@codesymphony.co)
  * ---------------------------------------------------------------------------------|
  *
  * @package WordPoints_WooCommerce
- * @version 1.2.1
+ * @version 1.3.0
  * @author  J.D. Grimes <jdg@codesymphony.co>
  */
 
@@ -18,7 +18,7 @@ wordpoints_register_extension(
 		Extension URI:  https://wordpoints.org/extensions/woocommerce/
 		Author:         J.D. Grimes
 		Author URI:     https://codesymphony.co/
-		Version:        1.2.1
+		Version:        1.3.0
 		Description:    Let your users pay with points.
 		Text Domain:    wordpoints-woocommerce
 		Domain Path:    /languages
