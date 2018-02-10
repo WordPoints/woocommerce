@@ -203,7 +203,10 @@ class WordPoints_WooCommerce_Gateway_Points extends WC_Payment_Gateway {
 
 			$dropdown = new WordPoints_Dropdown_Builder(
 				wp_list_pluck( $points_types, 'name' )
-				, array( 'name' => "{$this->id}-points-type" )
+				, array(
+					'id'   => "{$this->id}-points-type",
+					'name' => "{$this->id}-points-type",
+				)
 			);
 
 			$dropdown->display();
