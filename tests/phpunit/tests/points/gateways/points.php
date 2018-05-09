@@ -472,7 +472,7 @@ class WordPoints_WooCommerce_Points_Gateway_Test
 		// Add items to the cart.
 		WC()->cart->add_to_cart( $this->factory->product->create() );
 
-		$_POST['_wpnonce']           = wp_create_nonce( 'woocommerce-process_checkout' );
+		$_REQUEST['_wpnonce']        = wp_create_nonce( 'woocommerce-process_checkout' );
 		$_POST['terms']              = 1;
 		$_POST['payment_method']     = 'wordpoints_points';
 		$_POST['billing_country']    = 'US';
