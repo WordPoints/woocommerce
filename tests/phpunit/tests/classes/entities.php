@@ -61,7 +61,7 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 						),
 					),
 					'the_context'  => array( 'site' => 1, 'network' => 1 ),
-					'create_func'  => 'WC_Helper_Order::create_order',
+					'create_func'  => array( $this, 'create_order' ),
 					'delete_func'  => 'WC_Helper_Order::delete_order',
 					'children'     => array(
 						'cart_tax' => array(
@@ -247,6 +247,23 @@ class WordPoints_All_Entities_Test extends WordPoints_PHPUnit_TestCase_Entities 
 		);
 
 		return $entities;
+	}
+
+	/**
+	 * Creates an order.
+	 *
+	 * @since 1.3.1
+	 *
+	 * @return WC_Order The order.
+	 */
+	public function create_order() {
+
+		$order = WC_Helper_Order::create_order();
+		$order->update_status( 'completed' );
+		$order->set_date_paid( time() );
+		$order->save();
+
+		return $order;
 	}
 
 	/**
