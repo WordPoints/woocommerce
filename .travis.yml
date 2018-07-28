@@ -13,19 +13,19 @@ php:
 env:
     - TRAVISCI_RUN=codesniff
     - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+    - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+    - TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=master
-    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+    - TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
 
 dist: trusty
 
@@ -48,85 +48,85 @@ matrix:
       env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=master
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - php: 5.3
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 5.3
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=master
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - php: 5.3
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 5.3
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=master
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - php: 5.3
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 5.3
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.3
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 5.2
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=master
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - php: 5.2
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=develop WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 5.2
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=master
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - php: 5.2
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.9 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 5.2
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=master
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - php: 5.2
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 5.2
       dist: precise
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 5.2
       dist: precise
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     # Only run nightly against trunk.
     - php: nightly
       env: TRAVISCI_RUN=phpunit WP_VERSION=develop WC_VERSION=master
@@ -146,15 +146,15 @@ matrix:
     - php: 7.2
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=master
     - php: 7.2
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=develop WC_VERSION=release/3.4
     - php: 7.2
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 7.2
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.8 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
     - php: 7.2
       env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=master
     - php: 7.2
-      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.3
+      env: TRAVISCI_RUN=phpunit WP_VERSION=4.7 WORDPOINTS_VERSION=master WC_VERSION=release/3.4
   allow_failures:
     - php: nightly
   fast_finish: true

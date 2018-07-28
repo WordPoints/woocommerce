@@ -35,6 +35,53 @@ class WordPoints_WooCommerce_Hook_Event_Order_Complete_Test
 	);
 
 	/**
+	 * @since 1.3.1
+	 */
+	public function setUp() {
+
+		parent::setUp();
+
+		add_filter( 'query', array( $this, 'no_commit_queries' ) );
+	}
+
+	/**
+	 * @since 1.3.1
+	 */
+	public function tearDown() {
+
+		remove_filter( 'query', array( $this, 'no_commit_queries' ) );
+
+		parent::tearDown();
+	}
+
+	/**
+	 * Don't allow the transaction to be committed.
+	 *
+	 * WC_Checkout->create_order() uses a transaction and either commits it or rolls
+	 * it back, based on whether the order was created successfully.
+	 *
+	 * @since 1.3.1
+	 *
+	 * @param string $query The query SQL.
+	 *
+	 * @return string The query SQL.
+	 */
+	public function no_commit_queries( $query ) {
+
+		$bad_queries = array(
+			'START TRANSACTION' => true,
+			'COMMIT'            => true,
+			'ROLLBACK'          => true,
+		);
+
+		if ( isset( $bad_queries[ $query ] ) ) {
+			$query = "SELECT 'No COMMIT queries allowed'";
+		}
+
+		return $query;
+	}
+
+	/**
 	 * @since 1.1.0
 	 */
 	protected function fire_event( $arg, $reactor_slug ) {

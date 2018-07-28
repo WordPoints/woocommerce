@@ -62,6 +62,12 @@ abstract class WordPoints_WooCommerce_Entity_Order_Attr
 			return null;
 		}
 
+		$method = "get_{$this->attr_key}";
+
+		if ( method_exists( $order, $method ) ) {
+			return $order->{$method}();
+		}
+
 		return $order->get_meta( $this->attr_key );
 	}
 }

@@ -8,6 +8,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
 
 Nothing documented right now.
 
+## [1.3.1] - 2018-07-28
+
+### Requires
+
+- WooCommerce: 3.4+
+
+### Fixed
+
+- Order entity attribute values not being available during checkout.
+
 ## [1.3.0] - 2018-02-10
 
 ### Added
@@ -109,6 +119,7 @@ Nothing documented right now.
  - How many points to charge for the monetary amount can be set to 1-to-1 or 1-to-100.
 
 [unreleased]: https://github.com/WordPoints/woocommerce/compare/master...HEAD
+[1.3.1]: https://github.com/WordPoints/woocommerce/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/WordPoints/woocommerce/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/WordPoints/woocommerce/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/WordPoints/woocommerce/compare/1.1.0...1.2.0
